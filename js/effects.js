@@ -28,7 +28,7 @@
   if (!hero) return;
   const canvas = document.createElement('canvas');
   canvas.id = 'hero-canvas';
-  canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.55;';
+  canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.75;';
   hero.prepend(canvas);
 
   const ctx = canvas.getContext('2d');
@@ -101,8 +101,8 @@
     section.style.position = 'relative';
     section.style.overflow = 'hidden';
     [
-      { w: 420, h: 420, t: '-120px', l: '-100px', op: 0.07 },
-      { w: 320, h: 320, b: '-80px',  r: '-60px',  op: 0.05 },
+      { w: 420, h: 420, t: '-120px', l: '-100px', op: 0.13 },
+      { w: 320, h: 320, b: '-80px',  r: '-60px',  op: 0.09 },
     ].forEach(cfg => {
       const orb = document.createElement('div');
       orb.style.cssText = `
