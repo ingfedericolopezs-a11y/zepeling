@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 60" fill="none">
+  <!-- ZEPELING text -->
+  <text
+    x="0" y="42"
+    font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+    font-size="32"
+    font-weight="200"
+    letter-spacing="10"
+    fill="currentColor"
+  >ZEPELING</text>
+
+  <!-- Zeppelin body -->
+  <ellipse cx="282" cy="22" rx="28" ry="11" stroke="currentColor" stroke-width="1.2" fill="none"/>
+
+  <!-- Gondola -->
+  <rect x="270" y="32" width="16" height="5" rx="2" stroke="currentColor" stroke-width="1.1" fill="none"/>
+  <!-- Gondola struts -->
+  <line x1="274" y1="33" x2="272" y2="33" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+  <line x1="280" y1="33" x2="278" y2="33" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+  <line x1="286" y1="33" x2="284" y2="33" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+
+  <!-- Tail fins -->
+  <!-- Top fin -->
+  <path d="M308 22 L318 10 L312 22" stroke="currentColor" stroke-width="1.1" fill="none" stroke-linejoin="round"/>
+  <!-- Bottom fin -->
+  <path d="M308 22 L318 34 L312 22" stroke="currentColor" stroke-width="1.1" fill="none" stroke-linejoin="round"/>
+  <!-- Side fin top -->
+  <path d="M310 17 L320 12 L313 17" stroke="currentColor" stroke-width="0.9" fill="none" stroke-linejoin="round" opacity="0.7"/>
+
+  <!-- Nose tip lines (detail) -->
+  <line x1="254" y1="19" x2="254" y2="25" stroke="currentColor" stroke-width="0.8" opacity="0.4"/>
+  <line x1="257" y1="17" x2="257" y2="27" stroke="currentColor" stroke-width="0.8" opacity="0.3"/>
+</svg>
