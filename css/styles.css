@@ -152,6 +152,25 @@ section { padding: 100px 0; }
 
 .nav-logo-text span { color: var(--blue); }
 
+.zepeling-logo {
+  color: var(--white);
+  animation: floatZepeling 6s ease-in-out infinite;
+  transition: color 0.3s;
+}
+.nav-logo:hover .zepeling-logo {
+  color: var(--blue);
+  filter: drop-shadow(0 0 8px rgba(41,182,246,0.6));
+}
+
+.zepeling-logo-footer {
+  color: var(--white-70);
+  transition: color 0.3s, filter 0.3s;
+}
+.footer-brand:hover .zepeling-logo-footer {
+  color: var(--blue);
+  filter: drop-shadow(0 0 6px rgba(41,182,246,0.5));
+}
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -588,6 +607,20 @@ footer {
   0%, 100% { transform: translateY(0); }
   50%       { transform: translateY(-12px); }
 }
+@keyframes floatZepeling {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  33%      { transform: translateY(-16px) translateX(4px); }
+  66%      { transform: translateY(-20px) translateX(-4px); }
+}
+@keyframes driftSlow {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(8px); }
+}
+@keyframes riseAndFlow {
+  0% { transform: translateY(32px) translateX(-8px); opacity: 0; }
+  50% { transform: translateY(-4px) translateX(0); }
+  100% { transform: translateY(0) translateX(8px); opacity: 1; }
+}
 
 .anim-fade-up  { animation: fadeUp  0.7s ease both; }
 .anim-fade-in  { animation: fadeIn  0.7s ease both; }
@@ -804,4 +837,12 @@ footer {
   .metrics-grid { grid-template-columns: 1fr; }
   .img-mosaic { grid-template-columns: 1fr; grid-template-rows: auto; }
   .img-mosaic-big { grid-row: auto; }
+}
+
+/* ── Zepeling theme animations ── */
+.hero-eyebrow {
+  animation: riseAndFlow 0.8s ease-out;
+}
+.about-float-card {
+  animation: floatZepeling 7s ease-in-out infinite;
 }

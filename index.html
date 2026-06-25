@@ -17,7 +17,7 @@
     }
     .hero-bg {
       position: absolute; inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&q=80&fit=crop');
+      background-image: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1600&q=80&fit=crop');
       background-size: cover;
       background-position: center;
       opacity: 0.15;
@@ -65,7 +65,7 @@
       border-radius: var(--radius-lg);
       overflow: hidden;
       box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px var(--border);
-      animation: float 7s ease-in-out infinite;
+      animation: floatZepeling 8s ease-in-out infinite;
       position: relative;
     }
     .hero-img-wrap img { width: 100%; height: 420px; object-fit: cover; display: block; filter: brightness(0.88); }
@@ -161,7 +161,23 @@
 
 <nav class="navbar">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo"><span class="nav-logo-text">Zepeling</span></a>
+    <a href="index.html" class="nav-logo">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="zepeling-logo">
+        <!-- Envolvente del zepelín -->
+        <ellipse cx="16" cy="12" rx="10" ry="7" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <!-- Cuerpo principal -->
+        <path d="M 8 12 Q 8 18 16 20 Q 24 18 24 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <!-- Góndola/Cesta -->
+        <rect x="13" y="20" width="6" height="6" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <!-- Detalles de la góndola -->
+        <line x1="15" y1="20" x2="15" y2="26" stroke="currentColor" stroke-width="1"/>
+        <line x1="17" y1="20" x2="17" y2="26" stroke="currentColor" stroke-width="1"/>
+        <!-- Líneas de soporte -->
+        <line x1="14" y1="20" x2="12" y2="15" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+        <line x1="18" y1="20" x2="20" y2="15" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+      </svg>
+      <span class="nav-logo-text">Zepeling</span>
+    </a>
     <button class="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
     <ul class="nav-links">
       <li><a href="index.html">Inicio</a></li>
@@ -190,7 +206,7 @@
       </div>
       <div class="anim-fade-in anim-delay-2">
         <div class="hero-img-wrap">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=85&fit=crop" alt="Business intelligence dashboard" />
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=85&fit=crop" alt="Dashboard de IA e inteligencia empresarial" />
           <div class="hero-img-badge">
             <div class="badge-dot"></div>
             <div class="badge-text">
@@ -224,7 +240,7 @@
   <div class="container">
     <div class="problem-grid">
       <div class="problem-img reveal">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&q=80&fit=crop&crop=faces" alt="Empresario con datos" />
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&q=80&fit=crop" alt="Problema: datos caóticos sin control" />
         <div class="problem-img-overlay"></div>
         <div class="problem-img-text">
           <p>"Las empresas generan información todos los días, pero pocas saben convertirla en decisiones."</p>
@@ -276,7 +292,7 @@
       <div class="step"><div class="step-number">4</div><div class="step-title text-blue">Crece</div><div class="step-desc">Acompañamos la evolución mediante inteligencia aplicada.</div></div>
     </div>
     <div class="fw-img-card reveal">
-      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1400&q=80&fit=crop" alt="Equipo colaborando" />
+      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1400&q=80&fit=crop" alt="Equipo colaborando con IA" />
       <div class="fw-img-overlay">
         <p class="fw-img-quote">En Zepeling trabajamos como una <span>extensión de tu equipo</span>, integrando datos, procesos y tecnología para transformar la información en decisiones más inteligentes.</p>
       </div>
@@ -298,7 +314,7 @@
     </div>
     <div class="grid-3">
       <a href="discover.html" class="plan-card-home reveal tilt-card">
-        <div class="plan-card-img-wrap"><img class="plan-card-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80&fit=crop" alt="Dashboard analytics" /></div>
+        <div class="plan-card-img-wrap"><img class="plan-card-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80&fit=crop" alt="Descubrimiento de datos e insights" /></div>
         <div class="plan-card-body">
           <div class="tag">Nivel 01</div>
           <h3>Zepeling Discover</h3>
@@ -307,7 +323,7 @@
         </div>
       </a>
       <a href="optimize.html" class="plan-card-home reveal anim-delay-1 tilt-card">
-        <div class="plan-card-img-wrap"><img class="plan-card-img" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80&fit=crop" alt="Tecnología automatización" /></div>
+        <div class="plan-card-img-wrap"><img class="plan-card-img" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&q=80&fit=crop" alt="Optimización con automatización IA" /></div>
         <div class="plan-card-body">
           <div class="tag">Nivel 02</div>
           <h3>Zepeling Optimize</h3>
@@ -316,7 +332,7 @@
         </div>
       </a>
       <a href="grow.html" class="plan-card-home reveal anim-delay-2 tilt-card">
-        <div class="plan-card-img-wrap"><img class="plan-card-img" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80&fit=crop" alt="Crecimiento empresarial" /></div>
+        <div class="plan-card-img-wrap"><img class="plan-card-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80&fit=crop" alt="Crecimiento empresarial con soluciones IA" /></div>
         <div class="plan-card-body">
           <div class="tag">Nivel 03</div>
           <h3>Zepeling Grow</h3>
@@ -336,7 +352,7 @@
   <div class="container">
     <div class="about-teaser">
       <div class="about-img reveal">
-        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=700&q=80&fit=crop" alt="Análisis de datos" />
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=700&q=80&fit=crop" alt="Análisis inteligente de datos" />
         <div class="about-img-overlay"></div>
         <div class="about-float-card">
           <div class="about-float-icon"><i data-lucide="activity"></i></div>
@@ -371,13 +387,13 @@
       <!-- Mosaic izquierda -->
       <div class="img-mosaic reveal-left">
         <div class="img-mosaic-big">
-          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80&fit=crop" alt="Oficina moderna de tecnología" style="height:412px;border-radius:var(--radius);" />
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80&fit=crop" alt="Soluciones tecnológicas de IA" style="height:412px;border-radius:var(--radius);" />
         </div>
         <div>
-          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&q=80&fit=crop" alt="Equipo analizando datos" style="height:200px;" />
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&q=80&fit=crop" alt="Equipo analizando datos" style="height:200px;" />
         </div>
         <div>
-          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&q=80&fit=crop" alt="Tecnología y datos" style="height:200px;" />
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=80&fit=crop" alt="Inteligencia artificial aplicada" style="height:200px;" />
         </div>
       </div>
 
@@ -429,7 +445,18 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <span class="nav-logo-text">Zepeling</span>
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+          <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="zepeling-logo-footer">
+            <ellipse cx="16" cy="12" rx="10" ry="7" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M 8 12 Q 8 18 16 20 Q 24 18 24 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <rect x="13" y="20" width="6" height="6" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="15" y1="20" x2="15" y2="26" stroke="currentColor" stroke-width="1"/>
+            <line x1="17" y1="20" x2="17" y2="26" stroke="currentColor" stroke-width="1"/>
+            <line x1="14" y1="20" x2="12" y2="15" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+            <line x1="18" y1="20" x2="20" y2="15" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+          </svg>
+          <span class="nav-logo-text">Zepeling</span>
+        </div>
         <p>La Inteligencia Detrás de tu Crecimiento.<br>Departamento de Inteligencia Empresarial.</p>
       </div>
       <div class="footer-col">
