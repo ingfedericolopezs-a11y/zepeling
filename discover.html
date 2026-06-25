@@ -3,78 +3,66 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zepeling Discover — Dashboards e inteligencia para tu negocio</title>
-  <meta name="description" content="Zepeling Discover: tu primer tablero de control en 60 días. Dashboards, indicadores estratégicos y reportes automáticos." />
+  <title>Zepeling Discover — Claridad para tu negocio</title>
+  <meta name="description" content="Zepeling Discover: convertí los datos de tu empresa en un tablero de control claro, en 60 días." />
   <link rel="stylesheet" href="css/styles.css" />
   <style>
-    .plan-detail-hero { padding:160px 0 80px; position:relative; overflow:hidden; }
-    .plan-detail-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 80% 70% at 50% 0%, rgba(41,182,246,0.12) 0%, transparent 65%); }
-    .plan-hero-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; position:relative; z-index:1; }
-    .plan-level-badge { display:inline-flex; align-items:center; gap:8px; padding:6px 16px; border-radius:50px; background:rgba(41,182,246,0.10); border:1px solid rgba(41,182,246,0.25); font-size:0.78rem; font-weight:700; color:#29b6f6; letter-spacing:1px; text-transform:uppercase; margin-bottom:20px; }
-    .plan-hero-price { margin-top:32px; padding:24px 28px; background:var(--white-10); border:1px solid var(--border); border-radius:var(--radius); display:inline-block; }
-    .plan-hero-price .amount { font-size:2.8rem; font-weight:900; background:var(--gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1; }
-    .plan-hero-price .period { color:#29b6f6; font-size:0.85rem; font-weight:600; margin-top:4px; }
-    .breadcrumb { display:flex; align-items:center; gap:8px; font-size:0.85rem; color:var(--white-40); margin-bottom:24px; }
+    /* HERO */
+    .discover-hero { min-height:80vh; display:flex; align-items:center; padding:140px 0 80px; position:relative; overflow:hidden; }
+    .discover-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 70% 60% at 30% 50%, rgba(41,182,246,0.09) 0%, transparent 60%); }
+    .breadcrumb { display:flex; align-items:center; gap:8px; font-size:0.85rem; color:var(--white-40); margin-bottom:32px; }
     .breadcrumb a { color:#29b6f6; text-decoration:none; }
-    /* Tabs */
-    .tabs-nav { display:flex; border-bottom:1px solid var(--border); margin-bottom:56px; flex-wrap:wrap; }
-    .tab-btn { padding:14px 28px; background:transparent; border:none; border-bottom:3px solid transparent; color:var(--white-40); font-size:0.9rem; font-weight:600; cursor:pointer; transition:all 0.2s; white-space:nowrap; margin-bottom:-1px; font-family:inherit; }
-    .tab-btn:hover { color:var(--white-70); }
-    .tab-btn.active { color:#29b6f6; border-bottom-color:#29b6f6; background:rgba(41,182,246,0.04); }
-    .tab-panel { display:none; }
-    .tab-panel.active { display:block; animation:tabFadeIn 0.3s ease; }
-    @keyframes tabFadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+    /* CLARITY SPLIT */
+    .clarity-split { display:grid; grid-template-columns:1fr 1fr; gap:2px; border-radius:var(--radius-lg); overflow:hidden; margin:80px 0; }
+    .clarity-side { padding:56px 48px; position:relative; }
+    .clarity-before { background:#0c1420; border:1px solid rgba(255,100,100,0.12); border-right:none; border-radius:var(--radius-lg) 0 0 var(--radius-lg); }
+    .clarity-after { background:var(--navy-card); border:1px solid rgba(41,182,246,0.2); border-left:none; border-radius:0 var(--radius-lg) var(--radius-lg) 0; }
+    .clarity-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; margin-bottom:20px; display:block; }
+    .clarity-before .clarity-label { color:rgba(239,100,100,0.7); }
+    .clarity-after .clarity-label { color:#29b6f6; }
+    .chaos-list { display:flex; flex-direction:column; gap:10px; }
+    .chaos-item { display:flex; gap:12px; align-items:flex-start; padding:12px 16px; background:rgba(239,68,68,0.04); border:1px solid rgba(239,68,68,0.1); border-radius:8px; }
+    .chaos-icon { font-size:1rem; flex-shrink:0; }
+    .chaos-item p { font-size:0.87rem; color:rgba(255,255,255,0.55); margin:0; }
     /* Dashboard mockup */
-    .dashboard-mockup { background:var(--navy-card); border:1px solid rgba(41,182,246,0.2); border-radius:var(--radius-lg); padding:32px; position:relative; overflow:hidden; }
-    .dashboard-mockup::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,#29b6f6,#0288d1,#29b6f6); }
-    .dash-topbar { display:flex; align-items:center; gap:8px; margin-bottom:24px; padding-bottom:16px; border-bottom:1px solid var(--border); }
-    .dash-dot { width:10px; height:10px; border-radius:50%; }
-    .dash-title { font-size:0.85rem; font-weight:600; color:var(--white-70); margin-left:8px; }
-    .kpi-row { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:20px; }
-    .kpi-card { background:rgba(255,255,255,0.04); border:1px solid var(--border); border-radius:10px; padding:16px; }
-    .kpi-label { font-size:0.72rem; color:var(--white-40); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px; }
-    .kpi-value { font-size:1.4rem; font-weight:900; color:var(--white); line-height:1; }
-    .kpi-delta { font-size:0.75rem; margin-top:4px; font-weight:600; }
-    .kpi-delta.up { color:#34d399; }
-    .kpi-delta.down { color:#f87171; }
-    .chart-area { background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:10px; padding:20px; height:120px; position:relative; overflow:hidden; display:flex; align-items:flex-end; gap:6px; }
-    .chart-bar { background:rgba(41,182,246,0.3); border-radius:4px 4px 0 0; flex:1; position:relative; transition:all 0.3s; }
-    .chart-bar::after { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:#29b6f6; border-radius:4px; }
-    .chart-bar.highlight { background:rgba(41,182,246,0.7); }
-    .dash-caption { margin-top:20px; text-align:center; font-size:0.82rem; color:var(--white-40); }
-    /* Diagnóstico timeline */
-    .diag-timeline { display:flex; flex-direction:column; gap:0; position:relative; }
-    .diag-timeline::before { content:''; position:absolute; left:28px; top:56px; bottom:56px; width:2px; background:linear-gradient(180deg,rgba(41,182,246,0.6),rgba(41,182,246,0.1)); }
-    .diag-step { display:grid; grid-template-columns:56px 1fr; gap:24px; align-items:flex-start; padding:24px 0; }
-    .diag-num { width:56px; height:56px; border-radius:50%; background:var(--navy-card); border:2px solid rgba(41,182,246,0.4); display:flex; align-items:center; justify-content:center; font-size:1.1rem; font-weight:900; color:#29b6f6; position:relative; z-index:1; flex-shrink:0; }
-    .diag-week { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#29b6f6; margin-bottom:6px; }
-    .diag-step h4 { font-size:1rem; margin-bottom:8px; }
-    .diag-step p { font-size:0.87rem; color:var(--white-70); margin:0; }
-    .diag-deliverable { display:inline-flex; align-items:center; gap:6px; margin-top:10px; font-size:0.78rem; font-weight:600; color:#29b6f6; background:rgba(41,182,246,0.08); border:1px solid rgba(41,182,246,0.2); padding:4px 10px; border-radius:20px; }
-    /* Para quién - checklist */
-    .check-section { display:grid; grid-template-columns:1fr 1fr; gap:40px; }
-    .check-col { background:var(--navy-card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:36px; }
-    .check-col.yes-col { border-color:rgba(41,182,246,0.25); }
-    .check-col.no-col { border-color:rgba(255,255,255,0.06); }
-    .col-header { font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:24px; padding-bottom:16px; border-bottom:1px solid var(--border); }
-    .yes-col .col-header { color:#29b6f6; }
-    .no-col .col-header { color:var(--white-40); }
-    .check-item { display:flex; gap:12px; align-items:flex-start; padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.04); }
-    .check-item:last-child { border-bottom:none; }
-    .check-dot { width:20px; height:20px; min-width:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:700; margin-top:2px; }
-    .yes-col .check-dot { background:rgba(41,182,246,0.15); color:#29b6f6; }
-    .no-col .check-dot { background:rgba(255,255,255,0.06); color:var(--white-40); }
-    .check-item p { font-size:0.87rem; color:var(--white-70); margin:0; }
-    /* Nav planes */
-    .nav-plans { display:flex; gap:16px; flex-wrap:wrap; }
-    .nav-plan-btn { flex:1; min-width:180px; padding:20px 24px; background:var(--navy-card); border:1px solid var(--border); border-radius:var(--radius); text-decoration:none; color:var(--white); transition:all 0.3s; display:flex; flex-direction:column; gap:6px; }
-    .nav-plan-btn:hover { border-color:rgba(41,182,246,0.4); transform:translateY(-3px); }
-    .nav-plan-btn .label { font-size:0.75rem; color:var(--white-40); text-transform:uppercase; letter-spacing:1px; }
-    .nav-plan-btn .name { font-weight:700; color:#29b6f6; }
+    .mini-dash { background:rgba(41,182,246,0.04); border:1px solid rgba(41,182,246,0.15); border-radius:12px; padding:20px; }
+    .mini-dash-bar { display:flex; gap:6px; margin-bottom:16px; }
+    .mini-dash-dot { width:8px; height:8px; border-radius:50%; }
+    .mini-kpi-row { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:14px; }
+    .mini-kpi { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06); border-radius:8px; padding:12px; }
+    .mini-kpi-label { font-size:0.65rem; color:var(--white-40); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:4px; }
+    .mini-kpi-val { font-size:1.1rem; font-weight:900; color:var(--white); }
+    .mini-kpi-delta { font-size:0.7rem; color:#34d399; font-weight:600; margin-top:2px; }
+    .mini-chart { height:64px; background:rgba(255,255,255,0.02); border-radius:8px; border:1px solid rgba(255,255,255,0.05); display:flex; align-items:flex-end; gap:4px; padding:8px; }
+    .mini-bar { flex:1; border-radius:3px 3px 0 0; }
+    .clarity-after h3 { font-size:1.1rem; color:var(--white); margin-bottom:8px; }
+    .clarity-after p { font-size:0.87rem; color:var(--white-70); }
+    /* 60-day timeline */
+    .timeline-strip { display:grid; grid-template-columns:repeat(4,1fr); position:relative; gap:0; }
+    .timeline-strip::before { content:''; position:absolute; top:32px; left:12%; right:12%; height:2px; background:linear-gradient(90deg,rgba(41,182,246,0.2),rgba(41,182,246,0.7),rgba(41,182,246,0.2)); z-index:0; }
+    .tl-step { text-align:center; padding:0 16px; position:relative; z-index:1; }
+    .tl-circle { width:64px; height:64px; border-radius:50%; background:var(--navy-card); border:2px solid rgba(41,182,246,0.35); display:flex; align-items:center; justify-content:center; margin:0 auto 20px; font-size:1.5rem; }
+    .tl-when { font-size:0.7rem; font-weight:700; color:#29b6f6; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:6px; }
+    .tl-step h4 { font-size:0.9rem; margin-bottom:6px; }
+    .tl-step p { font-size:0.8rem; color:var(--white-70); }
+    .tl-output { display:inline-block; margin-top:10px; font-size:0.72rem; background:rgba(41,182,246,0.08); border:1px solid rgba(41,182,246,0.2); color:#29b6f6; padding:3px 10px; border-radius:20px; font-weight:600; }
+    /* What you get */
+    .gets-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .get-item { display:flex; gap:16px; align-items:flex-start; padding:20px 24px; background:var(--navy-card); border:1px solid var(--border); border-radius:var(--radius); transition:border-color 0.2s; }
+    .get-item:hover { border-color:rgba(41,182,246,0.3); }
+    .get-num { font-size:1.8rem; font-weight:900; color:rgba(41,182,246,0.25); line-height:1; flex-shrink:0; width:36px; }
+    .get-item h4 { font-size:0.92rem; margin-bottom:4px; }
+    .get-item p { font-size:0.83rem; color:var(--white-70); margin:0; }
+    /* CTA section */
+    .discover-cta { background:linear-gradient(135deg,rgba(41,182,246,0.07) 0%,transparent 100%); border:1px solid rgba(41,182,246,0.2); border-radius:var(--radius-lg); padding:64px 56px; text-align:center; }
     @media (max-width:900px) {
-      .plan-hero-grid, .check-section { grid-template-columns:1fr; gap:32px; }
-      .kpi-row { grid-template-columns:1fr 1fr; }
-      .tab-btn { padding:12px 14px; font-size:0.82rem; }
+      .clarity-split { grid-template-columns:1fr; }
+      .clarity-before { border-radius:var(--radius-lg) var(--radius-lg) 0 0; border-right:1px solid rgba(255,100,100,0.12); border-bottom:none; }
+      .clarity-after { border-radius:0 0 var(--radius-lg) var(--radius-lg); border-left:1px solid rgba(41,182,246,0.2); }
+      .timeline-strip { grid-template-columns:1fr 1fr; }
+      .timeline-strip::before { display:none; }
+      .gets-grid { grid-template-columns:1fr; }
+      .discover-cta { padding:40px 28px; }
     }
   </style>
 </head>
@@ -96,260 +84,168 @@
   </div>
 </nav>
 
-<section class="plan-detail-hero orb-section">
+<!-- HERO -->
+<section class="discover-hero orb-section">
   <div class="container">
-    <div class="breadcrumb anim-fade-in">
-      <a href="planes.html">Planes</a><span>›</span><span>Zepeling Discover</span>
-    </div>
-    <div class="plan-hero-grid">
-      <div class="anim-fade-up">
-        <div class="plan-level-badge">Nivel 01 · Plan Discover</div>
-        <h1>Ver tu negocio<br><span style="color:#29b6f6;">por primera vez</span></h1>
-        <p style="font-size:1.05rem;color:var(--white-70);margin-top:16px;max-width:480px;">
-          La mayoría de los negocios opera sin visibilidad real. Discover te da el tablero de control que necesitás para dejar de decidir a ciegas.
-        </p>
-        <div class="plan-hero-price">
-          <div class="amount">$1.490.000</div>
-          <div class="period">pago único · entrega en 60 días</div>
-        </div>
-        <div style="margin-top:32px;display:flex;gap:16px;flex-wrap:wrap;">
-          <a href="contacto.html" class="btn btn-primary">Quiero mi dashboard</a>
-          <a href="planes.html" class="btn btn-ghost">Comparar planes</a>
-        </div>
-      </div>
-      <div class="anim-fade-in anim-delay-2">
-        <div class="dashboard-mockup">
-          <div class="dash-topbar">
-            <div class="dash-dot" style="background:#f87171;"></div>
-            <div class="dash-dot" style="background:#fbbf24;"></div>
-            <div class="dash-dot" style="background:#34d399;"></div>
-            <span class="dash-title">Dashboard · Tu empresa · Tiempo real</span>
-          </div>
-          <div class="kpi-row">
-            <div class="kpi-card">
-              <div class="kpi-label">Ventas del mes</div>
-              <div class="kpi-value">$4.2M</div>
-              <div class="kpi-delta up">↑ 18% vs mes anterior</div>
-            </div>
-            <div class="kpi-card">
-              <div class="kpi-label">Clientes activos</div>
-              <div class="kpi-value">143</div>
-              <div class="kpi-delta up">↑ 7 nuevos</div>
-            </div>
-            <div class="kpi-card">
-              <div class="kpi-label">Ticket promedio</div>
-              <div class="kpi-value">$29k</div>
-              <div class="kpi-delta down">↓ 3% este mes</div>
-            </div>
-          </div>
-          <div class="chart-area">
-            <div class="chart-bar" style="height:40%;"></div>
-            <div class="chart-bar" style="height:55%;"></div>
-            <div class="chart-bar" style="height:48%;"></div>
-            <div class="chart-bar" style="height:70%;"></div>
-            <div class="chart-bar" style="height:62%;"></div>
-            <div class="chart-bar" style="height:78%;"></div>
-            <div class="chart-bar highlight" style="height:91%;"></div>
-          </div>
-          <div class="dash-caption">Así se ve tu negocio con Discover</div>
-        </div>
+    <div class="breadcrumb anim-fade-in"><a href="planes.html">Planes</a><span>›</span><span>Discover</span></div>
+    <div style="max-width:700px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:50px;background:rgba(41,182,246,0.1);border:1px solid rgba(41,182,246,0.25);font-size:0.78rem;font-weight:700;color:#29b6f6;letter-spacing:1px;text-transform:uppercase;margin-bottom:24px;" class="anim-fade-in">Nivel 01</div>
+      <h1 class="anim-fade-up" style="font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.1;">
+        ¿Cuándo fue la última vez<br>que viste tu negocio<br><span style="color:#29b6f6;">con claridad real?</span>
+      </h1>
+      <p class="anim-fade-up anim-delay-1" style="font-size:1.1rem;color:var(--white-70);margin-top:24px;max-width:560px;line-height:1.7;">
+        La mayoría de los negocios opera en modo reactivo: los reportes llegan tarde, los datos están dispersos y las decisiones importantes se toman sin respaldo. Discover cambia eso.
+      </p>
+      <div class="anim-fade-up anim-delay-2" style="margin-top:40px;display:flex;gap:16px;flex-wrap:wrap;">
+        <a href="contacto.html" class="btn btn-primary" style="padding:16px 36px;">Quiero mi tablero de control</a>
+        <a href="planes.html" class="btn btn-outline">Ver todos los planes</a>
       </div>
     </div>
   </div>
 </section>
 
-<section style="padding:56px 0 80px;">
+<!-- ANTES / DESPUÉS -->
+<section style="padding:0 0 80px;">
   <div class="container">
-    <nav class="tabs-nav" role="tablist">
-      <button class="tab-btn active" data-group="discover" data-tab="dashboard">Tu dashboard</button>
-      <button class="tab-btn" data-group="discover" data-tab="proceso">El diagnóstico</button>
-      <button class="tab-btn" data-group="discover" data-tab="paraquien">¿Es para vos?</button>
-    </nav>
-
-    <!-- Tab 1: Tu dashboard -->
-    <div class="tab-panel active" data-group="discover" data-tab="dashboard">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;">
-        <div>
-          <span class="section-label">Lo que vas a tener</span>
-          <h2 style="margin-bottom:16px;">Un tablero que <span style="color:#29b6f6;">habla de tu negocio</span></h2>
-          <div class="divider"></div>
-          <p style="margin-bottom:28px;color:var(--white-70);">No un dashboard genérico. Uno construido específicamente para las métricas que importan en tu operación.</p>
-          <div style="display:flex;flex-direction:column;gap:16px;">
-            <div style="display:flex;gap:14px;align-items:flex-start;">
-              <div style="width:40px;height:40px;min-width:40px;border-radius:10px;background:rgba(41,182,246,0.1);border:1px solid rgba(41,182,246,0.2);display:flex;align-items:center;justify-content:center;"><i data-lucide="bar-chart-2" style="width:18px;height:18px;stroke:#29b6f6;"></i></div>
-              <div><strong style="display:block;margin-bottom:3px;">Indicadores en tiempo real</strong><p style="font-size:0.85rem;color:var(--white-70);margin:0;">Ventas, márgenes, clientes activos, tasa de conversión — los números que decidís cuáles.</p></div>
-            </div>
-            <div style="display:flex;gap:14px;align-items:flex-start;">
-              <div style="width:40px;height:40px;min-width:40px;border-radius:10px;background:rgba(41,182,246,0.1);border:1px solid rgba(41,182,246,0.2);display:flex;align-items:center;justify-content:center;"><i data-lucide="send" style="width:18px;height:18px;stroke:#29b6f6;"></i></div>
-              <div><strong style="display:block;margin-bottom:3px;">Reportes que llegan solos</strong><p style="font-size:0.85rem;color:var(--white-70);margin:0;">Resumen semanal a tu correo. Sin descargas, sin planillas, sin pedirle nada a nadie.</p></div>
-            </div>
-            <div style="display:flex;gap:14px;align-items:flex-start;">
-              <div style="width:40px;height:40px;min-width:40px;border-radius:10px;background:rgba(41,182,246,0.1);border:1px solid rgba(41,182,246,0.2);display:flex;align-items:center;justify-content:center;"><i data-lucide="trending-up" style="width:18px;height:18px;stroke:#29b6f6;"></i></div>
-              <div><strong style="display:block;margin-bottom:3px;">Tendencias y alertas</strong><p style="font-size:0.85rem;color:var(--white-70);margin:0;">Detectás cuándo algo cambia antes de que se vuelva un problema. El dato llega a tiempo.</p></div>
-            </div>
-            <div style="display:flex;gap:14px;align-items:flex-start;">
-              <div style="width:40px;height:40px;min-width:40px;border-radius:10px;background:rgba(41,182,246,0.1);border:1px solid rgba(41,182,246,0.2);display:flex;align-items:center;justify-content:center;"><i data-lucide="database" style="width:18px;height:18px;stroke:#29b6f6;"></i></div>
-              <div><strong style="display:block;margin-bottom:3px;">Hasta 3 fuentes de datos</strong><p style="font-size:0.85rem;color:var(--white-70);margin:0;">CRM, planillas, sistema de facturación, e-commerce — lo que ya usás, conectado.</p></div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div style="background:var(--navy-card);border:1px solid rgba(41,182,246,0.15);border-radius:var(--radius-lg);padding:36px;">
-            <div style="font-size:0.75rem;font-weight:700;color:var(--white-40);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:20px;">Métricas más solicitadas</div>
-            <div style="display:flex;flex-direction:column;gap:12px;">
-              <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:rgba(255,255,255,0.03);border-radius:8px;border:1px solid var(--border);">
-                <span style="font-size:0.88rem;">Facturación mensual</span><span style="color:#29b6f6;font-weight:700;font-size:0.82rem;">✓ Incluido</span>
-              </div>
-              <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:rgba(255,255,255,0.03);border-radius:8px;border:1px solid var(--border);">
-                <span style="font-size:0.88rem;">Clientes activos vs inactivos</span><span style="color:#29b6f6;font-weight:700;font-size:0.82rem;">✓ Incluido</span>
-              </div>
-              <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:rgba(255,255,255,0.03);border-radius:8px;border:1px solid var(--border);">
-                <span style="font-size:0.88rem;">Margen por producto/servicio</span><span style="color:#29b6f6;font-weight:700;font-size:0.82rem;">✓ Incluido</span>
-              </div>
-              <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:rgba(255,255,255,0.03);border-radius:8px;border:1px solid var(--border);">
-                <span style="font-size:0.88rem;">Comparativo año anterior</span><span style="color:#29b6f6;font-weight:700;font-size:0.82rem;">✓ Incluido</span>
-              </div>
-              <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:rgba(255,255,255,0.03);border-radius:8px;border:1px solid var(--border);">
-                <span style="font-size:0.88rem;">Embudo de ventas</span><span style="color:#29b6f6;font-weight:700;font-size:0.82rem;">✓ Incluido</span>
-              </div>
-              <div style="padding:12px 16px;background:rgba(41,182,246,0.06);border-radius:8px;border:1px dashed rgba(41,182,246,0.3);text-align:center;">
-                <span style="font-size:0.82rem;color:#29b6f6;">+ Los que vos necesitás. Los definimos juntos.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Tab 2: El diagnóstico -->
-    <div class="tab-panel" data-group="discover" data-tab="proceso">
-      <div style="max-width:680px;margin:0 auto 56px;text-align:center;">
-        <h2>De cero a dashboard en <span style="color:#29b6f6;">60 días</span></h2>
-        <div class="divider center"></div>
-        <p style="color:var(--white-70);">No empezamos a construir hasta entender tu negocio. Cada paso tiene un entregable concreto que podés ver y validar.</p>
-      </div>
-      <div class="diag-timeline" style="max-width:700px;margin:0 auto;">
-        <div class="diag-step">
-          <div class="diag-num">01</div>
-          <div>
-            <div class="diag-week">Semana 1</div>
-            <h4>Diagnóstico inicial</h4>
-            <p>Entendemos tu operación: qué vendés, cómo lo medís hoy, qué herramientas usás y qué preguntas no podés responder con los datos actuales.</p>
-            <span class="diag-deliverable">📋 Entregás: acceso a tus fuentes de datos</span>
-          </div>
-        </div>
-        <div class="diag-step">
-          <div class="diag-num">02</div>
-          <div>
-            <div class="diag-week">Semana 2</div>
-            <h4>Diseño del tablero</h4>
-            <p>Definimos juntos las métricas, la estructura del dashboard y los reportes automáticos. Aprobás el diseño antes de que arranquemos a construir.</p>
-            <span class="diag-deliverable">📐 Recibís: wireframe del dashboard</span>
-          </div>
-        </div>
-        <div class="diag-step">
-          <div class="diag-num">03</div>
-          <div>
-            <div class="diag-week">Semanas 3–4</div>
-            <h4>Dashboard en vivo</h4>
-            <p>Conectamos tus fuentes de datos, construimos los indicadores y activamos el tablero. Ya podés verlo funcionando con datos reales de tu empresa.</p>
-            <span class="diag-deliverable">📊 Recibís: tu dashboard operativo</span>
-          </div>
-        </div>
-        <div class="diag-step">
-          <div class="diag-num">04</div>
-          <div>
-            <div class="diag-week">Mes 2</div>
-            <h4>Ajuste y entrega final</h4>
-            <p>Revisamos con vos qué funciona, qué hay que afinar y activamos los reportes automáticos. Te entregamos todo documentado y capacitamos al equipo.</p>
-            <span class="diag-deliverable">✅ Recibís: dashboard + guía + capacitación</span>
-          </div>
-        </div>
-      </div>
-      <div style="max-width:700px;margin:40px auto 0;text-align:center;">
-        <a href="contacto.html" class="btn btn-primary">Agendar diagnóstico gratuito →</a>
-      </div>
-    </div>
-
-    <!-- Tab 3: ¿Es para vos? -->
-    <div class="tab-panel" data-group="discover" data-tab="paraquien">
-      <div style="max-width:680px;margin:0 auto 48px;text-align:center;">
-        <h2>Discover es para vos si <span style="color:#29b6f6;">reconocés esto</span></h2>
-        <div class="divider center"></div>
-        <p style="color:var(--white-70);">No es un plan para cualquier empresa. Es el punto de partida correcto si alguna de estas situaciones te resulta familiar.</p>
-      </div>
-      <div class="check-section">
-        <div class="check-col yes-col">
-          <div class="col-header">✓ Sí, Discover es para mí</div>
-          <div class="check-item">
-            <div class="check-dot">✓</div>
-            <p>Tomás decisiones importantes con información atrasada o incompleta</p>
-          </div>
-          <div class="check-item">
-            <div class="check-dot">✓</div>
-            <p>Para saber cómo va el mes, alguien tiene que armar una planilla a mano</p>
-          </div>
-          <div class="check-item">
-            <div class="check-dot">✓</div>
-            <p>No sabés exactamente cuáles son las métricas más importantes para tu negocio</p>
-          </div>
-          <div class="check-item">
-            <div class="check-dot">✓</div>
-            <p>Tu equipo tiene los datos pero nadie los mira porque no hay un lugar claro donde verlos</p>
-          </div>
-          <div class="check-item">
-            <div class="check-dot">✓</div>
-            <p>Sentís que hay oportunidades que se te escapan porque no las detectás a tiempo</p>
-          </div>
-        </div>
-        <div class="check-col no-col">
-          <div class="col-header">→ Quizás necesitás otro nivel</div>
-          <div class="check-item">
-            <div class="check-dot" style="font-size:0.65rem;">→</div>
-            <p>Ya tenés dashboard pero querés automatizar procesos manuales → <a href="optimize.html" style="color:#a78bfa;text-decoration:none;font-weight:600;">Optimize</a></p>
-          </div>
-          <div class="check-item">
-            <div class="check-dot" style="font-size:0.65rem;">→</div>
-            <p>Estás escalando rápido y necesitás tecnología a medida → <a href="grow.html" style="color:#34d399;text-decoration:none;font-weight:600;">Grow</a></p>
-          </div>
-          <div class="check-item">
-            <div class="check-dot" style="font-size:0.65rem;">→</div>
-            <p>No sabés cuál elegir → el diagnóstico gratuito te lo dice</p>
-          </div>
-          <div style="margin-top:24px;padding:20px;background:rgba(41,182,246,0.05);border:1px dashed rgba(41,182,246,0.2);border-radius:10px;text-align:center;">
-            <p style="font-size:0.85rem;color:var(--white-70);margin-bottom:12px;">¿No estás seguro? Charlamos 30 minutos y te decimos qué nivel tiene sentido para tu empresa.</p>
-            <a href="contacto.html" class="btn btn-primary" style="font-size:0.85rem;padding:10px 20px;">Hablar gratis →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section style="background:var(--navy-light);">
-  <div class="container">
-    <div class="text-center" style="margin-bottom:40px;">
-      <span class="section-label">Siguientes pasos</span>
-      <h2 class="reveal">¿Listo para <span style="color:#29b6f6;">evolucionar</span>?</h2>
+    <div class="text-center" style="margin-bottom:48px;">
+      <span class="section-label">El antes y el después</span>
+      <h2 class="reveal">Así cambia operar <span style="color:#29b6f6;">con información real</span></h2>
       <div class="divider center"></div>
     </div>
-    <div class="nav-plans reveal">
-      <a href="contacto.html" class="nav-plan-btn" style="border-color:rgba(41,182,246,0.4);background:rgba(41,182,246,0.05);">
-        <span class="label">Contratar ahora</span>
-        <span class="name">Zepeling Discover</span>
-        <span style="font-size:0.85rem;color:#29b6f6;">$1.490.000 pago único →</span>
-      </a>
-      <a href="optimize.html" class="nav-plan-btn">
-        <span class="label">Siguiente nivel</span>
-        <span class="name">Zepeling Optimize →</span>
-        <span style="font-size:0.85rem;color:var(--white-40);">Automatización y eficiencia</span>
-      </a>
-      <a href="grow.html" class="nav-plan-btn">
-        <span class="label">Nivel avanzado</span>
-        <span class="name">Zepeling Grow →</span>
-        <span style="font-size:0.85rem;color:var(--white-40);">IA aplicada y apps a medida</span>
-      </a>
+    <div class="clarity-split reveal">
+      <div class="clarity-side clarity-before">
+        <span class="clarity-label">Sin Discover</span>
+        <div class="chaos-list">
+          <div class="chaos-item"><span class="chaos-icon">📋</span><p>Para saber cómo va el mes, alguien arma una planilla a mano consolidando 4 archivos distintos</p></div>
+          <div class="chaos-item"><span class="chaos-icon">⏰</span><p>Cuando recibís los números del mes anterior, el nuevo ya empezó. Las decisiones llegan tarde</p></div>
+          <div class="chaos-item"><span class="chaos-icon">❓</span><p>No hay claridad sobre qué métricas importan. Hay datos pero nadie sabe qué mirar</p></div>
+          <div class="chaos-item"><span class="chaos-icon">📉</span><p>Las oportunidades se detectan cuando ya pasaron, no cuando todavía se puede actuar</p></div>
+          <div class="chaos-item"><span class="chaos-icon">🤞</span><p>Las decisiones importantes se toman por instinto. Los números los ponés a posteriori para justificar</p></div>
+        </div>
+      </div>
+      <div class="clarity-side clarity-after">
+        <span class="clarity-label">Con Discover</span>
+        <div class="mini-dash" style="margin-bottom:24px;">
+          <div class="mini-dash-bar">
+            <div class="mini-dash-dot" style="background:#f87171;"></div>
+            <div class="mini-dash-dot" style="background:#fbbf24;"></div>
+            <div class="mini-dash-dot" style="background:#34d399;"></div>
+          </div>
+          <div class="mini-kpi-row">
+            <div class="mini-kpi"><div class="mini-kpi-label">Ventas</div><div class="mini-kpi-val">$4.2M</div><div class="mini-kpi-delta">↑ 18%</div></div>
+            <div class="mini-kpi"><div class="mini-kpi-label">Clientes</div><div class="mini-kpi-val">143</div><div class="mini-kpi-delta">↑ 7 nuevos</div></div>
+            <div class="mini-kpi"><div class="mini-kpi-label">Ticket</div><div class="mini-kpi-val">$29k</div><div class="mini-kpi-delta" style="color:#f87171;">↓ 3%</div></div>
+          </div>
+          <div class="mini-chart">
+            <div class="mini-bar" style="height:40%;background:rgba(41,182,246,0.25);"></div>
+            <div class="mini-bar" style="height:55%;background:rgba(41,182,246,0.25);"></div>
+            <div class="mini-bar" style="height:48%;background:rgba(41,182,246,0.25);"></div>
+            <div class="mini-bar" style="height:70%;background:rgba(41,182,246,0.35);"></div>
+            <div class="mini-bar" style="height:62%;background:rgba(41,182,246,0.35);"></div>
+            <div class="mini-bar" style="height:85%;background:rgba(41,182,246,0.6);"></div>
+            <div class="mini-bar" style="height:92%;background:#29b6f6;"></div>
+          </div>
+        </div>
+        <h3>Visibilidad en tiempo real</h3>
+        <p style="margin-bottom:14px;">Tu tablero muestra exactamente lo que está pasando — ventas, clientes, márgenes, tendencias — sin que nadie tenga que armarlo.</p>
+        <h3>Reportes que llegan solos</h3>
+        <p style="margin-bottom:14px;">Cada lunes a las 8am tenés el resumen de la semana en tu correo. Sin pedírselo a nadie.</p>
+        <h3>Las alertas te encuentran a vos</h3>
+        <p>Cuando algo cambia fuera de lo normal, el sistema te avisa. No esperás a darte cuenta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUÉ INCLUYE -->
+<section style="background:var(--navy-light);padding:80px 0;">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:56px;">
+      <span class="section-label">Lo que construimos juntos</span>
+      <h2 class="reveal">Esto es lo que recibís<br>al final de los <span style="color:#29b6f6;">60 días</span></h2>
+      <div class="divider center"></div>
+    </div>
+    <div class="gets-grid reveal">
+      <div class="get-item">
+        <div class="get-num">01</div>
+        <div><h4>Dashboard personalizado</h4><p>Un tablero de control construido específicamente para tu negocio con las métricas que vos elegís — no un template genérico.</p></div>
+      </div>
+      <div class="get-item">
+        <div class="get-num">02</div>
+        <div><h4>Hasta 3 fuentes conectadas</h4><p>CRM, planillas, facturación, e-commerce — lo que ya usás, integrado en un solo lugar.</p></div>
+      </div>
+      <div class="get-item">
+        <div class="get-num">03</div>
+        <div><h4>Reportes automáticos semanales</h4><p>Resumen por correo cada semana. Sin que nadie tenga que generarlo. Llegás al lunes ya informado.</p></div>
+      </div>
+      <div class="get-item">
+        <div class="get-num">04</div>
+        <div><h4>KPIs definidos y medidos</h4><p>Identificamos qué métricas realmente importan para tu negocio y las ponemos al frente.</p></div>
+      </div>
+      <div class="get-item">
+        <div class="get-num">05</div>
+        <div><h4>Capacitación del equipo</h4><p>Tu gente aprende a leer el dashboard, interpretar las métricas y actuar sobre los datos.</p></div>
+      </div>
+      <div class="get-item">
+        <div class="get-num">06</div>
+        <div><h4>Documentación y soporte</h4><p>Todo documentado para que el conocimiento quede en tu empresa, no solo en nuestras manos.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE 60 DÍAS -->
+<section style="padding:80px 0;">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:64px;">
+      <span class="section-label">El proceso</span>
+      <h2 class="reveal">De cero a dashboard en <span style="color:#29b6f6;">60 días</span></h2>
+      <div class="divider center"></div>
+      <p class="reveal" style="max-width:520px;margin:0 auto;color:var(--white-70);">Cada paso tiene un entregable concreto. Sabés exactamente en qué estamos y qué viene después.</p>
+    </div>
+    <div class="timeline-strip reveal">
+      <div class="tl-step">
+        <div class="tl-circle">🔎</div>
+        <div class="tl-when">Semana 1</div>
+        <h4>Diagnóstico</h4>
+        <p>Mapeamos tus fuentes de datos, procesos actuales y qué preguntas necesitás que los datos respondan.</p>
+        <span class="tl-output">Entregás: accesos</span>
+      </div>
+      <div class="tl-step">
+        <div class="tl-circle">📐</div>
+        <div class="tl-when">Semana 2</div>
+        <h4>Diseño</h4>
+        <p>Definimos métricas y estructura del dashboard. Aprobás el diseño antes de construir.</p>
+        <span class="tl-output">Recibís: wireframe</span>
+      </div>
+      <div class="tl-step">
+        <div class="tl-circle">📊</div>
+        <div class="tl-when">Semanas 3–4</div>
+        <h4>Dashboard en vivo</h4>
+        <p>Conectamos datos, construimos los indicadores. Ya podés verlo funcionando con tu información real.</p>
+        <span class="tl-output">Recibís: dashboard</span>
+      </div>
+      <div class="tl-step">
+        <div class="tl-circle">✅</div>
+        <div class="tl-when">Mes 2</div>
+        <h4>Ajuste y entrega</h4>
+        <p>Afinamos, activamos reportes automáticos y capacitamos a tu equipo. Entrega final documentada.</p>
+        <span class="tl-output">Recibís: todo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding:0 0 80px;">
+  <div class="container">
+    <div class="discover-cta reveal">
+      <h2 style="margin-bottom:16px;">El diagnóstico es <span style="color:#29b6f6;">gratuito</span></h2>
+      <p style="max-width:520px;margin:0 auto 32px;color:var(--white-70);font-size:1rem;">En 30 minutos analizamos tu negocio y te decimos si Discover tiene sentido para vos — y qué métricas podrías ver desde el primer mes.</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <a href="contacto.html" class="btn btn-primary" style="padding:16px 40px;">Agendar diagnóstico gratuito</a>
+        <a href="planes.html" class="btn btn-outline">Comparar planes →</a>
+      </div>
     </div>
   </div>
 </section>
@@ -393,17 +289,5 @@
 <script src="js/main.js"></script>
 <script>lucide.createIcons();</script>
 <script src="js/effects.js"></script>
-<script>
-  document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const group = btn.dataset.group;
-      const target = btn.dataset.tab;
-      document.querySelectorAll(`.tab-btn[data-group="${group}"]`).forEach(b => b.classList.remove('active'));
-      document.querySelectorAll(`.tab-panel[data-group="${group}"]`).forEach(p => p.classList.remove('active'));
-      btn.classList.add('active');
-      document.querySelector(`.tab-panel[data-group="${group}"][data-tab="${target}"]`).classList.add('active');
-    });
-  });
-</script>
 </body>
 </html>

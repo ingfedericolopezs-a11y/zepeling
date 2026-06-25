@@ -3,77 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zepeling Grow — Tecnología a medida para escalar</title>
-  <meta name="description" content="Zepeling Grow: soluciones tecnológicas personalizadas, IA aplicada y acompañamiento estratégico para empresas que están escalando." />
+  <title>Zepeling Grow — Tecnología que escala con tu empresa</title>
+  <meta name="description" content="Zepeling Grow: construimos plataformas tecnológicas, IA aplicada y sistemas a medida para empresas que están listas para escalar." />
   <link rel="stylesheet" href="css/styles.css" />
   <style>
-    .plan-detail-hero { padding:160px 0 80px; position:relative; overflow:hidden; }
-    .plan-detail-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 80% 70% at 50% 0%, rgba(52,211,153,0.13) 0%, transparent 65%); }
-    .plan-hero-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; position:relative; z-index:1; }
-    .plan-level-badge { display:inline-flex; align-items:center; gap:8px; padding:6px 16px; border-radius:50px; background:rgba(52,211,153,0.12); border:1px solid rgba(52,211,153,0.30); font-size:0.78rem; font-weight:700; color:#34d399; letter-spacing:1px; text-transform:uppercase; margin-bottom:20px; }
-    .plan-hero-price { margin-top:32px; padding:24px 28px; background:var(--white-10); border:1px solid var(--border); border-radius:var(--radius); display:inline-block; }
-    .plan-hero-price .from { font-size:0.82rem; color:rgba(52,211,153,0.7); font-weight:600; }
-    .plan-hero-price .amount { font-size:2.8rem; font-weight:900; color:#34d399; line-height:1; }
-    .plan-hero-price .period { color:rgba(52,211,153,0.7); font-size:0.85rem; font-weight:600; margin-top:4px; }
-    .breadcrumb { display:flex; align-items:center; gap:8px; font-size:0.85rem; color:var(--white-40); margin-bottom:24px; }
+    /* HERO */
+    .grow-hero { padding:140px 0 80px; position:relative; overflow:hidden; min-height:80vh; display:flex; align-items:center; }
+    .grow-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 50% 40%, rgba(52,211,153,0.08) 0%, transparent 60%); }
+    .breadcrumb { display:flex; align-items:center; gap:8px; font-size:0.85rem; color:var(--white-40); margin-bottom:32px; }
     .breadcrumb a { color:#34d399; text-decoration:none; }
-    /* Tabs */
-    .tabs-nav { display:flex; border-bottom:1px solid var(--border); margin-bottom:56px; flex-wrap:wrap; }
-    .tab-btn { padding:14px 28px; background:transparent; border:none; border-bottom:3px solid transparent; color:var(--white-40); font-size:0.9rem; font-weight:600; cursor:pointer; transition:all 0.2s; white-space:nowrap; margin-bottom:-1px; font-family:inherit; }
-    .tab-btn:hover { color:var(--white-70); }
-    .tab-btn.active { color:#34d399; border-bottom-color:#34d399; background:rgba(52,211,153,0.04); }
-    .tab-panel { display:none; }
-    .tab-panel.active { display:block; animation:tabFadeIn 0.3s ease; }
-    @keyframes tabFadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
-    /* Build cards - Lo que construimos */
-    .build-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
-    .build-card { background:var(--navy-card); border:1px solid rgba(52,211,153,0.15); border-radius:var(--radius-lg); padding:32px; position:relative; overflow:hidden; transition:all 0.3s; }
-    .build-card:hover { border-color:rgba(52,211,153,0.4); transform:translateY(-4px); box-shadow:0 12px 40px rgba(52,211,153,0.08); }
-    .build-card::before { content:''; position:absolute; top:0; left:0; width:3px; height:100%; background:linear-gradient(180deg,#34d399,transparent); }
-    .build-tag { font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#34d399; background:rgba(52,211,153,0.1); border:1px solid rgba(52,211,153,0.2); padding:3px 10px; border-radius:20px; display:inline-block; margin-bottom:14px; }
-    .build-card h4 { font-size:1rem; margin-bottom:8px; }
-    .build-card p { font-size:0.85rem; color:var(--white-70); margin-bottom:16px; }
-    .build-examples { display:flex; flex-wrap:wrap; gap:6px; }
-    .build-example { font-size:0.75rem; color:var(--white-40); background:rgba(255,255,255,0.04); border:1px solid var(--border); padding:3px 10px; border-radius:20px; }
-    /* Co-creación timeline */
-    .cocrea-steps { display:grid; grid-template-columns:repeat(5,1fr); gap:0; position:relative; }
-    .cocrea-steps::before { content:''; position:absolute; top:36px; left:10%; right:10%; height:2px; background:linear-gradient(90deg,rgba(52,211,153,0.2),rgba(52,211,153,0.7),rgba(52,211,153,0.2)); }
-    .cocrea-step { text-align:center; padding:0 12px; position:relative; }
-    .cocrea-num { width:72px; height:72px; border-radius:50%; border:2px solid rgba(52,211,153,0.4); display:flex; align-items:center; justify-content:center; margin:0 auto 20px; font-weight:900; font-size:1.1rem; color:#34d399; background:var(--navy); position:relative; z-index:1; }
-    .cocrea-step h4 { font-size:0.85rem; margin-bottom:6px; }
-    .cocrea-step p { font-size:0.78rem; color:var(--white-70); }
-    .cocrea-note { margin-top:48px; background:rgba(52,211,153,0.06); border:1px solid rgba(52,211,153,0.15); border-radius:var(--radius-lg); padding:32px 40px; display:grid; grid-template-columns:auto 1fr; gap:24px; align-items:center; }
-    .cocrea-note-icon { font-size:2.5rem; }
-    .cocrea-note h4 { color:#34d399; margin-bottom:6px; }
-    .cocrea-note p { font-size:0.88rem; color:var(--white-70); margin:0; }
-    /* ROI */
-    .roi-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-bottom:40px; }
-    .roi-card { background:var(--navy-card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:32px; }
-    .roi-card h4 { font-size:0.85rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--white-40); margin-bottom:16px; }
-    .roi-metric { display:flex; gap:16px; align-items:flex-start; padding:14px 0; border-bottom:1px solid rgba(255,255,255,0.04); }
-    .roi-metric:last-child { border-bottom:none; }
-    .roi-dot { width:8px; height:8px; min-width:8px; border-radius:50%; background:#34d399; margin-top:6px; }
-    .roi-metric strong { font-size:0.9rem; display:block; margin-bottom:2px; }
-    .roi-metric span { font-size:0.82rem; color:var(--white-70); }
-    /* Hero visual */
-    .grow-hero-visual { background:var(--navy-card); border:1px solid rgba(52,211,153,0.2); border-radius:var(--radius-lg); padding:36px; position:relative; overflow:hidden; }
-    .grow-hero-visual::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,#059669,#34d399,#059669); }
-    .scale-viz { display:flex; flex-direction:column; gap:12px; }
-    .scale-row { display:flex; align-items:center; gap:12px; }
-    .scale-label { font-size:0.78rem; color:var(--white-40); width:80px; flex-shrink:0; }
-    .scale-bar-wrap { flex:1; height:28px; background:rgba(255,255,255,0.04); border-radius:6px; overflow:hidden; border:1px solid var(--border); }
-    .scale-bar { height:100%; border-radius:6px; display:flex; align-items:center; padding:0 10px; font-size:0.72rem; font-weight:700; color:#0b1628; }
-    .scale-value { font-size:0.78rem; color:var(--white-40); width:36px; text-align:right; flex-shrink:0; }
-    /* Nav planes */
-    .nav-plans { display:flex; gap:16px; flex-wrap:wrap; }
-    .nav-plan-btn { flex:1; min-width:180px; padding:20px 24px; background:var(--navy-card); border:1px solid var(--border); border-radius:var(--radius); text-decoration:none; color:var(--white); transition:all 0.3s; display:flex; flex-direction:column; gap:6px; }
-    .nav-plan-btn:hover { transform:translateY(-3px); }
-    .nav-plan-btn .label { font-size:0.75rem; color:var(--white-40); text-transform:uppercase; letter-spacing:1px; }
+    .grow-hero-inner { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+    /* Scale visual */
+    .scale-rings { position:relative; width:280px; height:280px; margin:0 auto; }
+    .ring { position:absolute; border-radius:50%; border:1px solid rgba(52,211,153,0.15); }
+    .ring-1 { inset:0; }
+    .ring-2 { inset:20px; border-color:rgba(52,211,153,0.12); }
+    .ring-3 { inset:40px; border-color:rgba(52,211,153,0.2); }
+    .ring-center { position:absolute; inset:70px; background:rgba(52,211,153,0.06); border:1px solid rgba(52,211,153,0.3); border-radius:50%; display:flex; align-items:center; justify-content:center; flex-direction:column; }
+    .ring-center-num { font-size:2rem; font-weight:900; color:#34d399; line-height:1; }
+    .ring-center-text { font-size:0.65rem; color:var(--white-40); text-align:center; }
+    .orbit-dot { position:absolute; width:44px; height:44px; background:var(--navy-card); border:1px solid rgba(52,211,153,0.2); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.1rem; }
+    /* WHAT WE BUILD */
+    .build-category { margin-bottom:80px; }
+    .build-category-header { display:flex; gap:16px; align-items:center; padding-bottom:24px; border-bottom:1px solid var(--border); margin-bottom:32px; }
+    .build-cat-icon { width:52px; height:52px; border-radius:var(--radius); display:flex; align-items:center; justify-content:center; font-size:1.4rem; flex-shrink:0; }
+    .build-cat-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#34d399; margin-bottom:4px; }
+    .build-cat-title { font-size:1.2rem; font-weight:800; }
+    .build-cat-desc { color:var(--white-70); font-size:0.9rem; margin:0; }
+    .build-projects { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .build-project { background:var(--navy-card); border:1px solid var(--border); border-radius:var(--radius); padding:20px; transition:all 0.2s; }
+    .build-project:hover { border-color:rgba(52,211,153,0.25); transform:translateY(-2px); }
+    .bp-icon { font-size:1.4rem; margin-bottom:12px; }
+    .bp-name { font-size:0.9rem; font-weight:700; margin-bottom:6px; }
+    .bp-desc { font-size:0.8rem; color:var(--white-40); line-height:1.5; margin-bottom:12px; }
+    .bp-tag { font-size:0.68rem; font-weight:600; padding:3px 10px; border-radius:20px; background:rgba(52,211,153,0.07); border:1px solid rgba(52,211,153,0.15); color:#34d399; display:inline-block; }
+    /* WHO IT'S FOR */
+    .readiness-check { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; }
+    .readiness-list { display:flex; flex-direction:column; gap:16px; }
+    .readiness-item { display:flex; gap:14px; align-items:flex-start; }
+    .readiness-icon { width:36px; height:36px; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:1rem; }
+    .ri-yes { background:rgba(52,211,153,0.1); border:1px solid rgba(52,211,153,0.2); }
+    .ri-no { background:rgba(239,68,68,0.06); border:1px solid rgba(239,68,68,0.15); }
+    .readiness-item h4 { font-size:0.9rem; margin-bottom:2px; }
+    .readiness-item p { font-size:0.82rem; color:var(--white-40); margin:0; }
+    /* PROCESS */
+    .cocreate { background:var(--navy-light); padding:80px 0; }
+    .cocreate-steps { display:grid; grid-template-columns:repeat(5,1fr); gap:0; position:relative; }
+    .cocreate-steps::before { content:''; position:absolute; top:36px; left:10%; right:10%; height:1px; background:linear-gradient(90deg,rgba(52,211,153,0.15),rgba(52,211,153,0.5),rgba(52,211,153,0.15)); }
+    .cc-step { text-align:center; padding:0 12px; position:relative; z-index:1; }
+    .cc-num { width:72px; height:72px; border-radius:50%; background:var(--navy-card); border:2px solid rgba(52,211,153,0.25); display:flex; align-items:center; justify-content:center; margin:0 auto 20px; font-size:1.8rem; transition:border-color 0.2s; }
+    .cc-step:hover .cc-num { border-color:#34d399; }
+    .cc-label { font-size:0.72rem; font-weight:700; color:#34d399; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:6px; }
+    .cc-step h4 { font-size:0.88rem; margin-bottom:6px; }
+    .cc-step p { font-size:0.78rem; color:var(--white-40); line-height:1.5; }
+    /* CTA */
+    .grow-cta { padding:80px 0; }
+    .grow-cta-inner { background:linear-gradient(135deg,rgba(52,211,153,0.07) 0%,transparent 100%); border:1px solid rgba(52,211,153,0.2); border-radius:var(--radius-lg); padding:64px; text-align:center; }
     @media (max-width:900px) {
-      .plan-hero-grid, .build-grid, .roi-grid { grid-template-columns:1fr; gap:32px; }
-      .cocrea-steps { grid-template-columns:1fr 1fr; }
-      .cocrea-steps::before { display:none; }
-      .tab-btn { padding:12px 14px; font-size:0.82rem; }
+      .grow-hero-inner { grid-template-columns:1fr; gap:40px; }
+      .build-projects { grid-template-columns:1fr; }
+      .readiness-check { grid-template-columns:1fr; gap:40px; }
+      .cocreate-steps { grid-template-columns:1fr 1fr; }
+      .cocreate-steps::before { display:none; }
+      .grow-cta-inner { padding:40px 24px; }
     }
   </style>
 </head>
@@ -95,55 +87,43 @@
   </div>
 </nav>
 
-<section class="plan-detail-hero orb-section">
+<!-- HERO -->
+<section class="grow-hero orb-section">
   <div class="container">
-    <div class="breadcrumb anim-fade-in">
-      <a href="planes.html">Planes</a><span>›</span><span>Zepeling Grow</span>
-    </div>
-    <div class="plan-hero-grid">
+    <div class="breadcrumb anim-fade-in"><a href="planes.html">Planes</a><span>›</span><span>Grow</span></div>
+    <div class="grow-hero-inner">
       <div class="anim-fade-up">
-        <div class="plan-level-badge">Nivel 03 · Plan Grow</div>
-        <h1>Tecnología que<br><span style="color:#34d399;">escala con vos</span></h1>
-        <p style="font-size:1.05rem;color:var(--white-70);margin-top:16px;max-width:480px;">
-          Cuando el negocio crece rápido, los sistemas que funcionaban antes se convierten en el cuello de botella. Grow construye la tecnología que necesitás para el próximo nivel.
-        </p>
-        <div class="plan-hero-price">
-          <div class="from">Desde</div>
-          <div class="amount">$3.990.000</div>
-          <div class="period">cotización según proyecto</div>
+        <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:50px;background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.25);font-size:0.78rem;font-weight:700;color:#34d399;letter-spacing:1px;text-transform:uppercase;margin-bottom:24px;">Nivel 03 — Plataformas</div>
+        <h1 style="font-size:clamp(2rem,4.5vw,3.5rem);line-height:1.1;">Ya tenés los datos.<br>Ya automatizaste.<br><span style="color:#34d399;">Ahora es momento<br>de escalar.</span></h1>
+        <p style="font-size:1.05rem;color:var(--white-70);margin-top:24px;max-width:480px;line-height:1.7;">Grow es para empresas que superaron la etapa reactiva. Acá construimos las plataformas, integraciones y soluciones de IA que te llevan al siguiente nivel de escala.</p>
+        <div style="margin-top:36px;display:flex;gap:16px;flex-wrap:wrap;">
+          <a href="contacto.html" class="btn btn-primary" style="background:linear-gradient(135deg,#34d399,#059669);border:none;color:#0a1628;font-weight:800;padding:16px 36px;">Hablemos de tu proyecto</a>
+          <a href="planes.html" class="btn btn-outline">Ver todos los planes</a>
         </div>
-        <div style="margin-top:32px;display:flex;gap:16px;flex-wrap:wrap;">
-          <a href="contacto.html" class="btn btn-primary" style="background:linear-gradient(135deg,#34d399,#059669);border:none;color:#0b1628;font-weight:700;">Diseñar mi solución</a>
-          <a href="planes.html" class="btn btn-ghost">Comparar planes</a>
-        </div>
+        <p style="margin-top:20px;font-size:0.82rem;color:var(--white-40);">Cada proyecto Grow es cotizado a medida según su alcance.</p>
       </div>
-      <div class="anim-fade-in anim-delay-2">
-        <div class="grow-hero-visual">
-          <div style="font-size:0.75rem;font-weight:700;color:var(--white-40);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:20px;">Capacidad operativa · Antes vs Grow</div>
-          <div class="scale-viz">
-            <div class="scale-row">
-              <div class="scale-label">Clientes</div>
-              <div class="scale-bar-wrap"><div class="scale-bar" style="width:35%;background:rgba(255,255,255,0.12);">35</div></div>
-              <div class="scale-value">35</div>
-            </div>
-            <div class="scale-row" style="opacity:0.5;font-size:0.75rem;color:var(--white-40);padding:2px 0 2px 92px;">↑ después de Grow</div>
-            <div class="scale-row">
-              <div class="scale-label">Clientes</div>
-              <div class="scale-bar-wrap"><div class="scale-bar" style="width:92%;background:#34d399;">140+</div></div>
-              <div class="scale-value">140+</div>
-            </div>
-            <div style="height:1px;background:var(--border);margin:8px 0;"></div>
-            <div class="scale-row">
-              <div class="scale-label">Procesos manuales</div>
-              <div class="scale-bar-wrap"><div class="scale-bar" style="width:80%;background:rgba(239,68,68,0.4);">18</div></div>
-              <div class="scale-value">18</div>
-            </div>
-            <div class="scale-row" style="opacity:0.5;font-size:0.75rem;color:var(--white-40);padding:2px 0 2px 92px;">↓ después de Grow</div>
-            <div class="scale-row">
-              <div class="scale-label">Procesos manuales</div>
-              <div class="scale-bar-wrap"><div class="scale-bar" style="width:12%;background:#34d399;">2</div></div>
-              <div class="scale-value">2</div>
-            </div>
+      <div class="anim-fade-in anim-delay-1">
+        <div class="scale-rings">
+          <div class="ring ring-1"></div>
+          <div class="ring ring-2"></div>
+          <div class="ring ring-3"></div>
+          <div class="orbit-dot" style="top:-10px;left:50%;transform:translateX(-50%);">🤖</div>
+          <div class="orbit-dot" style="right:-14px;top:50%;transform:translateY(-50%);">📱</div>
+          <div class="orbit-dot" style="bottom:-10px;left:50%;transform:translateX(-50%);">⚡</div>
+          <div class="orbit-dot" style="left:-14px;top:50%;transform:translateY(-50%);">🔗</div>
+          <div class="ring-center">
+            <div class="ring-center-num">Grow</div>
+            <div class="ring-center-text">Tu plataforma<br>tecnológica</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:32px;">
+          <div style="background:rgba(52,211,153,0.05);border:1px solid rgba(52,211,153,0.15);border-radius:var(--radius);padding:16px;text-align:center;">
+            <div style="font-size:1.8rem;font-weight:900;color:#34d399;">×4</div>
+            <div style="font-size:0.75rem;color:var(--white-40);">Capacidad operativa promedio</div>
+          </div>
+          <div style="background:rgba(52,211,153,0.05);border:1px solid rgba(52,211,153,0.15);border-radius:var(--radius);padding:16px;text-align:center;">
+            <div style="font-size:1.8rem;font-weight:900;color:#34d399;">−60%</div>
+            <div style="font-size:0.75rem;color:var(--white-40);">Reducción de costos operativos</div>
           </div>
         </div>
       </div>
@@ -151,189 +131,222 @@
   </div>
 </section>
 
-<section style="padding:56px 0 80px;">
+<!-- LO QUE CONSTRUIMOS -->
+<section style="padding:80px 0;">
   <div class="container">
-    <nav class="tabs-nav" role="tablist">
-      <button class="tab-btn active" data-group="grow" data-tab="construimos">Lo que construimos</button>
-      <button class="tab-btn" data-group="grow" data-tab="cocreamos">Cómo co-creamos</button>
-      <button class="tab-btn" data-group="grow" data-tab="resultados">Resultados esperados</button>
-    </nav>
-
-    <!-- Tab 1: Lo que construimos -->
-    <div class="tab-panel active" data-group="grow" data-tab="construimos">
-      <div style="max-width:680px;margin:0 auto 48px;text-align:center;">
-        <h2>No soluciones genéricas. <span style="color:#34d399;">Tecnología para tu empresa.</span></h2>
-        <div class="divider center"></div>
-        <p style="color:var(--white-70);">Grow no adapta herramientas existentes a tu negocio. Construye tecnología diseñada específicamente para cómo operás vos.</p>
-      </div>
-      <div class="build-grid">
-        <div class="build-card">
-          <span class="build-tag">IA Aplicada</span>
-          <h4>Modelos de inteligencia artificial en tu operación</h4>
-          <p>No hablamos de chatbots genéricos. Integramos IA en los procesos que realmente generan valor: predicción de demanda, scoring de clientes, detección de anomalías.</p>
-          <div class="build-examples">
-            <span class="build-example">Predicción de ventas</span>
-            <span class="build-example">Clasificación automática</span>
-            <span class="build-example">Análisis de sentimiento</span>
-            <span class="build-example">Detección de fraude</span>
-          </div>
-        </div>
-        <div class="build-card">
-          <span class="build-tag">Apps a medida</span>
-          <h4>Herramientas diseñadas para tu equipo</h4>
-          <p>Cuando ninguna herramienta del mercado encaja exactamente, construimos la tuya. Apps internas, portales de clientes, dashboards operativos propios.</p>
-          <div class="build-examples">
-            <span class="build-example">Portal de clientes</span>
-            <span class="build-example">App de gestión interna</span>
-            <span class="build-example">Sistema de pedidos</span>
-            <span class="build-example">Panel de operaciones</span>
-          </div>
-        </div>
-        <div class="build-card">
-          <span class="build-tag">Integraciones avanzadas</span>
-          <h4>Un ecosistema digital sin silos</h4>
-          <p>Conectamos sistemas complejos que normalmente no hablan entre sí: ERPs, WMS, sistemas legacy, APIs externas, marketplaces y plataformas de logística.</p>
-          <div class="build-examples">
-            <span class="build-example">ERP ↔ E-commerce</span>
-            <span class="build-example">WMS ↔ Logística</span>
-            <span class="build-example">APIs externas</span>
-            <span class="build-example">Sistemas legacy</span>
-          </div>
-        </div>
-        <div class="build-card">
-          <span class="build-tag">Automatización avanzada</span>
-          <h4>Flujos complejos sin intervención humana</h4>
-          <p>Más allá de los reportes automáticos de Optimize. Workflows multi-paso, lógica condicional, procesamiento de datos en tiempo real y orquestación de sistemas.</p>
-          <div class="build-examples">
-            <span class="build-example">Workflows multi-etapa</span>
-            <span class="build-example">Procesamiento en tiempo real</span>
-            <span class="build-example">Orquestación de sistemas</span>
-            <span class="build-example">Reglas de negocio complejas</span>
-          </div>
-        </div>
-      </div>
-      <div style="margin-top:40px;text-align:center;background:rgba(52,211,153,0.05);border:1px solid rgba(52,211,153,0.15);border-radius:var(--radius-lg);padding:32px;">
-        <p style="color:var(--white-70);max-width:560px;margin:0 auto 20px;font-size:0.95rem;">Cada solución Grow es única. El alcance y el precio se definen junto con vos en base a los objetivos concretos del proyecto.</p>
-        <a href="contacto.html" class="btn btn-primary" style="background:linear-gradient(135deg,#34d399,#059669);border:none;color:#0b1628;font-weight:700;">Diseñar mi solución →</a>
-      </div>
-    </div>
-
-    <!-- Tab 2: Cómo co-creamos -->
-    <div class="tab-panel" data-group="grow" data-tab="cocreamos">
-      <div style="max-width:680px;margin:0 auto 56px;text-align:center;">
-        <h2>Grow no se vende. <span style="color:#34d399;">Se co-diseña.</span></h2>
-        <div class="divider center"></div>
-        <p style="color:var(--white-70);">Como cada solución es única, el proceso empieza con entender tu negocio en profundidad antes de escribir una sola línea de código.</p>
-      </div>
-      <div class="cocrea-steps">
-        <div class="cocrea-step">
-          <div class="cocrea-num">01</div>
-          <h4>Discovery</h4>
-          <p>Entendemos el negocio, los cuellos de botella y el objetivo de crecimiento concreto</p>
-        </div>
-        <div class="cocrea-step">
-          <div class="cocrea-num">02</div>
-          <h4>Diseño de solución</h4>
-          <p>Proponemos la arquitectura técnica y definimos alcance, hitos y métricas de éxito</p>
-        </div>
-        <div class="cocrea-step">
-          <div class="cocrea-num">03</div>
-          <h4>Prototipo rápido</h4>
-          <p>En 2–3 semanas tenés algo funcional para validar que vamos en la dirección correcta</p>
-        </div>
-        <div class="cocrea-step">
-          <div class="cocrea-num">04</div>
-          <h4>Construcción</h4>
-          <p>Desarrollo iterativo con revisiones periódicas. Vos ves el avance en tiempo real</p>
-        </div>
-        <div class="cocrea-step">
-          <div class="cocrea-num">05</div>
-          <h4>Acompañamiento</h4>
-          <p>No desaparecemos al entregar. Seguimiento continuo, ajustes y evolución del sistema</p>
-        </div>
-      </div>
-      <div class="cocrea-note">
-        <div class="cocrea-note-icon">🚀</div>
-        <div>
-          <h4>Grow es inversión, no gasto</h4>
-          <p>Antes de empezar, definimos juntos los indicadores de éxito y el ROI esperado. Si no podemos proyectar un retorno concreto para tu empresa, te lo decimos — y te recomendamos empezar por Discover u Optimize.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Tab 3: Resultados esperados -->
-    <div class="tab-panel" data-group="grow" data-tab="resultados">
-      <div style="max-width:680px;margin:0 auto 48px;text-align:center;">
-        <h2>Lo que medimos cuando <span style="color:#34d399;">Grow está en marcha</span></h2>
-        <div class="divider center"></div>
-        <p style="color:var(--white-70);">No entregamos tecnología y nos vamos. Definimos métricas de impacto desde el día uno y las seguimos durante todo el acompañamiento.</p>
-      </div>
-      <div class="roi-grid">
-        <div class="roi-card">
-          <h4>Capacidad operativa</h4>
-          <div class="roi-metric">
-            <div class="roi-dot"></div>
-            <div><strong>Más clientes, mismo equipo</strong><span>Escalás el volumen sin escalar el headcount proporcionalmente</span></div>
-          </div>
-          <div class="roi-metric">
-            <div class="roi-dot"></div>
-            <div><strong>Menor tiempo de respuesta</strong><span>Procesos que tardaban días pasan a ejecutarse en minutos o automáticamente</span></div>
-          </div>
-          <div class="roi-metric">
-            <div class="roi-dot"></div>
-            <div><strong>Errores humanos eliminados</strong><span>Los procesos críticos dejan de depender de que alguien no se equivoque</span></div>
-          </div>
-        </div>
-        <div class="roi-card">
-          <h4>Impacto en el negocio</h4>
-          <div class="roi-metric">
-            <div class="roi-dot"></div>
-            <div><strong>Decisiones más rápidas</strong><span>La información correcta llega a quien la necesita en el momento que la necesita</span></div>
-          </div>
-          <div class="roi-metric">
-            <div class="roi-dot"></div>
-            <div><strong>Ventaja competitiva tecnológica</strong><span>Capacidades que tus competidores no tienen — o tardarán años en construir</span></div>
-          </div>
-          <div class="roi-metric">
-            <div class="roi-dot"></div>
-            <div><strong>Infraestructura que no frena el crecimiento</strong><span>Los sistemas crecen con el negocio, no se convierten en el cuello de botella</span></div>
-          </div>
-        </div>
-      </div>
-      <div style="background:linear-gradient(135deg,rgba(52,211,153,0.08) 0%,transparent 100%);border:1px solid rgba(52,211,153,0.2);border-radius:var(--radius-lg);padding:40px;text-align:center;">
-        <h3 style="color:#34d399;margin-bottom:12px;">¿Querés saber qué ROI podría tener Grow en tu empresa?</h3>
-        <p style="color:var(--white-70);max-width:500px;margin:0 auto 24px;font-size:0.92rem;">En una llamada de 45 minutos analizamos tu operación y te damos una proyección concreta. Sin compromiso.</p>
-        <a href="contacto.html" class="btn btn-primary" style="background:linear-gradient(135deg,#34d399,#059669);border:none;color:#0b1628;font-weight:700;padding:16px 40px;">Agendar análisis gratuito →</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section style="background:var(--navy-light);">
-  <div class="container">
-    <div class="text-center" style="margin-bottom:40px;">
-      <span class="section-label">¿No estás listo para Grow todavía?</span>
-      <h2 class="reveal">Empezá desde <span style="color:#34d399;">donde estás</span></h2>
+    <div class="text-center" style="margin-bottom:64px;">
+      <span class="section-label">Capacidades</span>
+      <h2 class="reveal">Lo que construimos <span style="color:#34d399;">con vos</span></h2>
       <div class="divider center"></div>
-      <p class="reveal" style="max-width:500px;margin:0 auto;color:var(--white-70);">Grow es el nivel avanzado. Si todavía no tenés visibilidad o automatización básica, hay un camino más corto para arrancar.</p>
+      <p class="reveal" style="max-width:560px;margin:0 auto;color:var(--white-70);">No vendemos productos enlatados. Cada proyecto Grow es una solución diseñada desde cero para el problema específico de tu empresa.</p>
     </div>
-    <div class="nav-plans reveal">
-      <a href="discover.html" class="nav-plan-btn" style="border-color:rgba(41,182,246,0.2);">
-        <span class="label">Nivel inicial</span>
-        <span class="name" style="color:#29b6f6;">← Zepeling Discover</span>
-        <span style="font-size:0.85rem;color:var(--white-40);">Dashboards y visibilidad</span>
-      </a>
-      <a href="optimize.html" class="nav-plan-btn" style="border-color:rgba(139,92,246,0.2);">
-        <span class="label">Nivel intermedio</span>
-        <span class="name" style="color:#a78bfa;">← Zepeling Optimize</span>
-        <span style="font-size:0.85rem;color:var(--white-40);">Automatización de procesos</span>
-      </a>
-      <a href="contacto.html" class="nav-plan-btn" style="border-color:rgba(52,211,153,0.4);background:rgba(52,211,153,0.05);">
-        <span class="label">Contratar ahora</span>
-        <span class="name" style="color:#34d399;">Zepeling Grow</span>
-        <span style="font-size:0.85rem;color:#34d399;">Desde $3.990.000 → Agendar</span>
-      </a>
+
+    <!-- IA Aplicada -->
+    <div class="build-category reveal">
+      <div class="build-category-header">
+        <div class="build-cat-icon" style="background:rgba(52,211,153,0.08);border:1px solid rgba(52,211,153,0.2);">🤖</div>
+        <div>
+          <div class="build-cat-label">Inteligencia Artificial</div>
+          <div class="build-cat-title">IA aplicada a tu operación</div>
+        </div>
+        <p class="build-cat-desc" style="flex:1;text-align:right;max-width:420px;">No IA genérica — modelos entrenados con tu lógica de negocio, tus datos y tus reglas.</p>
+      </div>
+      <div class="build-projects">
+        <div class="build-project">
+          <div class="bp-icon">💬</div>
+          <div class="bp-name">Asistente de ventas con IA</div>
+          <p class="bp-desc">Un agente que conoce tu catálogo, califica leads y sugiere el siguiente paso al vendedor en tiempo real.</p>
+          <span class="bp-tag">Ventas B2B</span>
+        </div>
+        <div class="build-project">
+          <div class="bp-icon">📊</div>
+          <div class="bp-name">Predicción de demanda</div>
+          <p class="bp-desc">Modelo que anticipa qué vas a vender el mes que viene basándose en históricos, estacionalidad y variables externas.</p>
+          <span class="bp-tag">Retail · Industria</span>
+        </div>
+        <div class="build-project">
+          <div class="bp-icon">🔍</div>
+          <div class="bp-name">Detección de anomalías</div>
+          <p class="bp-desc">Alerta automáticamente cuando algo en tus datos se desvía de lo esperado: fraude, error, caída de performance.</p>
+          <span class="bp-tag">Finanzas · Operaciones</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Apps a medida -->
+    <div class="build-category reveal">
+      <div class="build-category-header">
+        <div class="build-cat-icon" style="background:rgba(96,165,250,0.08);border:1px solid rgba(96,165,250,0.2);">📱</div>
+        <div>
+          <div class="build-cat-label" style="color:#60a5fa;">Aplicaciones</div>
+          <div class="build-cat-title">Apps web y móvil a medida</div>
+        </div>
+        <p class="build-cat-desc" style="flex:1;text-align:right;max-width:420px;">Cuando las herramientas del mercado no se adaptan a cómo opera tu empresa, construimos la tuya.</p>
+      </div>
+      <div class="build-projects">
+        <div class="build-project" style="border-color:rgba(96,165,250,0.08);">
+          <div class="bp-icon">🗂️</div>
+          <div class="bp-name">Portal de clientes</div>
+          <p class="bp-desc">Donde tus clientes ven su historial, hacen pedidos, consultan facturas y se comunican con tu equipo sin intermediarios.</p>
+          <span class="bp-tag" style="background:rgba(96,165,250,0.07);border-color:rgba(96,165,250,0.2);color:#60a5fa;">B2B · Servicios</span>
+        </div>
+        <div class="build-project" style="border-color:rgba(96,165,250,0.08);">
+          <div class="bp-icon">⚙️</div>
+          <div class="bp-name">Sistema de gestión interno</div>
+          <p class="bp-desc">Reemplaza las planillas y los procesos manuales por una app que centraliza y organiza la operación de tu empresa.</p>
+          <span class="bp-tag" style="background:rgba(96,165,250,0.07);border-color:rgba(96,165,250,0.2);color:#60a5fa;">Operaciones</span>
+        </div>
+        <div class="build-project" style="border-color:rgba(96,165,250,0.08);">
+          <div class="bp-icon">📲</div>
+          <div class="bp-name">App mobile para campo</div>
+          <p class="bp-desc">Para equipos que trabajan fuera de la oficina: técnicos, vendedores, supervisores. Sin papel, sin demora.</p>
+          <span class="bp-tag" style="background:rgba(96,165,250,0.07);border-color:rgba(96,165,250,0.2);color:#60a5fa;">Field Service</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Integraciones -->
+    <div class="build-category reveal">
+      <div class="build-category-header">
+        <div class="build-cat-icon" style="background:rgba(251,191,36,0.08);border:1px solid rgba(251,191,36,0.2);">🔗</div>
+        <div>
+          <div class="build-cat-label" style="color:#fbbf24;">Ecosistema digital</div>
+          <div class="build-cat-title">Integración total de sistemas</div>
+        </div>
+        <p class="build-cat-desc" style="flex:1;text-align:right;max-width:420px;">Cuando tu empresa tiene 8 herramientas que no se hablan, construimos el puente que las conecta todas.</p>
+      </div>
+      <div class="build-projects">
+        <div class="build-project" style="border-color:rgba(251,191,36,0.08);">
+          <div class="bp-icon">🔄</div>
+          <div class="bp-name">ERP + CRM + E-commerce</div>
+          <p class="bp-desc">Un pedido en la tienda online actualiza el stock, genera la factura y alerta al equipo de despacho. Automático.</p>
+          <span class="bp-tag" style="background:rgba(251,191,36,0.07);border-color:rgba(251,191,36,0.2);color:#fbbf24;">Retail · Distribución</span>
+        </div>
+        <div class="build-project" style="border-color:rgba(251,191,36,0.08);">
+          <div class="bp-icon">🏗️</div>
+          <div class="bp-name">Data Warehouse propio</div>
+          <p class="bp-desc">Tu empresa tiene un lugar centralizado donde viven todos sus datos. No en planillas de 5 áreas distintas.</p>
+          <span class="bp-tag" style="background:rgba(251,191,36,0.07);border-color:rgba(251,191,36,0.2);color:#fbbf24;">Mediana empresa</span>
+        </div>
+        <div class="build-project" style="border-color:rgba(251,191,36,0.08);">
+          <div class="bp-icon">⚡</div>
+          <div class="bp-name">Automatización avanzada</div>
+          <p class="bp-desc">Flujos de trabajo complejos con lógica condicional, aprobaciones, notificaciones y escalamiento automático.</p>
+          <span class="bp-tag" style="background:rgba(251,191,36,0.07);border-color:rgba(251,191,36,0.2);color:#fbbf24;">Enterprise</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ¿PARA QUIÉN ES GROW? -->
+<section style="padding:0 0 80px;">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:56px;">
+      <span class="section-label">Fit del producto</span>
+      <h2 class="reveal">Grow es para vos si...</h2>
+      <div class="divider center"></div>
+    </div>
+    <div class="readiness-check reveal">
+      <div>
+        <h3 style="color:#34d399;margin-bottom:24px;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;">Es el momento para Grow</h3>
+        <div class="readiness-list">
+          <div class="readiness-item">
+            <div class="readiness-icon ri-yes">✓</div>
+            <div><h4>Tu empresa ya factura con cierta regularidad</h4><p>Tenés un piso de operación establecido y el problema ahora es escalar sin perder calidad.</p></div>
+          </div>
+          <div class="readiness-item">
+            <div class="readiness-icon ri-yes">✓</div>
+            <div><h4>Usás múltiples herramientas que no se conectan</h4><p>Perdés horas cruzando datos entre sistemas que deberían funcionar juntos.</p></div>
+          </div>
+          <div class="readiness-item">
+            <div class="readiness-icon ri-yes">✓</div>
+            <div><h4>Querés una ventaja tecnológica real</h4><p>No un template. Una solución hecha para cómo opera específicamente tu negocio.</p></div>
+          </div>
+          <div class="readiness-item">
+            <div class="readiness-icon ri-yes">✓</div>
+            <div><h4>Tenés un desafío técnico claro</h4><p>Sabés qué problema querés resolver, aunque no sepas exactamente cómo.</p></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 style="color:rgba(239,100,100,0.8);margin-bottom:24px;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;">Todavía no es el momento</h3>
+        <div class="readiness-list">
+          <div class="readiness-item">
+            <div class="readiness-icon ri-no">✗</div>
+            <div><h4>Tu empresa aún no tiene datos organizados</h4><p>Si todavía no tenés visibilidad básica, empezá por Discover — Grow necesita esa base.</p></div>
+          </div>
+          <div class="readiness-item">
+            <div class="readiness-icon ri-no">✗</div>
+            <div><h4>Los procesos manuales siguen siendo el cuello de botella</h4><p>Si el problema es repetición y tiempo, Optimize genera impacto más rápido y a menor costo.</p></div>
+          </div>
+          <div class="readiness-item">
+            <div class="readiness-icon ri-no">✗</div>
+            <div><h4>No hay claridad en el problema a resolver</h4><p>Grow funciona cuando hay un objetivo claro. Si estás explorando, arrancamos con un diagnóstico gratuito.</p></div>
+          </div>
+        </div>
+        <div style="margin-top:24px;padding:16px 20px;background:rgba(52,211,153,0.04);border:1px solid rgba(52,211,153,0.15);border-radius:var(--radius);">
+          <p style="font-size:0.85rem;color:var(--white-70);margin:0;">¿No estás seguro en qué etapa estás? <a href="contacto.html" style="color:#34d399;text-decoration:none;font-weight:600;">Hablemos →</a> Te ayudamos a identificarlo sin costo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO CO-CREAMOS -->
+<section class="cocreate">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:64px;">
+      <span class="section-label">El proceso</span>
+      <h2 class="reveal">Cómo trabajamos <span style="color:#34d399;">juntos</span></h2>
+      <div class="divider center"></div>
+      <p class="reveal" style="max-width:520px;margin:0 auto;color:var(--white-70);">Vos conocés el negocio. Nosotros conocemos la tecnología. Grow es la combinación de ambos.</p>
+    </div>
+    <div class="cocreate-steps reveal">
+      <div class="cc-step">
+        <div class="cc-num">🎯</div>
+        <div class="cc-label">Semana 1</div>
+        <h4>Descubrimiento</h4>
+        <p>Entendemos a fondo el desafío, el contexto y lo que significa éxito para tu empresa.</p>
+      </div>
+      <div class="cc-step">
+        <div class="cc-num">📐</div>
+        <div class="cc-label">Semana 2–3</div>
+        <h4>Arquitectura</h4>
+        <p>Diseñamos la solución, definimos alcance, tecnología y hoja de ruta. Aprobás antes de arrancar.</p>
+      </div>
+      <div class="cc-step">
+        <div class="cc-num">🔨</div>
+        <div class="cc-label">Mes 1–3</div>
+        <h4>Construcción</h4>
+        <p>Desarrollo iterativo con entregas parciales. Cada sprint te mostramos qué avanzamos.</p>
+      </div>
+      <div class="cc-step">
+        <div class="cc-num">🚀</div>
+        <div class="cc-label">Entrega</div>
+        <h4>Lanzamiento</h4>
+        <p>Deploy, capacitación del equipo y período de acompañamiento post-lanzamiento.</p>
+      </div>
+      <div class="cc-step">
+        <div class="cc-num">📈</div>
+        <div class="cc-label">Ongoing</div>
+        <h4>Evolución</h4>
+        <p>Medimos resultados reales y refinamos. Tu plataforma crece con vos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="grow-cta">
+  <div class="container">
+    <div class="grow-cta-inner reveal">
+      <h2 style="font-size:clamp(1.8rem,3.5vw,2.8rem);margin-bottom:16px;">¿Listo para construir<br><span style="color:#34d399;">tu ventaja tecnológica</span>?</h2>
+      <p style="max-width:560px;margin:0 auto 36px;color:var(--white-70);font-size:1rem;line-height:1.7;">Contanos tu desafío en 15 minutos. Sin compromiso, sin plantillas. Te decimos si tiene solución, qué implicaría y si Grow es el camino.</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <a href="contacto.html" class="btn btn-primary" style="background:linear-gradient(135deg,#34d399,#059669);border:none;color:#0a1628;font-weight:800;padding:16px 40px;font-size:1rem;">Hablar con el equipo</a>
+        <a href="planes.html" class="btn btn-outline">Ver comparativa de planes</a>
+      </div>
     </div>
   </div>
 </section>
@@ -377,17 +390,5 @@
 <script src="js/main.js"></script>
 <script>lucide.createIcons();</script>
 <script src="js/effects.js"></script>
-<script>
-  document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const group = btn.dataset.group;
-      const target = btn.dataset.tab;
-      document.querySelectorAll(`.tab-btn[data-group="${group}"]`).forEach(b => b.classList.remove('active'));
-      document.querySelectorAll(`.tab-panel[data-group="${group}"]`).forEach(p => p.classList.remove('active'));
-      btn.classList.add('active');
-      document.querySelector(`.tab-panel[data-group="${group}"][data-tab="${target}"]`).classList.add('active');
-    });
-  });
-</script>
 </body>
 </html>
