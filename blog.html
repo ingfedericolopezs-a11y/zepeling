@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Zepeling</title>
+  <meta name="description" content="Artículos, guías y tendencias sobre inteligencia empresarial, automatización, datos y ciberseguridad para hacer crecer tu empresa." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .blog-hero {
+      padding: 160px 0 80px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .blog-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(41,182,246,0.12) 0%, transparent 65%);
+    }
+    .blog-hero .container { position: relative; z-index: 1; }
+
+    /* FILTROS */
+    .blog-filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 56px;
+    }
+    .filter-btn {
+      padding: 8px 20px;
+      border-radius: 50px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--white-70);
+      font-family: var(--font);
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--blue-glow);
+      border-color: rgba(41,182,246,0.5);
+      color: var(--white);
+    }
+
+    /* FEATURED POST */
+    .featured-post {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 0;
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 64px;
+      transition: all 0.3s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .featured-post:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-blue);
+      border-color: rgba(41,182,246,0.4);
+    }
+    .featured-img {
+      overflow: hidden;
+      height: 400px;
+    }
+    .featured-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.7) saturate(0.8);
+      transition: all 0.4s;
+    }
+    .featured-post:hover .featured-img img {
+      filter: brightness(0.85) saturate(1);
+      transform: scale(1.04);
+    }
+    .featured-body {
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+    .featured-body::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 3px;
+      background: var(--gradient);
+    }
+    .post-category {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .cat-datos { background: rgba(41,182,246,0.15); color: var(--blue); border: 1px solid rgba(41,182,246,0.3); }
+    .cat-automatizacion { background: rgba(139,92,246,0.15); color: #a78bfa; border: 1px solid rgba(139,92,246,0.3); }
+    .cat-ia { background: rgba(16,185,129,0.15); color: #34d399; border: 1px solid rgba(16,185,129,0.3); }
+    .cat-ciberseguridad { background: rgba(245,158,11,0.15); color: #fbbf24; border: 1px solid rgba(245,158,11,0.3); }
+    .cat-negocio { background: rgba(236,72,153,0.15); color: #f472b6; border: 1px solid rgba(236,72,153,0.3); }
+
+    .featured-body h2 { font-size: 1.7rem; margin-bottom: 12px; line-height: 1.3; }
+    .featured-body p { font-size: 0.9rem; color: var(--white-70); margin-bottom: 24px; }
+    .post-meta { display: flex; align-items: center; gap: 16px; font-size: 0.8rem; color: var(--white-40); margin-top: auto; }
+    .post-meta-divider { width: 3px; height: 3px; border-radius: 50%; background: var(--white-40); }
+    .read-more { display: inline-flex; align-items: center; gap: 6px; color: var(--blue); font-size: 0.85rem; font-weight: 600; margin-bottom: 20px; }
+
+    /* GRID DE POSTS */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 64px;
+    }
+    .blog-card {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all 0.3s;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-blue);
+      border-color: rgba(41,182,246,0.4);
+    }
+    .blog-card-img {
+      overflow: hidden;
+      height: 200px;
+    }
+    .blog-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.65) saturate(0.7);
+      transition: all 0.4s;
+    }
+    .blog-card:hover .blog-card-img img {
+      filter: brightness(0.85) saturate(1);
+      transform: scale(1.05);
+    }
+    .blog-card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      position: relative;
+    }
+    .blog-card-body::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gradient);
+    }
+    .blog-card-body h3 { font-size: 1.05rem; margin: 10px 0 8px; line-height: 1.4; }
+    .blog-card-body p { font-size: 0.84rem; color: var(--white-70); margin-bottom: 16px; flex: 1; }
+    .blog-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .blog-card-footer .post-meta { font-size: 0.76rem; }
+    .blog-card-link { font-size: 0.82rem; color: var(--blue); font-weight: 600; }
+
+    /* NEWSLETTER */
+    .newsletter-section {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 56px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 80px;
+    }
+    .newsletter-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gradient);
+    }
+    .newsletter-section::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(41,182,246,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .newsletter-form {
+      display: flex;
+      gap: 12px;
+      max-width: 480px;
+      margin: 28px auto 0;
+    }
+    .newsletter-input {
+      flex: 1;
+      padding: 14px 20px;
+      border-radius: 50px;
+      border: 1px solid var(--border);
+      background: var(--navy);
+      color: var(--white);
+      font-family: var(--font);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .newsletter-input::placeholder { color: var(--white-40); }
+    .newsletter-input:focus { border-color: var(--blue); }
+
+    /* SIDEBAR / TEMAS POPULARES */
+    .blog-layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 48px;
+      align-items: start;
+    }
+    .sidebar-card {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+    .sidebar-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gradient);
+    }
+    .sidebar-card h4 { font-size: 1rem; margin-bottom: 16px; }
+    .topic-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .topic-list li a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--white-70);
+      font-size: 0.87rem;
+      background: rgba(41,182,246,0.04);
+      border: 1px solid transparent;
+      transition: all 0.2s;
+    }
+    .topic-list li a:hover {
+      color: var(--white);
+      background: var(--blue-glow);
+      border-color: var(--border);
+    }
+    .topic-count {
+      font-size: 0.75rem;
+      color: var(--blue);
+      font-weight: 700;
+      background: rgba(41,182,246,0.1);
+      padding: 2px 8px;
+      border-radius: 50px;
+    }
+    .recent-post {
+      display: flex;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+    }
+    .recent-post:last-child { border-bottom: none; padding-bottom: 0; }
+    .recent-post:hover h5 { color: var(--blue); }
+    .recent-post img { width: 64px; height: 64px; object-fit: cover; border-radius: 10px; flex-shrink: 0; filter: brightness(0.75); }
+    .recent-post h5 { font-size: 0.84rem; line-height: 1.4; margin-bottom: 4px; transition: color 0.2s; }
+    .recent-post span { font-size: 0.75rem; color: var(--white-40); }
+
+    @media (max-width: 1000px) {
+      .blog-layout { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .featured-post { grid-template-columns: 1fr; }
+      .featured-img { height: 240px; }
+      .featured-body { padding: 28px; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .newsletter-form { flex-direction: column; }
+      .newsletter-section { padding: 36px 24px; }
+    }
+    @media (max-width: 500px) {
+      .blog-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><span class="nav-logo-text">Zepeling</span></a>
+    <button class="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="framework.html">Framework</a></li>
+      <li><a href="planes.html">Planes</a></li>
+      <li><a href="ciberseguridad.html">Ciberseguridad</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contacto.html" class="nav-cta"><span class="btn btn-primary">Comenzar</span></a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="blog-hero">
+  <div class="container">
+    <span class="section-label">Conocimiento aplicado</span>
+    <h1 class="anim-fade-up">Blog <span class="text-blue">Zepeling</span></h1>
+    <div class="divider center" style="margin:16px auto 20px;"></div>
+    <p class="anim-fade-up" style="max-width:580px;margin:0 auto 40px;font-size:1.1rem;">Artículos, guías y tendencias sobre inteligencia empresarial, automatización, datos y ciberseguridad para hacer crecer tu negocio.</p>
+    <!-- Filtros -->
+    <div class="blog-filters">
+      <button class="filter-btn active">Todos</button>
+      <button class="filter-btn">Datos &amp; BI</button>
+      <button class="filter-btn">Automatización</button>
+      <button class="filter-btn">Inteligencia Artificial</button>
+      <button class="filter-btn">Ciberseguridad</button>
+      <button class="filter-btn">Negocio</button>
+    </div>
+  </div>
+</section>
+
+<div style="background:var(--navy-light);padding:80px 0;">
+<div class="container">
+<div class="blog-layout">
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div>
+
+    <!-- ARTÍCULO DESTACADO -->
+    <a href="articulo-datos-decisiones-estrategicas.html" class="featured-post reveal">
+      <div class="featured-img">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80&fit=crop" alt="Dashboard de datos empresariales" />
+      </div>
+      <div class="featured-body">
+        <span class="post-category cat-datos">Datos &amp; BI</span>
+        <h2>Cómo convertir los datos de tu empresa en decisiones estratégicas en 2025</h2>
+        <p>Muchas empresas recopilan datos pero pocas saben cómo extraer valor real de ellos. En este artículo te mostramos el camino probado para pasar de reportes descriptivos a inteligencia accionable.</p>
+        <span class="read-more">Leer artículo completo →</span>
+        <div class="post-meta">
+          <span>Equipo Zepeling</span>
+          <span class="post-meta-divider"></span>
+          <span>12 Jun 2025</span>
+          <span class="post-meta-divider"></span>
+          <span>8 min lectura</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- GRID DE ARTÍCULOS -->
+    <div class="blog-grid">
+
+      <a href="articulo-automatizacion-procesos.html" class="blog-card reveal">
+        <div class="blog-card-img">
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80&fit=crop" alt="Automatización de procesos" />
+        </div>
+        <div class="blog-card-body">
+          <span class="post-category cat-automatizacion">Automatización</span>
+          <h3>5 procesos que tu empresa debería automatizar ahora mismo</h3>
+          <p>Identifica las tareas repetitivas que más tiempo consumen y aprende cómo automatizarlas sin grandes inversiones tecnológicas.</p>
+          <div class="blog-card-footer">
+            <div class="post-meta">
+              <span>5 Jun 2025</span>
+              <span class="post-meta-divider"></span>
+              <span>6 min</span>
+            </div>
+            <span class="blog-card-link">Leer →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="articulo-ciberseguridad-pymes.html" class="blog-card reveal anim-delay-1">
+        <div class="blog-card-img">
+          <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&q=80&fit=crop" alt="Ciberseguridad empresarial" />
+        </div>
+        <div class="blog-card-body">
+          <span class="post-category cat-ciberseguridad">Ciberseguridad</span>
+          <h3>Las 7 amenazas cibernéticas más peligrosas para las PYMEs en 2025</h3>
+          <p>Las pequeñas y medianas empresas son el objetivo favorito de los ciberdelincuentes. Conoce los riesgos y cómo protegerte.</p>
+          <div class="blog-card-footer">
+            <div class="post-meta">
+              <span>28 May 2025</span>
+              <span class="post-meta-divider"></span>
+              <span>7 min</span>
+            </div>
+            <span class="blog-card-link">Leer →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="blog-card reveal anim-delay-2">
+        <div class="blog-card-img">
+          <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80&fit=crop" alt="Inteligencia artificial en negocios" />
+        </div>
+        <div class="blog-card-body">
+          <span class="post-category cat-ia">Inteligencia Artificial</span>
+          <h3>IA aplicada al negocio: casos reales que generan ROI desde el primer mes</h3>
+          <p>La IA no es ciencia ficción. Te mostramos implementaciones concretas en ventas, atención al cliente y operaciones con resultados medibles.</p>
+          <div class="blog-card-footer">
+            <div class="post-meta">
+              <span>20 May 2025</span>
+              <span class="post-meta-divider"></span>
+              <span>9 min</span>
+            </div>
+            <span class="blog-card-link">Leer →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="blog-card reveal">
+        <div class="blog-card-img">
+          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80&fit=crop" alt="Estrategia de crecimiento empresarial" />
+        </div>
+        <div class="blog-card-body">
+          <span class="post-category cat-negocio">Negocio</span>
+          <h3>Cómo escalar tu empresa sin perder el control operacional</h3>
+          <p>Crecer rápido sin los sistemas adecuados puede ser peligroso. Te explicamos cómo construir una base sólida antes de acelerar.</p>
+          <div class="blog-card-footer">
+            <div class="post-meta">
+              <span>14 May 2025</span>
+              <span class="post-meta-divider"></span>
+              <span>5 min</span>
+            </div>
+            <span class="blog-card-link">Leer →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="blog-card reveal anim-delay-1">
+        <div class="blog-card-img">
+          <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&q=80&fit=crop" alt="KPIs e indicadores empresariales" />
+        </div>
+        <div class="blog-card-body">
+          <span class="post-category cat-datos">Datos &amp; BI</span>
+          <h3>Los KPIs que realmente importan según el tamaño de tu empresa</h3>
+          <p>No todos los indicadores sirven para todos. Aprende a elegir las métricas correctas dependiendo de tu etapa de crecimiento.</p>
+          <div class="blog-card-footer">
+            <div class="post-meta">
+              <span>7 May 2025</span>
+              <span class="post-meta-divider"></span>
+              <span>6 min</span>
+            </div>
+            <span class="blog-card-link">Leer →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="blog-card reveal anim-delay-2">
+        <div class="blog-card-img">
+          <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&q=80&fit=crop" alt="Seguridad en la nube" />
+        </div>
+        <div class="blog-card-body">
+          <span class="post-category cat-ciberseguridad">Ciberseguridad</span>
+          <h3>Seguridad en la nube: lo que nadie te dice cuando migras tu empresa</h3>
+          <p>La migración a la nube trae muchas ventajas, pero también riesgos nuevos. Aquí los errores más comunes y cómo evitarlos.</p>
+          <div class="blog-card-footer">
+            <div class="post-meta">
+              <span>30 Abr 2025</span>
+              <span class="post-meta-divider"></span>
+              <span>8 min</span>
+            </div>
+            <span class="blog-card-link">Leer →</span>
+          </div>
+        </div>
+      </a>
+
+    </div><!-- /blog-grid -->
+
+    <!-- NEWSLETTER -->
+    <div class="newsletter-section reveal">
+      <span class="section-label">Newsletter</span>
+      <h3 style="margin-bottom:8px;">Inteligencia en tu bandeja de entrada</h3>
+      <p style="max-width:440px;margin:0 auto;font-size:0.9rem;">Cada semana, los mejores artículos sobre datos, automatización y ciberseguridad. Sin spam, solo valor.</p>
+      <form class="newsletter-form" onsubmit="return false;">
+        <input type="email" class="newsletter-input" placeholder="tu@correo.com" />
+        <button type="submit" class="btn btn-primary" style="white-space:nowrap;">Suscribirme</button>
+      </form>
+      <p style="font-size:0.75rem;color:var(--white-40);margin-top:14px;">Más de 1,200 líderes empresariales ya están suscritos. Puedes darte de baja cuando quieras.</p>
+    </div>
+
+  </div><!-- /main content -->
+
+  <!-- SIDEBAR -->
+  <aside>
+
+    <div class="sidebar-card reveal">
+      <h4>Temas populares</h4>
+      <ul class="topic-list">
+        <li><a href="#">Datos &amp; BI <span class="topic-count">12</span></a></li>
+        <li><a href="#">Automatización <span class="topic-count">9</span></a></li>
+        <li><a href="#">Inteligencia Artificial <span class="topic-count">8</span></a></li>
+        <li><a href="#">Ciberseguridad <span class="topic-count">7</span></a></li>
+        <li><a href="#">Estrategia de Negocio <span class="topic-count">6</span></a></li>
+        <li><a href="#">Framework Zepeling <span class="topic-count">4</span></a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-card reveal">
+      <h4>Artículos recientes</h4>
+      <a href="#" class="recent-post">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=200&q=80&fit=crop" alt="" />
+        <div>
+          <h5>El futuro de la inteligencia empresarial en Latinoamérica</h5>
+          <span>3 Jun 2025</span>
+        </div>
+      </a>
+      <a href="#" class="recent-post">
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=200&q=80&fit=crop" alt="" />
+        <div>
+          <h5>Guía práctica para implementar un CRM con datos reales</h5>
+          <span>25 May 2025</span>
+        </div>
+      </a>
+      <a href="#" class="recent-post">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=200&q=80&fit=crop" alt="" />
+        <div>
+          <h5>Automatización de reportes financieros: caso de éxito</h5>
+          <span>18 May 2025</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="sidebar-card reveal" style="background:var(--gradient);border:none;">
+      <h4 style="color:var(--white);margin-bottom:10px;">¿Listo para crecer?</h4>
+      <p style="font-size:0.85rem;color:rgba(255,255,255,0.85);margin-bottom:20px;">Agenda tu diagnóstico gratuito y descubre cómo Zepeling puede transformar tu empresa.</p>
+      <a href="contacto.html" class="btn" style="background:var(--white);color:var(--navy);width:100%;justify-content:center;font-weight:700;">Agendar diagnóstico</a>
+    </div>
+
+  </aside>
+
+</div><!-- /blog-layout -->
+</div><!-- /container -->
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="nav-logo-text">Zepeling</span>
+        <p>La Inteligencia Detrás de tu Crecimiento.<br>Departamento de Inteligencia Empresarial.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Páginas</h5>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="framework.html">Framework</a></li>
+          <li><a href="planes.html">Planes</a></li>
+          <li><a href="ciberseguridad.html">Ciberseguridad</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Planes</h5>
+        <ul>
+          <li><a href="discover.html">Zepeling Discover</a></li>
+          <li><a href="optimize.html">Zepeling Optimize</a></li>
+          <li><a href="grow.html">Zepeling Grow</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Zepeling. Todos los derechos reservados.</span>
+      <span>La Inteligencia Detrás de tu Crecimiento</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="js/main.js"></script>
+<script>lucide.createIcons();</script>
+<script src="js/effects.js"></script>
+<script>
+  // Filter buttons
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

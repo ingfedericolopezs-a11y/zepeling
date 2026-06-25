@@ -1,127 +1,69 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Planes — Zepeling</title>
-  <meta name="description" content="Elige el plan Zepeling que mejor se adapta a tu etapa de crecimiento: Discover, Optimize o Grow." />
+  <meta name="description" content="Elegí el plan Zepeling que mejor se adapta a tu etapa de crecimiento: Discover, Optimize o Grow." />
   <link rel="stylesheet" href="css/styles.css" />
   <style>
-    .plans-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-      align-items: start;
-    }
-    .plan-card {
-      background: var(--navy-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 40px 32px;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s;
-    }
-    .plan-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--gradient);
-    }
-    .plan-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-blue);
-      border-color: rgba(41,182,246,0.4);
-    }
-    .plan-card.featured {
-      border-color: var(--blue);
-      background: linear-gradient(160deg, #112a4a 0%, #0d1e36 100%);
-      transform: scale(1.02);
-    }
-    .plan-card.featured:hover { transform: scale(1.02) translateY(-6px); }
-    .featured-badge {
-      position: absolute;
-      top: 16px; right: 16px;
-      background: var(--gradient);
-      color: white;
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 4px 12px;
-      border-radius: 50px;
-      letter-spacing: 0.5px;
-    }
-    .plan-header { border-bottom: 1px solid var(--border); padding-bottom: 24px; }
-    .plan-name { font-size: 0.8rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--blue); margin-bottom: 4px; }
-    .plan-title { font-size: 1.6rem; font-weight: 800; margin-bottom: 12px; }
-    .plan-desc { font-size: 0.88rem; color: var(--white-70); line-height: 1.6; }
-    .plan-price-wrap { text-align: center; padding: 8px 0; }
-    .plan-price {
-      font-size: 2.4rem;
-      font-weight: 900;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1;
-    }
-    .plan-price-from { font-size: 0.85rem; color: var(--white-40); margin-bottom: 4px; }
-    .plan-period { font-size: 0.85rem; color: var(--blue); font-weight: 600; margin-top: 6px; }
-    .plan-features h5 {
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--white-40);
-      margin-bottom: 14px;
-    }
-    .plan-cta { margin-top: auto; }
-    .plan-cta .btn { width: 100%; justify-content: center; }
-
-    .comparison-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 48px;
-    }
-    .comparison-table th, .comparison-table td {
-      padding: 16px 20px;
-      text-align: center;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.9rem;
-    }
-    .comparison-table th {
-      background: var(--navy-card);
-      color: var(--white);
-      font-weight: 700;
-      font-size: 0.85rem;
-    }
-    .comparison-table th:first-child, .comparison-table td:first-child {
-      text-align: left;
-      color: var(--white-70);
-    }
-    .comparison-table tr:hover td { background: rgba(41,182,246,0.03); }
-    .comparison-table .check { color: var(--blue); font-size: 1.1rem; }
-    .comparison-table .dash { color: var(--white-40); }
-    .comparison-table .col-featured { background: rgba(41,182,246,0.04); }
-    .section-table { background: var(--navy-light); }
-    .note {
-      font-size: 0.8rem;
-      color: var(--white-40);
-      margin-top: 24px;
-      text-align: center;
-    }
-
-    @media (max-width: 1024px) {
-      .plans-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
-      .plan-card.featured { transform: scale(1); }
-      .plan-card.featured:hover { transform: translateY(-6px); }
-    }
-    @media (max-width: 640px) {
-      .comparison-table { font-size: 0.8rem; }
-      .comparison-table th, .comparison-table td { padding: 12px 10px; }
+    .plans-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+    .plan-card { background:var(--navy-card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:40px 32px; display:flex; flex-direction:column; position:relative; overflow:hidden; transition:all 0.3s; }
+    .plan-card:hover { transform:translateY(-6px); }
+    .plan-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+    .plan-card.discover::before { background:linear-gradient(90deg,#29b6f6,#0288d1); }
+    .plan-card.optimize::before { background:linear-gradient(90deg,#a78bfa,#7c3aed); }
+    .plan-card.grow::before { background:linear-gradient(90deg,#34d399,#059669); }
+    .plan-card.featured { border-color:rgba(167,139,250,0.4); box-shadow:0 0 40px rgba(167,139,250,0.1); }
+    .featured-badge { position:absolute; top:16px; right:16px; background:linear-gradient(135deg,#a78bfa,#7c3aed); color:#fff; font-size:0.72rem; font-weight:700; padding:4px 12px; border-radius:20px; letter-spacing:0.05em; }
+    .plan-level { font-size:0.72rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:12px; }
+    .plan-level.discover { color:#29b6f6; }
+    .plan-level.optimize { color:#a78bfa; }
+    .plan-level.grow { color:#34d399; }
+    .plan-price { font-size:2.2rem; font-weight:900; margin:16px 0 4px; line-height:1; }
+    .plan-price-note { font-size:0.8rem; color:var(--white-40); margin-bottom:24px; }
+    .plan-divider { height:1px; background:var(--border); margin:24px 0; }
+    .plan-features { list-style:none; display:flex; flex-direction:column; gap:12px; flex:1; }
+    .plan-features li { display:flex; gap:10px; align-items:flex-start; font-size:0.88rem; }
+    .plan-features li span { color:var(--white-70); }
+    .plan-features .check { min-width:18px; margin-top:1px; }
+    .plan-cta { margin-top:32px; display:block; text-align:center; padding:14px 24px; border-radius:var(--radius); font-weight:700; font-size:0.9rem; transition:all 0.2s; text-decoration:none; }
+    .plan-cta.discover-cta { background:rgba(41,182,246,0.1); border:1px solid rgba(41,182,246,0.3); color:#29b6f6; }
+    .plan-cta.discover-cta:hover { background:rgba(41,182,246,0.2); }
+    .plan-cta.optimize-cta { background:linear-gradient(135deg,#a78bfa,#7c3aed); color:#fff; border:none; }
+    .plan-cta.optimize-cta:hover { filter:brightness(1.1); }
+    .plan-cta.grow-cta { background:rgba(52,211,153,0.1); border:1px solid rgba(52,211,153,0.3); color:#34d399; }
+    .plan-cta.grow-cta:hover { background:rgba(52,211,153,0.2); }
+    /* Comparativa */
+    .compare-table { width:100%; border-collapse:collapse; }
+    .compare-table th { padding:16px 24px; text-align:left; font-size:0.82rem; color:var(--white-40); font-weight:600; text-transform:uppercase; letter-spacing:0.08em; border-bottom:1px solid var(--border); }
+    .compare-table th:not(:first-child) { text-align:center; }
+    .compare-table td { padding:16px 24px; border-bottom:1px solid rgba(255,255,255,0.04); font-size:0.88rem; }
+    .compare-table td:not(:first-child) { text-align:center; }
+    .compare-table tr:last-child td { border-bottom:none; }
+    .compare-table tr:hover td { background:rgba(255,255,255,0.02); }
+    .compare-table .feature-name { color:var(--white-70); }
+    .compare-table .col-discover { color:#29b6f6; }
+    .compare-table .col-optimize { color:#a78bfa; }
+    .compare-table .col-grow { color:#34d399; }
+    .compare-table .section-header td { background:rgba(255,255,255,0.03); color:var(--white-40); font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; padding:12px 24px; }
+    .tick { font-size:1rem; }
+    .tick.yes-d { color:#29b6f6; }
+    .tick.yes-o { color:#a78bfa; }
+    .tick.yes-g { color:#34d399; }
+    .tick.no { color:rgba(255,255,255,0.15); }
+    /* Tabs */
+    .tabs-nav { display:flex; border-bottom:1px solid var(--border); margin-bottom:56px; flex-wrap:wrap; }
+    .tab-btn { padding:14px 32px; background:transparent; border:none; border-bottom:3px solid transparent; color:var(--white-40); font-size:0.9rem; font-weight:600; cursor:pointer; transition:all 0.2s; white-space:nowrap; margin-bottom:-1px; font-family:inherit; }
+    .tab-btn:hover { color:var(--white-70); }
+    .tab-btn.active { color:var(--blue); border-bottom-color:var(--blue); background:rgba(41,182,246,0.04); }
+    .tab-panel { display:none; }
+    .tab-panel.active { display:block; animation:tabFadeIn 0.3s ease; }
+    @keyframes tabFadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+    @media (max-width:900px) {
+      .plans-grid { grid-template-columns:1fr; }
+      .compare-table th, .compare-table td { padding:12px 14px; font-size:0.8rem; }
+      .tab-btn { padding:12px 20px; font-size:0.85rem; }
     }
   </style>
 </head>
@@ -136,6 +78,8 @@
       <li><a href="nosotros.html">Nosotros</a></li>
       <li><a href="framework.html">Framework</a></li>
       <li><a href="planes.html">Planes</a></li>
+      <li><a href="ciberseguridad.html">Ciberseguridad</a></li>
+      <li><a href="blog.html">Blog</a></li>
       <li><a href="contacto.html" class="nav-cta"><span class="btn btn-primary">Comenzar</span></a></li>
     </ul>
   </div>
@@ -144,212 +88,224 @@
 <!-- HERO -->
 <section class="page-hero orb-section">
   <div class="container">
-    <span class="section-label">Planes y precios</span>
-    <h1 class="anim-fade-up">Un Plan Pensado <span class="text-blue">para Ti</span></h1>
+    <span class="section-label">Inversión</span>
+    <h1 class="anim-fade-up">Elegí tu <span class="text-blue">plan</span></h1>
     <div class="divider center"></div>
-    <p class="anim-fade-up anim-delay-1" style="max-width:600px;margin:0 auto;font-size:1.1rem;">
-      Tres niveles de servicio diseñados para acompañarte en cada etapa de tu crecimiento empresarial.
+    <p class="anim-fade-up anim-delay-1" style="max-width:580px;margin:0 auto;font-size:1.1rem;">
+      Tres niveles diseñados para acompañar cada etapa del crecimiento. Empezás donde estás y evolucionás cuando estés listo.
     </p>
   </div>
 </section>
 
-<!-- PLANES -->
-<section>
+<!-- PESTAÑAS -->
+<section style="padding:56px 0 80px;">
   <div class="container">
-    <div class="plans-grid">
+    <nav class="tabs-nav" role="tablist">
+      <button class="tab-btn active" data-group="planes" data-tab="planes">Los planes</button>
+      <button class="tab-btn" data-group="planes" data-tab="comparativa">Tabla comparativa</button>
+    </nav>
 
-      <!-- Discover -->
-      <div class="plan-card reveal tilt-card">
-        <div class="plan-header">
-          <div class="plan-name">Nivel 01</div>
-          <div class="plan-title">Zepeling Discover</div>
-          <p class="plan-desc">Convertimos datos, automatización e inteligencia aplicada en decisiones estratégicas que impulsan el crecimiento empresarial.</p>
-        </div>
-        <div class="plan-price-wrap">
+    <!-- Tab 1: Los planes -->
+    <div class="tab-panel active" data-group="planes" data-tab="planes">
+      <div class="plans-grid">
+
+        <!-- Discover -->
+        <div class="plan-card discover reveal">
+          <div class="plan-level discover">Nivel 01</div>
+          <h2>Discover</h2>
+          <p style="color:var(--white-70);font-size:0.88rem;margin-bottom:0;">Diagnóstico y primer dashboard de inteligencia</p>
+          <div class="plan-divider"></div>
           <div class="plan-price">$1.490.000</div>
-          <div class="plan-period">mensual*</div>
-        </div>
-        <div class="plan-features">
-          <h5>Alcance</h5>
-          <ul class="feature-list">
-            <li>Dashboards personalizados</li>
-            <li>Indicadores estratégicos</li>
-            <li>Reportes automáticos</li>
-            <li>Seguimiento del desempeño</li>
-            <li>Acompañamiento y soporte</li>
+          <div class="plan-price-note">ARS · Pago único</div>
+          <ul class="plan-features">
+            <li><i data-lucide="check" class="check" style="width:18px;height:18px;stroke:#29b6f6;"></i><span>Diagnóstico inicial del negocio</span></li>
+            <li><i data-lucide="check" class="check" style="width:18px;height:18px;stroke:#29b6f6;"></i><span>Dashboard BI personalizado</span></li>
+            <li><i data-lucide="check" class="check" style="width:18px;height:18px;stroke:#29b6f6;"></i><span>Hasta 3 fuentes de datos</span></li>
+            <li><i data-lucide="check" class="check" style="width:18px;height:18px;stroke:#29b6f6;"></i><span>KPIs clave del negocio</span></li>
+            <li><i data-lucide="check" class="check" style="width:18px;height:18px;stroke:#29b6f6;"></i><span>Entrega en 60 días</span></li>
+            <li><i data-lucide="check" class="check" style="width:18px;height:18px;stroke:#29b6f6;"></i><span>1 revisión de ajuste incluida</span></li>
           </ul>
+          <a href="discover.html" class="plan-cta discover-cta">Ver plan Discover →</a>
         </div>
-        <div class="plan-cta">
-          <a href="discover.html" class="btn btn-outline">Ver detalles</a>
+
+        <!-- Optimize -->
+        <div class="plan-card optimize featured reveal">
+          <div class="featured-badge">Más elegido</div>
+          <div class="plan-level optimize">Nivel 02</div>
+          <h2>Optimize</h2>
+          <p style="color:var(--white-70);font-size:0.88rem;margin-bottom:0;">Automatización de procesos + inteligencia operativa</p>
+          <div class="plan-divider"></div>
+          <div class="plan-price" style="color:#a78bfa;">$2.490.000</div>
+          <div class="plan-price-note">ARS · Pago único</div>
+          <ul class="plan-features">
+            <li><i data-lucide="check" class="check" style="width:18px;height:18px;stroke:#a78bfa;"></i><span>Todo lo de Discover incluido</span></li>
+            <li><i data-lucide="check" class="check" style="width:18px;height:18px;stroke:#a78bfa;"></i><span>Automatización de reportes</span></li>
+            <li><i data-lucide="check" class="check" style="width:18px;height:18px;stroke:#a78bfa;"></i><span>Flujos de trabajo automáticos</span></li>
+            <li><i data-lucide="check" class="check" style="width:18px;height:18px;stroke:#a78bfa;"></i><span>Alertas inteligentes</span></li>
+            <li><i data-lucide="check" class="check" style="width:18px;height:18px;stroke:#a78bfa;"></i><span>Integración de sistemas</span></li>
+            <li><i data-lucide="check" class="check" style="width:18px;height:18px;stroke:#a78bfa;"></i><span>Seguimiento mensual</span></li>
+          </ul>
+          <a href="optimize.html" class="plan-cta optimize-cta">Ver plan Optimize →</a>
         </div>
+
+        <!-- Grow -->
+        <div class="plan-card grow reveal">
+          <div class="plan-level grow">Nivel 03</div>
+          <h2>Grow</h2>
+          <p style="color:var(--white-70);font-size:0.88rem;margin-bottom:0;">Soluciones a medida, IA aplicada e integraciones avanzadas</p>
+          <div class="plan-divider"></div>
+          <div class="plan-price" style="color:#34d399;font-size:1.8rem;">Desde $3.990.000</div>
+          <div class="plan-price-note">ARS · Cotización personalizada</div>
+          <ul class="plan-features">
+            <li><i data-lucide="check" class="check" style="width:18px;height:18px;stroke:#34d399;"></i><span>Todo lo de Optimize incluido</span></li>
+            <li><i data-lucide="check" class="check" style="width:18px;height:18px;stroke:#34d399;"></i><span>Inteligencia artificial aplicada</span></li>
+            <li><i data-lucide="check" class="check" style="width:18px;height:18px;stroke:#34d399;"></i><span>Apps y herramientas a medida</span></li>
+            <li><i data-lucide="check" class="check" style="width:18px;height:18px;stroke:#34d399;"></i><span>Integraciones avanzadas de sistemas</span></li>
+            <li><i data-lucide="check" class="check" style="width:18px;height:18px;stroke:#34d399;"></i><span>Acompañamiento estratégico continuo</span></li>
+            <li><i data-lucide="check" class="check" style="width:18px;height:18px;stroke:#34d399;"></i><span>Alcance y precio según proyecto</span></li>
+          </ul>
+          <a href="grow.html" class="plan-cta grow-cta">Ver plan Grow →</a>
+        </div>
+
       </div>
 
-      <!-- Optimize (featured) -->
-      <div class="plan-card featured reveal tilt-card anim-delay-1">
-        <div class="featured-badge">Más popular</div>
-        <div class="plan-header">
-          <div class="plan-name">Nivel 02</div>
-          <div class="plan-title">Zepeling Optimize</div>
-          <p class="plan-desc">Diseñamos ecosistemas digitales que fortalecen la presencia, experiencia y crecimiento del negocio.</p>
-        </div>
-        <div class="plan-price-wrap">
-          <div class="plan-price">$2.490.000</div>
-          <div class="plan-period">mensual*</div>
-        </div>
-        <div class="plan-features">
-          <h5>Alcance</h5>
-          <ul class="feature-list">
-            <li>Todo lo incluido en Discover</li>
-            <li>Automatización de procesos</li>
-            <li>Reportes inteligentes</li>
-            <li>Integración de herramientas</li>
-            <li>Indicadores avanzados</li>
-            <li>Acompañamiento continuo</li>
-          </ul>
-        </div>
-        <div class="plan-cta">
-          <a href="optimize.html" class="btn btn-primary">Ver detalles</a>
-        </div>
+      <div style="margin-top:48px;text-align:center;background:var(--navy-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:40px;">
+        <p style="font-size:1rem;color:var(--white-70);margin-bottom:8px;">¿No sabés cuál es el plan adecuado para tu empresa?</p>
+        <h3 style="margin-bottom:20px;">Agendá un diagnóstico <span class="text-blue">gratuito</span></h3>
+        <a href="contacto.html" class="btn btn-primary">Agendar diagnóstico →</a>
       </div>
+    </div>
 
-      <!-- Grow -->
-      <div class="plan-card reveal anim-delay-2">
-        <div class="plan-header">
-          <div class="plan-name">Nivel 03</div>
-          <div class="plan-title">Zepeling Grow</div>
-          <p class="plan-desc">Creamos soluciones tecnológicas personalizadas adaptadas a las necesidades y objetivos de cada empresa.</p>
-        </div>
-        <div class="plan-price-wrap">
-          <div class="plan-price-from">Desde</div>
-          <div class="plan-price">$3.990.000</div>
-          <div class="plan-period">mensual*</div>
-        </div>
-        <div class="plan-features">
-          <h5>Alcance</h5>
-          <ul class="feature-list">
-            <li>Todo lo incluido en Optimize</li>
-            <li>Soluciones tecnológicas a medida</li>
-            <li>Integraciones avanzadas</li>
-            <li>Inteligencia artificial aplicada</li>
-            <li>Aplicaciones personalizadas</li>
-            <li>Acompañamiento estratégico</li>
-          </ul>
-        </div>
-        <div class="plan-cta">
-          <a href="grow.html" class="btn btn-outline">Ver detalles</a>
-        </div>
+    <!-- Tab 2: Comparativa -->
+    <div class="tab-panel" data-group="planes" data-tab="comparativa">
+      <div style="overflow-x:auto;">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th style="width:40%;">Característica</th>
+              <th class="col-discover">Discover</th>
+              <th class="col-optimize">Optimize</th>
+              <th class="col-grow">Grow</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="section-header"><td colspan="4">Diagnóstico e inteligencia</td></tr>
+            <tr>
+              <td class="feature-name">Diagnóstico inicial del negocio</td>
+              <td><span class="tick yes-d">✓</span></td>
+              <td><span class="tick yes-o">✓</span></td>
+              <td><span class="tick yes-g">✓</span></td>
+            </tr>
+            <tr>
+              <td class="feature-name">Dashboard BI personalizado</td>
+              <td><span class="tick yes-d">✓</span></td>
+              <td><span class="tick yes-o">✓</span></td>
+              <td><span class="tick yes-g">✓</span></td>
+            </tr>
+            <tr>
+              <td class="feature-name">Fuentes de datos conectadas</td>
+              <td style="color:var(--white-70);">Hasta 3</td>
+              <td style="color:var(--white-70);">Hasta 8</td>
+              <td style="color:var(--white-70);">Sin límite</td>
+            </tr>
+            <tr>
+              <td class="feature-name">KPIs clave del negocio</td>
+              <td><span class="tick yes-d">✓</span></td>
+              <td><span class="tick yes-o">✓</span></td>
+              <td><span class="tick yes-g">✓</span></td>
+            </tr>
+            <tr class="section-header"><td colspan="4">Automatización</td></tr>
+            <tr>
+              <td class="feature-name">Automatización de reportes</td>
+              <td><span class="tick no">—</span></td>
+              <td><span class="tick yes-o">✓</span></td>
+              <td><span class="tick yes-g">✓</span></td>
+            </tr>
+            <tr>
+              <td class="feature-name">Flujos de trabajo automáticos</td>
+              <td><span class="tick no">—</span></td>
+              <td><span class="tick yes-o">✓</span></td>
+              <td><span class="tick yes-g">✓</span></td>
+            </tr>
+            <tr>
+              <td class="feature-name">Alertas inteligentes</td>
+              <td><span class="tick no">—</span></td>
+              <td><span class="tick yes-o">✓</span></td>
+              <td><span class="tick yes-g">✓</span></td>
+            </tr>
+            <tr>
+              <td class="feature-name">Integración de sistemas</td>
+              <td><span class="tick no">—</span></td>
+              <td><span class="tick yes-o">✓</span></td>
+              <td><span class="tick yes-g">✓</span></td>
+            </tr>
+            <tr class="section-header"><td colspan="4">Tecnología avanzada</td></tr>
+            <tr>
+              <td class="feature-name">Inteligencia artificial aplicada</td>
+              <td><span class="tick no">—</span></td>
+              <td><span class="tick no">—</span></td>
+              <td><span class="tick yes-g">✓</span></td>
+            </tr>
+            <tr>
+              <td class="feature-name">Apps y herramientas a medida</td>
+              <td><span class="tick no">—</span></td>
+              <td><span class="tick no">—</span></td>
+              <td><span class="tick yes-g">✓</span></td>
+            </tr>
+            <tr>
+              <td class="feature-name">Integraciones avanzadas</td>
+              <td><span class="tick no">—</span></td>
+              <td><span class="tick no">—</span></td>
+              <td><span class="tick yes-g">✓</span></td>
+            </tr>
+            <tr class="section-header"><td colspan="4">Acompañamiento</td></tr>
+            <tr>
+              <td class="feature-name">Revisión de ajuste</td>
+              <td style="color:var(--white-70);">1 incluida</td>
+              <td style="color:var(--white-70);">Mensual</td>
+              <td style="color:var(--white-70);">Continuo</td>
+            </tr>
+            <tr>
+              <td class="feature-name">Seguimiento estratégico</td>
+              <td><span class="tick no">—</span></td>
+              <td><span class="tick yes-o">✓</span></td>
+              <td><span class="tick yes-g">✓</span></td>
+            </tr>
+            <tr class="section-header"><td colspan="4">Inversión</td></tr>
+            <tr>
+              <td class="feature-name">Precio</td>
+              <td style="color:#29b6f6;font-weight:700;">$1.490.000</td>
+              <td style="color:#a78bfa;font-weight:700;">$2.490.000</td>
+              <td style="color:#34d399;font-weight:700;">Desde $3.990.000</td>
+            </tr>
+            <tr>
+              <td class="feature-name">Modalidad</td>
+              <td style="color:var(--white-70);">Pago único</td>
+              <td style="color:var(--white-70);">Pago único</td>
+              <td style="color:var(--white-70);">Cotización</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><a href="discover.html" style="color:#29b6f6;font-weight:700;font-size:0.85rem;text-decoration:none;">Ver Discover →</a></td>
+              <td><a href="optimize.html" style="color:#a78bfa;font-weight:700;font-size:0.85rem;text-decoration:none;">Ver Optimize →</a></td>
+              <td><a href="grow.html" style="color:#34d399;font-weight:700;font-size:0.85rem;text-decoration:none;">Ver Grow →</a></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+    </div>
 
-    </div>
-    <p class="note">* Precios expresados en pesos colombianos. IVA no incluido. Consultar condiciones específicas.</p>
-  </div>
-</section>
-
-<!-- TABLA COMPARATIVA -->
-<section class="section-table orb-section">
-  <div class="container">
-    <div class="text-center" style="margin-bottom:40px;">
-      <span class="section-label">Comparativa</span>
-      <h2 class="reveal">Compara los <span class="text-blue">Planes</span></h2>
-      <div class="divider center"></div>
-    </div>
-    <div class="reveal" style="overflow-x:auto;">
-      <table class="comparison-table">
-        <thead>
-          <tr>
-            <th style="text-align:left;">Característica</th>
-            <th>Discover</th>
-            <th class="col-featured">Optimize</th>
-            <th>Grow</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Dashboards personalizados</td>
-            <td><span class="check">✓</span></td>
-            <td class="col-featured"><span class="check">✓</span></td>
-            <td><span class="check">✓</span></td>
-          </tr>
-          <tr>
-            <td>Indicadores estratégicos</td>
-            <td><span class="check">✓</span></td>
-            <td class="col-featured"><span class="check">✓</span></td>
-            <td><span class="check">✓</span></td>
-          </tr>
-          <tr>
-            <td>Reportes automáticos</td>
-            <td><span class="check">✓</span></td>
-            <td class="col-featured"><span class="check">✓</span></td>
-            <td><span class="check">✓</span></td>
-          </tr>
-          <tr>
-            <td>Seguimiento del desempeño</td>
-            <td><span class="check">✓</span></td>
-            <td class="col-featured"><span class="check">✓</span></td>
-            <td><span class="check">✓</span></td>
-          </tr>
-          <tr>
-            <td>Automatización de procesos</td>
-            <td><span class="dash">—</span></td>
-            <td class="col-featured"><span class="check">✓</span></td>
-            <td><span class="check">✓</span></td>
-          </tr>
-          <tr>
-            <td>Reportes inteligentes</td>
-            <td><span class="dash">—</span></td>
-            <td class="col-featured"><span class="check">✓</span></td>
-            <td><span class="check">✓</span></td>
-          </tr>
-          <tr>
-            <td>Integración de herramientas</td>
-            <td><span class="dash">—</span></td>
-            <td class="col-featured"><span class="check">✓</span></td>
-            <td><span class="check">✓</span></td>
-          </tr>
-          <tr>
-            <td>Indicadores avanzados</td>
-            <td><span class="dash">—</span></td>
-            <td class="col-featured"><span class="check">✓</span></td>
-            <td><span class="check">✓</span></td>
-          </tr>
-          <tr>
-            <td>Soluciones tecnológicas a medida</td>
-            <td><span class="dash">—</span></td>
-            <td class="col-featured"><span class="dash">—</span></td>
-            <td><span class="check">✓</span></td>
-          </tr>
-          <tr>
-            <td>Inteligencia artificial aplicada</td>
-            <td><span class="dash">—</span></td>
-            <td class="col-featured"><span class="dash">—</span></td>
-            <td><span class="check">✓</span></td>
-          </tr>
-          <tr>
-            <td>Aplicaciones personalizadas</td>
-            <td><span class="dash">—</span></td>
-            <td class="col-featured"><span class="dash">—</span></td>
-            <td><span class="check">✓</span></td>
-          </tr>
-          <tr>
-            <td>Acompañamiento estratégico</td>
-            <td><span class="dash">—</span></td>
-            <td class="col-featured"><span class="dash">—</span></td>
-            <td><span class="check">✓</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section style="text-align:center;">
+<section style="text-align:center;background:var(--navy-light);">
   <div class="container">
-    <h2 class="reveal">¿No sabes qué plan <span class="text-blue">elegir</span>?</h2>
+    <h2 class="reveal">¿Todavía tenés <span class="text-blue">dudas</span>?</h2>
     <div class="divider center"></div>
-    <p class="reveal" style="max-width:500px;margin:0 auto 40px;">Agenda un diagnóstico gratuito y te ayudamos a identificar el plan que mejor se adapta a tu negocio.</p>
-    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;" class="reveal">
-      <a href="contacto.html" class="btn btn-primary" style="padding:16px 40px;">Agendar diagnóstico</a>
+    <p class="reveal" style="max-width:500px;margin:0 auto 40px;color:var(--white-70);">Charlemos. En 30 minutos te ayudamos a identificar qué nivel se adapta mejor a tu empresa.</p>
+    <div class="reveal">
+      <a href="contacto.html" class="btn btn-primary" style="padding:16px 40px;">Agendar una charla gratuita</a>
     </div>
   </div>
 </section>
@@ -368,6 +324,8 @@
           <li><a href="nosotros.html">Nosotros</a></li>
           <li><a href="framework.html">Framework</a></li>
           <li><a href="planes.html">Planes</a></li>
+          <li><a href="ciberseguridad.html">Ciberseguridad</a></li>
+          <li><a href="blog.html">Blog</a></li>
           <li><a href="contacto.html">Contacto</a></li>
         </ul>
       </div>
@@ -391,5 +349,17 @@
 <script src="js/main.js"></script>
 <script>lucide.createIcons();</script>
 <script src="js/effects.js"></script>
+<script>
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const group = btn.dataset.group;
+      const target = btn.dataset.tab;
+      document.querySelectorAll(`.tab-btn[data-group="${group}"]`).forEach(b => b.classList.remove('active'));
+      document.querySelectorAll(`.tab-panel[data-group="${group}"]`).forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelector(`.tab-panel[data-group="${group}"][data-tab="${target}"]`).classList.add('active');
+    });
+  });
+</script>
 </body>
 </html>

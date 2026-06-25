@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ciberseguridad — Zepeling</title>
+  <meta name="description" content="Protegé tu empresa con la capa de seguridad de Zepeling: auditorías, monitoreo y respuesta ante incidentes." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .threat-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+    .threat-card { background:var(--navy-card); border:1px solid var(--border); border-radius:var(--radius); padding:28px; border-left:3px solid rgba(239,68,68,0.4); transition:all 0.3s; }
+    .threat-card:hover { border-left-color:rgba(239,68,68,0.8); transform:translateY(-4px); }
+    .threat-label { font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:rgba(239,68,68,0.8); margin-bottom:8px; }
+    .threat-card h4 { font-size:1rem; margin-bottom:8px; }
+    .threat-card p { font-size:0.88rem; color:var(--white-70); margin:0; }
+    .pillar-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .pillar-card { background:var(--navy-card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:40px 32px; text-align:center; transition:all 0.3s; position:relative; overflow:hidden; }
+    .pillar-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,rgba(41,182,246,0.3),rgba(41,182,246,0.8),rgba(41,182,246,0.3)); }
+    .pillar-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-blue); border-color:rgba(41,182,246,0.3); }
+    .service-row { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; padding:48px 0; border-bottom:1px solid var(--border); }
+    .service-row:last-child { border-bottom:none; }
+    .service-row.reverse { direction:rtl; }
+    .service-row.reverse > * { direction:ltr; }
+    .service-card-visual { background:var(--navy-card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:40px; text-align:center; }
+    .process-timeline { display:grid; grid-template-columns:repeat(4,1fr); gap:0; position:relative; }
+    .process-timeline::before { content:''; position:absolute; top:40px; left:12.5%; right:12.5%; height:2px; background:linear-gradient(90deg,rgba(41,182,246,0.2),rgba(41,182,246,0.6),rgba(41,182,246,0.2)); }
+    .pt-step { text-align:center; padding:0 16px; position:relative; }
+    .pt-number { width:80px; height:80px; border-radius:50%; background:var(--navy-card); border:1px solid rgba(41,182,246,0.3); display:flex; align-items:center; justify-content:center; margin:0 auto 24px; font-size:1.5rem; font-weight:900; color:var(--blue); position:relative; z-index:1; }
+    .pt-step h4 { font-size:0.95rem; margin-bottom:8px; }
+    .pt-step p { font-size:0.83rem; color:var(--white-70); }
+    .why-card { background:linear-gradient(135deg,var(--navy-card) 0%,rgba(17,40,80,0.9) 100%); border:1px solid rgba(41,182,246,0.2); border-radius:var(--radius-lg); padding:56px 48px; text-align:center; }
+    .why-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin-top:40px; text-align:left; }
+    .why-item { display:flex; gap:16px; align-items:flex-start; }
+    .why-dot { width:10px; height:10px; min-width:10px; border-radius:50%; background:var(--blue); margin-top:6px; }
+    /* Tabs */
+    .tabs-nav { display:flex; border-bottom:1px solid var(--border); margin-bottom:56px; flex-wrap:wrap; }
+    .tab-btn { padding:14px 28px; background:transparent; border:none; border-bottom:3px solid transparent; color:var(--white-40); font-size:0.9rem; font-weight:600; cursor:pointer; transition:all 0.2s; white-space:nowrap; margin-bottom:-1px; font-family:inherit; }
+    .tab-btn:hover { color:var(--white-70); }
+    .tab-btn.active { color:var(--blue); border-bottom-color:var(--blue); background:rgba(41,182,246,0.04); }
+    .tab-panel { display:none; }
+    .tab-panel.active { display:block; animation:tabFadeIn 0.3s ease; }
+    @keyframes tabFadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+    @media (max-width:900px) {
+      .threat-grid, .pillar-grid, .why-grid { grid-template-columns:1fr; }
+      .service-row { grid-template-columns:1fr; gap:24px; }
+      .service-row.reverse { direction:ltr; }
+      .process-timeline { grid-template-columns:1fr 1fr; }
+      .process-timeline::before { display:none; }
+      .tab-btn { padding:12px 14px; font-size:0.82rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><span class="nav-logo-text">Zepeling</span></a>
+    <button class="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="framework.html">Framework</a></li>
+      <li><a href="planes.html">Planes</a></li>
+      <li><a href="ciberseguridad.html">Ciberseguridad</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contacto.html" class="nav-cta"><span class="btn btn-primary">Comenzar</span></a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero orb-section">
+  <div class="container">
+    <span class="section-label" style="color:rgba(239,68,68,0.8);border-color:rgba(239,68,68,0.3);">Ciberseguridad</span>
+    <h1 class="anim-fade-up">Tu negocio, <span class="text-blue">protegido</span></h1>
+    <div class="divider center"></div>
+    <p class="anim-fade-up anim-delay-1" style="max-width:600px;margin:0 auto;font-size:1.1rem;">
+      La transformación digital aumenta la exposición a riesgos. Integramos una capa de seguridad que protege tus datos, sistemas y continuidad operativa.
+    </p>
+    <div class="anim-fade-up anim-delay-2" style="display:flex;gap:12px;justify-content:center;margin-top:40px;flex-wrap:wrap;">
+      <a href="contacto.html" class="btn btn-primary">Solicitar auditoría</a>
+      <a href="#tabs" class="btn btn-outline">Ver servicios</a>
+    </div>
+  </div>
+</section>
+
+<!-- PESTAÑAS -->
+<section id="tabs" style="padding:56px 0 80px;">
+  <div class="container">
+    <nav class="tabs-nav" role="tablist">
+      <button class="tab-btn active" data-group="cyber" data-tab="servicios">Servicios</button>
+      <button class="tab-btn" data-group="cyber" data-tab="amenazas">Amenazas</button>
+      <button class="tab-btn" data-group="cyber" data-tab="proceso">El proceso</button>
+      <button class="tab-btn" data-group="cyber" data-tab="porque">¿Por qué Zepeling?</button>
+    </nav>
+
+    <!-- Tab 1: Servicios -->
+    <div class="tab-panel active" data-group="cyber" data-tab="servicios">
+      <div class="text-center" style="margin-bottom:48px;">
+        <h2>Tres pilares de <span class="text-blue">protección</span></h2>
+        <div class="divider center"></div>
+      </div>
+      <div class="pillar-grid" style="margin-bottom:64px;">
+        <div class="pillar-card tilt-card">
+          <div style="width:64px;height:64px;border-radius:16px;background:var(--blue-glow);border:1px solid rgba(41,182,246,0.2);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+            <i data-lucide="shield-check" style="width:28px;height:28px;stroke:var(--blue);"></i>
+          </div>
+          <h3>Prevención</h3>
+          <p style="font-size:0.9rem;margin-top:12px;">Evaluamos vulnerabilidades antes de que se conviertan en problemas. Configuración segura, gestión de accesos y políticas de seguridad.</p>
+        </div>
+        <div class="pillar-card tilt-card">
+          <div style="width:64px;height:64px;border-radius:16px;background:var(--blue-glow);border:1px solid rgba(41,182,246,0.2);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+            <i data-lucide="eye" style="width:28px;height:28px;stroke:var(--blue);"></i>
+          </div>
+          <h3>Detección</h3>
+          <p style="font-size:0.9rem;margin-top:12px;">Monitoreo continuo de la infraestructura. Alertas en tiempo real ante comportamientos anómalos o accesos no autorizados.</p>
+        </div>
+        <div class="pillar-card tilt-card">
+          <div style="width:64px;height:64px;border-radius:16px;background:var(--blue-glow);border:1px solid rgba(41,182,246,0.2);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+            <i data-lucide="zap" style="width:28px;height:28px;stroke:var(--blue);"></i>
+          </div>
+          <h3>Respuesta</h3>
+          <p style="font-size:0.9rem;margin-top:12px;">Protocolo claro de acción ante incidentes. Contención, análisis, recuperación y aprendizaje para fortalecer la defensa.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="service-row reveal">
+          <div>
+            <span class="section-label">Servicio 01</span>
+            <h2>Auditoría de <span class="text-blue">Seguridad</span></h2>
+            <div class="divider"></div>
+            <p style="margin-bottom:20px;">Evaluación completa de la infraestructura de seguridad de tu empresa: identificación de vulnerabilidades, análisis de riesgos y plan de remediación priorizado.</p>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+              <li style="display:flex;gap:10px;align-items:center;"><i data-lucide="check-circle" style="width:18px;height:18px;stroke:var(--blue);min-width:18px;"></i> Análisis de vulnerabilidades en sistemas y redes</li>
+              <li style="display:flex;gap:10px;align-items:center;"><i data-lucide="check-circle" style="width:18px;height:18px;stroke:var(--blue);min-width:18px;"></i> Revisión de políticas de acceso y permisos</li>
+              <li style="display:flex;gap:10px;align-items:center;"><i data-lucide="check-circle" style="width:18px;height:18px;stroke:var(--blue);min-width:18px;"></i> Informe ejecutivo con plan de acción</li>
+            </ul>
+          </div>
+          <div class="service-card-visual">
+            <div style="font-size:3.5rem;margin-bottom:16px;">🔍</div>
+            <h3 style="color:var(--blue);">Auditoría</h3>
+            <p style="margin-top:8px;font-size:0.9rem;">Identificamos el riesgo antes de que se materialice.</p>
+          </div>
+        </div>
+
+        <div class="service-row reverse reveal">
+          <div>
+            <span class="section-label">Servicio 02</span>
+            <h2>Centro de Operaciones <span class="text-blue">de Seguridad</span></h2>
+            <div class="divider"></div>
+            <p style="margin-bottom:20px;">Monitoreo continuo y respuesta activa ante incidentes. Un equipo dedicado a vigilar tu infraestructura las 24 horas, los 7 días de la semana.</p>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+              <li style="display:flex;gap:10px;align-items:center;"><i data-lucide="check-circle" style="width:18px;height:18px;stroke:var(--blue);min-width:18px;"></i> Monitoreo 24/7 en tiempo real</li>
+              <li style="display:flex;gap:10px;align-items:center;"><i data-lucide="check-circle" style="width:18px;height:18px;stroke:var(--blue);min-width:18px;"></i> Alertas tempranas y contención de incidentes</li>
+              <li style="display:flex;gap:10px;align-items:center;"><i data-lucide="check-circle" style="width:18px;height:18px;stroke:var(--blue);min-width:18px;"></i> Reportes mensuales de seguridad</li>
+            </ul>
+          </div>
+          <div class="service-card-visual">
+            <div style="font-size:3.5rem;margin-bottom:16px;">🛡️</div>
+            <h3 style="color:var(--blue);">SOC</h3>
+            <p style="margin-top:8px;font-size:0.9rem;">Vigilancia permanente, respuesta inmediata.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 2: Amenazas -->
+    <div class="tab-panel" data-group="cyber" data-tab="amenazas">
+      <div class="text-center" style="margin-bottom:48px;">
+        <h2>Amenazas que enfrentan <span class="text-blue">las empresas hoy</span></h2>
+        <div class="divider center"></div>
+        <p style="max-width:560px;margin:0 auto;color:var(--white-70);">El 60% de las PyMEs que sufren un ciberataque cierran dentro de los 6 meses. El riesgo es real y subestimado.</p>
+      </div>
+      <div class="threat-grid">
+        <div class="threat-card">
+          <div class="threat-label">Amenaza 01</div>
+          <h4>Ransomware</h4>
+          <p>Secuestro de datos críticos con demanda de rescate. Puede paralizar completamente las operaciones en minutos y comprometer meses de información.</p>
+        </div>
+        <div class="threat-card">
+          <div class="threat-label">Amenaza 02</div>
+          <h4>Phishing y Ingeniería Social</h4>
+          <p>Engaños diseñados para obtener credenciales o información confidencial. El eslabón más vulnerable es el humano, no la tecnología.</p>
+        </div>
+        <div class="threat-card">
+          <div class="threat-label">Amenaza 03</div>
+          <h4>Accesos No Autorizados</h4>
+          <p>Contraseñas débiles, cuentas sin MFA o ex-empleados con acceso activo generan brechas críticas en la seguridad de la empresa.</p>
+        </div>
+        <div class="threat-card">
+          <div class="threat-label">Amenaza 04</div>
+          <h4>Fuga de Datos</h4>
+          <p>Filtración de información sensible de clientes, procesos o finanzas. Impacto legal, reputacional y operativo difícil de revertir.</p>
+        </div>
+      </div>
+      <div style="margin-top:48px;background:rgba(239,68,68,0.05);border:1px solid rgba(239,68,68,0.2);border-radius:var(--radius-lg);padding:32px;text-align:center;">
+        <p style="font-size:1.05rem;color:rgba(239,68,68,0.9);font-weight:600;margin:0 0 16px;">"No se trata de si te van a atacar, sino de cuándo."</p>
+        <p style="color:var(--white-70);margin:0 0 24px;font-size:0.9rem;">La preparación marca la diferencia entre una crisis y un incidente controlado.</p>
+        <a href="contacto.html" class="btn btn-primary">Solicitar auditoría gratuita</a>
+      </div>
+    </div>
+
+    <!-- Tab 3: El proceso -->
+    <div class="tab-panel" data-group="cyber" data-tab="proceso">
+      <div class="text-center" style="margin-bottom:56px;">
+        <h2>Cómo trabajamos la <span class="text-blue">seguridad</span></h2>
+        <div class="divider center"></div>
+        <p style="max-width:520px;margin:0 auto;color:var(--white-70);">Un proceso estructurado para identificar, mitigar y prevenir riesgos de seguridad.</p>
+      </div>
+      <div class="process-timeline">
+        <div class="pt-step">
+          <div class="pt-number">01</div>
+          <h4>Diagnóstico</h4>
+          <p>Relevamiento del estado actual de seguridad. Mapeo de activos, accesos y vulnerabilidades existentes.</p>
+        </div>
+        <div class="pt-step">
+          <div class="pt-number">02</div>
+          <h4>Plan de seguridad</h4>
+          <p>Definición de controles, prioridades y roadmap de implementación según el nivel de riesgo identificado.</p>
+        </div>
+        <div class="pt-step">
+          <div class="pt-number">03</div>
+          <h4>Implementación</h4>
+          <p>Despliegue de controles, configuración segura, capacitación del equipo y activación de monitoreo.</p>
+        </div>
+        <div class="pt-step">
+          <div class="pt-number">04</div>
+          <h4>Monitoreo continuo</h4>
+          <p>Revisión periódica, respuesta ante alertas, mejora continua y reportes de situación de seguridad.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 4: Por qué Zepeling -->
+    <div class="tab-panel" data-group="cyber" data-tab="porque">
+      <div class="why-card">
+        <span class="section-label">Diferenciación</span>
+        <h2>¿Por qué <span class="text-blue">Zepeling</span>?</h2>
+        <div class="divider center"></div>
+        <p style="max-width:560px;margin:0 auto;color:var(--white-70);">No somos solo un proveedor de seguridad. Integramos la ciberseguridad dentro de la estrategia de inteligencia empresarial.</p>
+        <div class="why-grid">
+          <div class="why-item">
+            <div class="why-dot"></div>
+            <div>
+              <strong style="display:block;margin-bottom:4px;">Visión integral del negocio</strong>
+              <p style="font-size:0.88rem;color:var(--white-70);margin:0;">Entendemos tus procesos, datos y sistemas, lo que nos permite proteger lo que realmente importa.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-dot"></div>
+            <div>
+              <strong style="display:block;margin-bottom:4px;">Seguridad sin fricción</strong>
+              <p style="font-size:0.88rem;color:var(--white-70);margin:0;">Implementamos controles que no entorpecen la operación diaria del equipo.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-dot"></div>
+            <div>
+              <strong style="display:block;margin-bottom:4px;">Respuesta rápida garantizada</strong>
+              <p style="font-size:0.88rem;color:var(--white-70);margin:0;">En caso de incidente, activamos el protocolo de respuesta en menos de 48 horas.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-dot"></div>
+            <div>
+              <strong style="display:block;margin-bottom:4px;">Acompañamiento continuo</strong>
+              <p style="font-size:0.88rem;color:var(--white-70);margin:0;">La seguridad no es un evento, es un proceso. Estamos presentes en cada etapa del camino.</p>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:40px;">
+          <a href="contacto.html" class="btn btn-primary" style="padding:16px 40px;">Hablar con un especialista</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section style="text-align:center;background:var(--navy-light);">
+  <div class="container">
+    <h2 class="reveal">Tu empresa merece estar <span class="text-blue">protegida</span></h2>
+    <div class="divider center"></div>
+    <p class="reveal" style="max-width:500px;margin:0 auto 40px;color:var(--white-70);">No esperés a que ocurra un incidente para tomar acción. La prevención siempre es más barata que la recuperación.</p>
+    <div class="reveal" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="contacto.html" class="btn btn-primary" style="padding:16px 40px;">Solicitar auditoría</a>
+      <a href="planes.html" class="btn btn-outline">Ver planes</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="nav-logo-text">Zepeling</span>
+        <p>La Inteligencia Detrás de tu Crecimiento.<br>Departamento de Inteligencia Empresarial.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Páginas</h5>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="framework.html">Framework</a></li>
+          <li><a href="planes.html">Planes</a></li>
+          <li><a href="ciberseguridad.html">Ciberseguridad</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Planes</h5>
+        <ul>
+          <li><a href="discover.html">Zepeling Discover</a></li>
+          <li><a href="optimize.html">Zepeling Optimize</a></li>
+          <li><a href="grow.html">Zepeling Grow</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Zepeling. Todos los derechos reservados.</span>
+      <span>La Inteligencia Detrás de tu Crecimiento</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="js/main.js"></script>
+<script>lucide.createIcons();</script>
+<script src="js/effects.js"></script>
+<script>
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const group = btn.dataset.group;
+      const target = btn.dataset.tab;
+      document.querySelectorAll(`.tab-btn[data-group="${group}"]`).forEach(b => b.classList.remove('active'));
+      document.querySelectorAll(`.tab-panel[data-group="${group}"]`).forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelector(`.tab-panel[data-group="${group}"][data-tab="${target}"]`).classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Las 7 amenazas cibernéticas más peligrosas para las PYMEs en 2025 — Zepeling</title>
+  <meta name="description" content="Las pequeñas y medianas empresas son el objetivo preferido de los ciberdelincuentes. Conoce las 7 amenazas más comunes y cómo proteger tu negocio hoy." />
+  <meta name="keywords" content="ciberseguridad para PYMEs, amenazas cibernéticas, ransomware, phishing empresas, seguridad informática, protección datos empresa, ciberataques 2025" />
+  <meta property="og:title" content="Las 7 amenazas cibernéticas más peligrosas para las PYMEs en 2025" />
+  <meta property="og:description" content="Las pequeñas y medianas empresas son el objetivo preferido de los ciberdelincuentes. Conoce las 7 amenazas más comunes y cómo proteger tu negocio." />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://zepeling.com/articulo-ciberseguridad-pymes.html" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .article-hero { padding: 140px 0 60px; position: relative; overflow: hidden; }
+    .article-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(41,182,246,0.1) 0%, transparent 65%); }
+    .article-hero .container { position: relative; z-index: 1; max-width: 860px; }
+    .article-meta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; font-size: 0.82rem; color: var(--white-40); }
+    .article-meta-divider { width: 3px; height: 3px; border-radius: 50%; background: var(--white-40); }
+    .article-cat { display: inline-block; padding: 4px 14px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; background: rgba(245,158,11,0.15); color: #fbbf24; border: 1px solid rgba(245,158,11,0.3); }
+    .article-hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); line-height: 1.25; margin-bottom: 20px; }
+    .article-hero .lead { font-size: 1.15rem; color: var(--white-70); line-height: 1.75; max-width: 740px; }
+    .article-cover { width: 100%; height: 420px; object-fit: cover; border-radius: var(--radius-lg); display: block; filter: brightness(0.7) saturate(0.8); margin-bottom: 64px; box-shadow: var(--shadow); }
+    .article-layout { display: grid; grid-template-columns: 1fr 300px; gap: 64px; align-items: start; max-width: 1200px; margin: 0 auto; padding: 0 24px 100px; }
+    .article-body h2 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); margin: 48px 0 16px; color: var(--white); }
+    .article-body h2:first-child { margin-top: 0; }
+    .article-body h3 { font-size: 1.15rem; margin: 32px 0 12px; color: var(--blue); }
+    .article-body p { font-size: 1rem; color: var(--white-70); margin-bottom: 20px; line-height: 1.8; }
+    .article-body ul { margin: 16px 0 24px 0; padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .article-body ul li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.97rem; color: var(--white-70); line-height: 1.7; }
+    .article-body ul li::before { content: '→'; color: var(--blue); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+    .callout { background: rgba(41,182,246,0.07); border-left: 3px solid var(--blue); border-radius: 0 var(--radius) var(--radius) 0; padding: 20px 24px; margin: 28px 0; }
+    .callout.warning { background: rgba(245,158,11,0.07); border-left-color: #fbbf24; }
+    .callout p { margin: 0; font-size: 0.97rem; color: var(--white-70); }
+    .callout strong { color: var(--white); }
+
+    .threat-article-card {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      margin: 24px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .threat-article-card::before { content: ''; position: absolute; top:0;left:0;bottom:0;width:3px;background:var(--gradient); }
+    .threat-header { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+    .threat-num { font-size: 1.6rem; font-weight: 900; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; min-width: 32px; }
+    .threat-icon-emoji { font-size: 1.8rem; }
+    .threat-article-card h3 { margin: 0; font-size: 1.05rem; color: var(--white); }
+    .threat-article-card p { font-size: 0.92rem; color: var(--white-70); margin-bottom: 12px; }
+    .threat-tip { display: flex; align-items: flex-start; gap: 10px; font-size: 0.84rem; color: #22c55e; font-weight: 600; margin-top: 12px; }
+    .threat-tip::before { content: '✓ Cómo protegerte:'; white-space: nowrap; }
+
+    .data-card { background: var(--navy-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin: 28px 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; text-align: center; }
+    .data-num { font-size: 2rem; font-weight: 900; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .data-desc { font-size: 0.82rem; color: var(--white-40); margin-top: 4px; }
+
+    .checklist-card { background: var(--navy-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; margin: 28px 0; }
+    .checklist-card h3 { color: var(--blue); margin-bottom: 20px; font-size: 1.05rem; }
+    .checklist-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 0.92rem; color: var(--white-70); }
+    .checklist-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .checklist-item::before { content: '☐'; color: var(--blue); font-size: 1.1rem; flex-shrink: 0; margin-top: -1px; }
+
+    .article-cta { background: var(--navy-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 40px; text-align: center; margin-top: 56px; position: relative; overflow: hidden; }
+    .article-cta::before { content: ''; position: absolute; top:0;left:0;right:0;height:3px;background:var(--gradient); }
+    .article-cta h3 { margin-bottom: 10px; }
+    .article-cta p { font-size: 0.92rem; margin-bottom: 24px; }
+
+    .article-sidebar { position: sticky; top: 100px; }
+    .sidebar-toc { background: var(--navy-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 24px; }
+    .sidebar-toc h5 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--blue); margin-bottom: 14px; }
+    .toc-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .toc-list li a { font-size: 0.84rem; color: var(--white-70); text-decoration: none; display: flex; gap: 8px; align-items: flex-start; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.05); transition: color 0.2s; line-height: 1.4; }
+    .toc-list li a::before { content: '#'; color: var(--blue); flex-shrink: 0; font-weight: 700; }
+    .toc-list li a:hover { color: var(--white); }
+    .toc-list li:last-child a { border-bottom: none; }
+    .related-card { background: var(--navy-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; text-decoration: none; display: block; color: inherit; margin-bottom: 14px; transition: all 0.2s; }
+    .related-card:hover { border-color: rgba(41,182,246,0.4); transform: translateY(-2px); }
+    .related-card .tag-sm { font-size: 0.72rem; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; display: block; }
+    .related-card h6 { font-size: 0.88rem; line-height: 1.4; color: var(--white); }
+    .author-card { background: var(--navy-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; margin-bottom: 24px; text-align: center; }
+    .author-avatar { width: 56px; height: 56px; border-radius: 50%; background: var(--gradient); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 700; color: var(--white); margin: 0 auto 12px; }
+    .author-card h5 { font-size: 0.9rem; margin-bottom: 4px; }
+    .author-card p { font-size: 0.78rem; color: var(--white-40); margin: 0; }
+
+    @media (max-width: 900px) {
+      .article-layout { grid-template-columns: 1fr; }
+      .article-sidebar { position: static; }
+      .data-card { grid-template-columns: 1fr; }
+      .article-cover { height: 240px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><span class="nav-logo-text">Zepeling</span></a>
+    <button class="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="framework.html">Framework</a></li>
+      <li><a href="planes.html">Planes</a></li>
+      <li><a href="ciberseguridad.html">Ciberseguridad</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contacto.html" class="nav-cta"><span class="btn btn-primary">Comenzar</span></a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="article-hero">
+  <div class="container">
+    <div class="article-meta">
+      <a href="blog.html" style="color:var(--blue);text-decoration:none;">← Blog</a>
+      <span class="article-meta-divider"></span>
+      <span class="article-cat">Ciberseguridad</span>
+      <span class="article-meta-divider"></span>
+      <span>Equipo Zepeling</span>
+      <span class="article-meta-divider"></span>
+      <span>28 May 2025</span>
+      <span class="article-meta-divider"></span>
+      <span>7 min lectura</span>
+    </div>
+    <h1>Las 7 amenazas cibernéticas más peligrosas para las PYMEs en 2025</h1>
+    <p class="lead">Las pequeñas y medianas empresas son hoy el objetivo número uno de los ciberdelincuentes. No por ser grandes, sino por ser vulnerables. Conoce las 7 amenazas más activas este año y qué hacer concretamente para proteger tu negocio.</p>
+  </div>
+</section>
+
+<div style="max-width:860px;margin:0 auto;padding:0 24px;">
+  <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&q=85&fit=crop" alt="Ciberseguridad para pequeñas y medianas empresas" class="article-cover" />
+</div>
+
+<div class="article-layout">
+  <article class="article-body">
+
+    <h2 id="realidad">La realidad que muchas PYMEs ignoran</h2>
+    <p>Existe un mito peligroso entre los dueños y directivos de pequeñas y medianas empresas: "somos demasiado pequeños para que nos ataquen." La realidad es exactamente la contraria. Los ciberdelincuentes prefieren a las PYMEs precisamente porque tienen menos defensas, menos recursos para responder a un incidente y, en muchos casos, acceso a la información de clientes corporativos más grandes.</p>
+    <p>Según el Informe de Ciberamenazas 2024 de Verizon, el 46% de todas las brechas de seguridad reportadas afectaron a empresas con menos de 1.000 empleados. Y el costo promedio de un incidente de seguridad para una PYME supera los USD 120.000, incluyendo tiempo de inactividad, recuperación y daño reputacional.</p>
+
+    <div class="data-card">
+      <div><div class="data-num">46%</div><div class="data-desc">de brechas afectan a PYMEs</div></div>
+      <div><div class="data-num">$120K</div><div class="data-desc">costo promedio de un incidente</div></div>
+      <div><div class="data-num">60%</div><div class="data-desc">de PYMEs atacadas cierran en 6 meses</div></div>
+    </div>
+
+    <div class="callout warning">
+      <p><strong>Dato alarmante:</strong> El 60% de las pequeñas empresas que sufren un ciberataque grave cierran sus puertas dentro de los seis meses siguientes, según la National Cyber Security Alliance de EE.UU.</p>
+    </div>
+
+    <h2 id="amenazas">Las 7 amenazas más activas en 2025</h2>
+
+    <div class="threat-article-card">
+      <div class="threat-header">
+        <span class="threat-num">01</span>
+        <span class="threat-icon-emoji">🎣</span>
+        <h3>Phishing y spear phishing</h3>
+      </div>
+      <p>El phishing sigue siendo la puerta de entrada más utilizada en el 90% de los ciberataques exitosos. Consiste en correos electrónicos, mensajes de WhatsApp o SMS que imitan comunicaciones legítimas (bancos, proveedores, el dueño de la empresa) para engañar a empleados y obtener credenciales o ejecutar transferencias fraudulentas.</p>
+      <p>El <strong>spear phishing</strong> es la versión avanzada: mensajes personalizados que usan información real del destinatario (nombre, cargo, empresa, relaciones) para ser más convincentes. Hoy con IA, estos mensajes son prácticamente indistinguibles de los reales.</p>
+      <div class="threat-tip">Capacitar al equipo regularmente, implementar autenticación de doble factor (2FA) y usar filtros de correo inteligentes.</div>
+    </div>
+
+    <div class="threat-article-card">
+      <div class="threat-header">
+        <span class="threat-num">02</span>
+        <span class="threat-icon-emoji">🔒</span>
+        <h3>Ransomware</h3>
+      </div>
+      <p>El ransomware cifra todos los archivos de la empresa y exige un rescate para devolverlos. En 2024, el pago promedio de rescate superó los USD 1,5 millones a nivel global, pero las PYMEs que deciden no pagar frecuentemente pierden años de información sin posibilidad de recuperarla.</p>
+      <p>Lo más peligroso del ransomware moderno es que primero <em>extrae</em> los datos y luego los cifra: si no pagas, amenazan con publicar tu información de clientes. Esto convierte el ataque en un doble problema: operacional y legal.</p>
+      <div class="threat-tip">Backups automatizados y aislados, segmentación de red, monitoreo de comportamientos anómalos en endpoints.</div>
+    </div>
+
+    <div class="threat-article-card">
+      <div class="threat-header">
+        <span class="threat-num">03</span>
+        <span class="threat-icon-emoji">🔑</span>
+        <h3>Credenciales robadas y relleno de credenciales</h3>
+      </div>
+      <p>Millones de combinaciones de usuario y contraseña circulan en la dark web, producto de filtraciones de plataformas populares. Los atacantes las usan en ataques de "credential stuffing": prueban automáticamente esas credenciales en cientos de sistemas hasta encontrar donde funcionan.</p>
+      <p>Si tu equipo usa la misma contraseña en múltiples servicios (lo cual es muy común), el robo de credenciales en una plataforma externa puede dar acceso a tus sistemas internos, tu correo corporativo o tu banca en línea.</p>
+      <div class="threat-tip">Gestor de contraseñas corporativo, política de contraseñas únicas, 2FA obligatorio en todos los sistemas críticos.</div>
+    </div>
+
+    <div class="threat-article-card">
+      <div class="threat-header">
+        <span class="threat-num">04</span>
+        <span class="threat-icon-emoji">🕵️</span>
+        <h3>Amenazas internas (empleados)</h3>
+      </div>
+      <p>No todos los riesgos vienen de afuera. Los empleados descontentos, negligentes o que han sido comprometidos representan una amenaza seria. Pueden filtrar información de clientes, eliminar datos críticos o proporcionar acceso a externos de forma intencional o accidental.</p>
+      <p>Las amenazas internas son especialmente difíciles de detectar porque los empleados tienen acceso legítimo a los sistemas. Un ex-empleado cuyas credenciales no fueron revocadas al momento de su salida es una brecha de seguridad activa.</p>
+      <div class="threat-tip">Principio de mínimo privilegio, revocación inmediata de accesos al terminar relación laboral, auditorías de accesos periódicas.</div>
+    </div>
+
+    <div class="threat-article-card">
+      <div class="threat-header">
+        <span class="threat-num">05</span>
+        <span class="threat-icon-emoji">☁️</span>
+        <h3>Configuraciones inseguras en la nube</h3>
+      </div>
+      <p>La migración a servicios en la nube (Google Workspace, Microsoft 365, AWS, Dropbox, etc.) ha acelerado la productividad pero también ha generado nuevas vulnerabilidades. Una carpeta de Google Drive configurada como "pública", un bucket de S3 sin restricciones de acceso o permisos de administrador otorgados sin criterio son errores comunes que pueden exponer información sensible.</p>
+      <p>En 2024, el 82% de las brechas relacionadas con la nube se debieron a errores de configuración, no a vulnerabilidades del proveedor. El problema no es la nube: es cómo se configura.</p>
+      <div class="threat-tip">Auditoría regular de permisos en servicios cloud, política de acceso mínimo necesario, revisión de configuraciones públicas.</div>
+    </div>
+
+    <div class="threat-article-card">
+      <div class="threat-header">
+        <span class="threat-num">06</span>
+        <span class="threat-icon-emoji">📱</span>
+        <h3>Dispositivos móviles y trabajo remoto sin controles</h3>
+      </div>
+      <p>El trabajo remoto e híbrido amplió drásticamente la superficie de ataque de las empresas. Los empleados acceden a sistemas corporativos desde dispositivos personales, redes WiFi domésticas o cafés sin ningún control de seguridad. Un teléfono personal sin cifrado que contiene correos corporativos es un riesgo equivalente a una laptop sin contraseña.</p>
+      <p>Además, las aplicaciones de mensajería no corporativas (WhatsApp, Telegram) donde se comparte información de clientes o documentos internos representan una fuga de datos constante y, en muchos casos, una violación de regulaciones de protección de datos.</p>
+      <div class="threat-tip">Política de dispositivos (MDM), VPN corporativa, uso de plataformas de comunicación con controles de seguridad.</div>
+    </div>
+
+    <div class="threat-article-card">
+      <div class="threat-header">
+        <span class="threat-num">07</span>
+        <span class="threat-icon-emoji">🔗</span>
+        <h3>Ataques a la cadena de suministro</h3>
+      </div>
+      <p>Los atacantes cada vez más apuntan a proveedores de software, servicios o tecnología para comprometer a sus clientes de forma indirecta. Si tu empresa usa un software de gestión, una plataforma de pagos o un proveedor de servicios externalizados, un ataque a esa empresa puede comprometerte a ti también, sin que hayas hecho nada mal.</p>
+      <p>El famoso ataque a SolarWinds en 2020 afectó a miles de empresas y organismos gubernamentales que simplemente usaban ese software. Este vector de ataque ha crecido un 600% desde entonces.</p>
+      <div class="threat-tip">Evaluar la postura de seguridad de proveedores críticos, contratos con cláusulas de seguridad, monitoreo de integraciones de terceros.</div>
+    </div>
+
+    <h2 id="checklist">Lista de verificación: ¿está protegida tu empresa?</h2>
+    <p>Estas son las medidas básicas que toda PYME debería tener implementadas hoy:</p>
+
+    <div class="checklist-card">
+      <h3>Controles mínimos de seguridad</h3>
+      <div class="checklist-item">Autenticación de doble factor (2FA) activada en todos los sistemas críticos</div>
+      <div class="checklist-item">Contraseñas únicas por servicio mediante un gestor corporativo</div>
+      <div class="checklist-item">Backups automáticos diarios almacenados en ubicación separada y verificados regularmente</div>
+      <div class="checklist-item">Actualizaciones de software y sistemas operativos aplicadas sin demora</div>
+      <div class="checklist-item">Proceso documentado de revocación de accesos al terminar relación laboral</div>
+      <div class="checklist-item">Capacitación en phishing para todo el equipo al menos una vez al año</div>
+      <div class="checklist-item">Auditoría de permisos en servicios de nube (Drive, 365, etc.) cada trimestre</div>
+    </div>
+
+    <h2 id="conclusion">El costo de no actuar</h2>
+    <p>La ciberseguridad tiene mala fama de ser cara y compleja. Pero el costo de implementar controles básicos es una fracción del costo de responder a un incidente. Contratar servicios de ciberseguridad gestionada para una PYME cuesta entre 10 y 50 veces menos que recuperarse de un ataque de ransomware.</p>
+    <p>En <a href="ciberseguridad.html" style="color:var(--blue);">Zepeling</a> ofrecemos servicios de ciberseguridad diseñados específicamente para pequeñas y medianas empresas: sin contratos complicados, sin tecnología innecesaria, con foco en los riesgos reales de tu industria y tamaño. Comenzamos con una <a href="contacto.html" style="color:var(--blue);">auditoría gratuita</a> donde identificamos exactamente qué vulnerabilidades tiene hoy tu empresa y cuáles deben atenderse primero.</p>
+
+    <div class="article-cta">
+      <h3>Descubre las vulnerabilidades de tu empresa antes que los atacantes</h3>
+      <p>Realizamos una auditoría de seguridad sin costo para identificar los riesgos reales en tu infraestructura digital.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <a href="contacto.html" class="btn btn-primary">Solicitar auditoría gratuita</a>
+        <a href="ciberseguridad.html" class="btn btn-outline">Ver servicios de ciberseguridad</a>
+      </div>
+    </div>
+
+  </article>
+
+  <aside class="article-sidebar">
+    <div class="author-card">
+      <div class="author-avatar">Z</div>
+      <h5>Equipo Zepeling</h5>
+      <p>Especialistas en ciberseguridad y protección digital para empresas en crecimiento.</p>
+    </div>
+    <div class="sidebar-toc">
+      <h5>Contenido del artículo</h5>
+      <ul class="toc-list">
+        <li><a href="#realidad">La realidad de las PYMEs</a></li>
+        <li><a href="#amenazas">Las 7 amenazas</a></li>
+        <li><a href="#checklist">Lista de verificación</a></li>
+        <li><a href="#conclusion">El costo de no actuar</a></li>
+      </ul>
+    </div>
+    <div style="background:var(--navy-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:24px;">
+      <h5 style="font-size:0.88rem;margin-bottom:12px;">Artículos relacionados</h5>
+      <a href="articulo-datos-decisiones-estrategicas.html" class="related-card">
+        <span class="tag-sm">Datos &amp; BI</span>
+        <h6>Cómo convertir los datos de tu empresa en decisiones estratégicas</h6>
+      </a>
+      <a href="articulo-automatizacion-procesos.html" class="related-card">
+        <span class="tag-sm">Automatización</span>
+        <h6>5 procesos que tu empresa debería automatizar ahora mismo</h6>
+      </a>
+    </div>
+    <div style="background:var(--gradient);border-radius:var(--radius);padding:24px;text-align:center;">
+      <h5 style="color:var(--white);margin-bottom:8px;">¿Tu empresa está protegida?</h5>
+      <p style="font-size:0.84rem;color:rgba(255,255,255,0.85);margin-bottom:16px;">Solicita una auditoría gratuita y descúbrelo hoy.</p>
+      <a href="contacto.html" class="btn" style="background:var(--white);color:var(--navy);font-weight:700;width:100%;justify-content:center;">Auditoría gratuita</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="nav-logo-text">Zepeling</span>
+        <p>La Inteligencia Detrás de tu Crecimiento.<br>Departamento de Inteligencia Empresarial.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Páginas</h5>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="framework.html">Framework</a></li>
+          <li><a href="planes.html">Planes</a></li>
+          <li><a href="ciberseguridad.html">Ciberseguridad</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Planes</h5>
+        <ul>
+          <li><a href="discover.html">Zepeling Discover</a></li>
+          <li><a href="optimize.html">Zepeling Optimize</a></li>
+          <li><a href="grow.html">Zepeling Grow</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Zepeling. Todos los derechos reservados.</span>
+      <span>La Inteligencia Detrás de tu Crecimiento</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="js/main.js"></script>
+<script>lucide.createIcons();</script>
+<script src="js/effects.js"></script>
+</body>
+</html>

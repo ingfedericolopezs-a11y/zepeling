@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -7,115 +7,36 @@
   <meta name="description" content="En Zepeling trabajamos como una extensión de tu equipo, integrando datos, procesos y tecnología." />
   <link rel="stylesheet" href="css/styles.css" />
   <style>
-    .about-split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-    .about-visual {
-      position: relative;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-    .about-visual img {
-      width: 100%;
-      height: 480px;
-      object-fit: cover;
-      display: block;
-      filter: brightness(0.7) saturate(0.8);
-    }
-    .about-visual-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, transparent 50%, rgba(11,22,40,0.85) 100%);
-    }
-    .about-visual-caption {
-      position: absolute;
-      bottom: 24px; left: 24px; right: 24px;
-    }
-    .about-visual-caption p {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--blue);
-      margin: 0;
-      line-height: 1.5;
-    }
-
-    .belief-card {
-      background: var(--navy-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px;
-      transition: all 0.3s;
-    }
-    .belief-card:hover {
-      border-color: rgba(41,182,246,0.4);
-      transform: translateY(-4px);
-    }
-
-    .philosophy-block {
-      background: linear-gradient(135deg, var(--navy-card) 0%, rgba(17,32,64,0.8) 100%);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 64px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .philosophy-block::before {
-      content: '"';
-      position: absolute;
-      top: -20px; left: 40px;
-      font-size: 12rem;
-      color: rgba(41,182,246,0.06);
-      font-family: Georgia, serif;
-      line-height: 1;
-    }
-    .philosophy-text {
-      font-size: clamp(1.1rem, 2.2vw, 1.5rem);
-      font-weight: 600;
-      color: var(--blue);
-      position: relative;
-      z-index: 1;
-      line-height: 1.7;
-    }
-
-    .extension-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .extension-item {
-      text-align: center;
-      padding: 40px 24px;
-      background: var(--navy-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      transition: all 0.3s;
-    }
-    .extension-item:hover {
-      border-color: rgba(41,182,246,0.4);
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-blue);
-    }
-    .extension-icon {
-      width: 64px; height: 64px;
-      border-radius: 16px;
-      background: var(--blue-glow);
-      border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 20px;
-    }
-    .extension-item h4 { margin-bottom: 8px; font-size: 1.05rem; }
-    .extension-item p { font-size: 0.9rem; }
-
-    @media (max-width: 900px) {
-      .about-split { grid-template-columns: 1fr; gap: 40px; }
-      .about-visual { display: none; }
-      .extension-grid { grid-template-columns: 1fr; }
-      .philosophy-block { padding: 40px 24px; }
+    .about-split { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+    .about-visual { position:relative; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow); }
+    .about-visual img { width:100%; height:480px; object-fit:cover; display:block; filter:brightness(0.85) saturate(0.95); }
+    .about-visual-overlay { position:absolute; inset:0; background:linear-gradient(180deg,transparent 50%,rgba(11,22,40,0.85) 100%); }
+    .about-visual-caption { position:absolute; bottom:24px; left:24px; right:24px; }
+    .about-visual-caption p { font-size:1rem; font-weight:600; color:var(--blue); margin:0; line-height:1.5; }
+    .belief-card { background:var(--navy-card); border:1px solid var(--border); border-radius:var(--radius); padding:32px; transition:all 0.3s; }
+    .belief-card:hover { border-color:rgba(41,182,246,0.4); transform:translateY(-4px); }
+    .philosophy-block { background:linear-gradient(135deg,var(--navy-card) 0%,rgba(17,32,64,0.8) 100%); border:1px solid var(--border); border-radius:var(--radius-lg); padding:64px; text-align:center; position:relative; overflow:hidden; }
+    .philosophy-block::before { content:'"'; position:absolute; top:-20px; left:40px; font-size:12rem; color:rgba(41,182,246,0.06); font-family:Georgia,serif; line-height:1; }
+    .philosophy-text { font-size:clamp(1.1rem,2.2vw,1.5rem); font-weight:600; color:var(--blue); position:relative; z-index:1; line-height:1.7; }
+    .extension-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .extension-item { text-align:center; padding:40px 24px; background:var(--navy-card); border:1px solid var(--border); border-radius:var(--radius); transition:all 0.3s; }
+    .extension-item:hover { border-color:rgba(41,182,246,0.4); transform:translateY(-4px); box-shadow:var(--shadow-blue); }
+    .extension-icon { width:64px; height:64px; border-radius:16px; background:var(--blue-glow); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; margin:0 auto 20px; }
+    .extension-item h4 { margin-bottom:8px; font-size:1.05rem; }
+    /* Tabs */
+    .tabs-nav { display:flex; border-bottom:1px solid var(--border); margin-bottom:56px; flex-wrap:wrap; }
+    .tab-btn { padding:14px 28px; background:transparent; border:none; border-bottom:3px solid transparent; color:var(--white-40); font-size:0.9rem; font-weight:600; cursor:pointer; transition:all 0.2s; white-space:nowrap; margin-bottom:-1px; font-family:inherit; }
+    .tab-btn:hover { color:var(--white-70); }
+    .tab-btn.active { color:var(--blue); border-bottom-color:var(--blue); background:rgba(41,182,246,0.04); }
+    .tab-panel { display:none; }
+    .tab-panel.active { display:block; animation:tabFadeIn 0.3s ease; }
+    @keyframes tabFadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+    @media (max-width:900px) {
+      .about-split { grid-template-columns:1fr; gap:40px; }
+      .about-visual { display:none; }
+      .extension-grid { grid-template-columns:1fr; }
+      .philosophy-block { padding:40px 24px; }
+      .tab-btn { padding:12px 14px; font-size:0.82rem; }
     }
   </style>
 </head>
@@ -130,6 +51,8 @@
       <li><a href="nosotros.html">Nosotros</a></li>
       <li><a href="framework.html">Framework</a></li>
       <li><a href="planes.html">Planes</a></li>
+      <li><a href="ciberseguridad.html">Ciberseguridad</a></li>
+      <li><a href="blog.html">Blog</a></li>
       <li><a href="contacto.html" class="nav-cta"><span class="btn btn-primary">Comenzar</span></a></li>
     </ul>
   </div>
@@ -147,214 +70,179 @@
   </div>
 </section>
 
-<!-- MISIÓN -->
-<section>
+<!-- PESTAÑAS -->
+<section style="padding:56px 0 80px;">
   <div class="container">
-    <div class="about-split">
-      <div>
-        <span class="section-label">Nuestra misión</span>
-        <h2 class="reveal">Construimos Claridad para <span class="text-blue">Impulsar el Crecimiento</span></h2>
-        <div class="divider"></div>
-        <p class="reveal" style="margin-bottom:20px;">
-          En Zepeling trabajamos como una extensión de tu equipo, integrando datos, procesos y tecnología
-          para transformar la información en decisiones más inteligentes.
+    <nav class="tabs-nav" role="tablist">
+      <button class="tab-btn active" data-group="nosotros" data-tab="mision">Misión</button>
+      <button class="tab-btn" data-group="nosotros" data-tab="filosofia">Filosofía</button>
+      <button class="tab-btn" data-group="nosotros" data-tab="creemos">Lo que creemos</button>
+      <button class="tab-btn" data-group="nosotros" data-tab="trabajamos">Cómo trabajamos</button>
+    </nav>
+
+    <!-- Tab 1: Misión -->
+    <div class="tab-panel active" data-group="nosotros" data-tab="mision">
+      <div class="about-split">
+        <div>
+          <span class="section-label">Nuestra misión</span>
+          <h2>Construimos Claridad para <span class="text-blue">Impulsar el Crecimiento</span></h2>
+          <div class="divider"></div>
+          <p style="margin-bottom:20px;">En Zepeling trabajamos como una extensión de tu equipo, integrando datos, procesos y tecnología para transformar la información en decisiones más inteligentes.</p>
+          <p>Aplicamos el Framework Zepeling para comprender las necesidades del negocio, identificar oportunidades y construir soluciones alineadas con los objetivos de crecimiento de cada organización.</p>
+          <div style="margin-top:32px;">
+            <a href="framework.html" class="btn btn-primary">Conocer el Framework</a>
+          </div>
+        </div>
+        <div class="about-visual">
+          <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80&fit=crop" alt="Análisis de datos empresariales" />
+          <div class="about-visual-overlay"></div>
+          <div class="about-visual-caption">
+            <p>"Las mejores decisiones nacen de una comprensión profunda del negocio."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 2: Filosofía -->
+    <div class="tab-panel" data-group="nosotros" data-tab="filosofia">
+      <div class="philosophy-block" style="margin-bottom:48px;">
+        <p class="philosophy-text">
+          "En Zepeling creemos que la inteligencia empresarial no debería ser un privilegio exclusivo de
+          las grandes compañías. Acompañamos a las empresas en la construcción de capacidades que les
+          permitan operar con mayor claridad, eficiencia y visión de futuro."
         </p>
-        <p class="reveal">
-          Aplicamos el Framework Zepeling para comprender las necesidades del negocio, identificar
-          oportunidades y construir soluciones alineadas con los objetivos de crecimiento de cada
-          organización.
+        <p style="margin-top:24px;color:var(--white-40);font-size:0.9rem;">
+          Porque crecer no consiste únicamente en hacer más, sino en tomar mejores decisiones.
         </p>
-        <div class="reveal" style="margin-top:32px;">
-          <a href="framework.html" class="btn btn-primary">Conocer el Framework</a>
-        </div>
       </div>
-      <div class="about-visual reveal">
-        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80&fit=crop" alt="Análisis de datos empresariales" />
-        <div class="about-visual-overlay"></div>
-        <div class="about-visual-caption">
-          <p>"Las mejores decisiones nacen de una comprensión profunda del negocio."</p>
+      <div class="extension-grid">
+        <div class="extension-item tilt-card">
+          <div class="ai-icon-box">
+            <svg viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs><linearGradient id="nd1" x1="0" y1="0" x2="46" y2="46" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#29b6f6"/><stop offset="100%" stop-color="#0288d1"/></linearGradient></defs>
+              <rect x="6" y="28" width="6" height="12" rx="2" fill="url(#nd1)" opacity="0.4"/>
+              <rect x="14" y="20" width="6" height="20" rx="2" fill="url(#nd1)" opacity="0.65"/>
+              <rect x="22" y="12" width="6" height="28" rx="2" fill="url(#nd1)" opacity="0.85"/>
+              <rect x="30" y="6" width="6" height="34" rx="2" fill="url(#nd1)"/>
+              <polyline points="9,26 17,17 25,9 33,3" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </div>
+          <h4>Datos</h4>
+          <p>Centralizamos y estructuramos la información para que sea comprensible y accionable.</p>
+        </div>
+        <div class="extension-item tilt-card">
+          <div class="ai-icon-box">
+            <svg viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs><linearGradient id="nd2" x1="0" y1="0" x2="46" y2="46" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#29b6f6"/><stop offset="100%" stop-color="#0288d1"/></linearGradient></defs>
+              <rect x="5" y="14" width="16" height="12" rx="3" stroke="url(#nd2)" stroke-width="1.8" fill="none"/>
+              <rect x="25" y="14" width="16" height="12" rx="3" stroke="url(#nd2)" stroke-width="1.8" fill="none"/>
+              <rect x="15" y="32" width="16" height="10" rx="3" stroke="url(#nd2)" stroke-width="1.8" fill="none"/>
+              <line x1="21" y1="26" x2="23" y2="32" stroke="url(#nd2)" stroke-width="1.8" stroke-linecap="round"/>
+              <line x1="25" y1="26" x2="23" y2="32" stroke="url(#nd2)" stroke-width="1.8" stroke-linecap="round"/>
+              <circle cx="23" cy="6" r="3" fill="url(#nd2)"/>
+            </svg>
+          </div>
+          <h4>Procesos</h4>
+          <p>Automatizamos y optimizamos flujos de trabajo para liberar el potencial del equipo.</p>
+        </div>
+        <div class="extension-item tilt-card">
+          <div class="ai-icon-box">
+            <svg viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs><linearGradient id="nd3" x1="0" y1="0" x2="46" y2="46" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#29b6f6"/><stop offset="100%" stop-color="#0288d1"/></linearGradient></defs>
+              <rect x="11" y="11" width="24" height="24" rx="4" stroke="url(#nd3)" stroke-width="1.8" fill="none"/>
+              <circle cx="23" cy="23" r="5.5" stroke="url(#nd3)" stroke-width="1.8" fill="none"/>
+              <circle cx="23" cy="23" r="2" fill="url(#nd3)"/>
+              <line x1="23" y1="4" x2="23" y2="11" stroke="url(#nd3)" stroke-width="1.8" stroke-linecap="round"/>
+              <line x1="23" y1="35" x2="23" y2="42" stroke="url(#nd3)" stroke-width="1.8" stroke-linecap="round"/>
+              <line x1="4" y1="23" x2="11" y2="23" stroke="url(#nd3)" stroke-width="1.8" stroke-linecap="round"/>
+              <line x1="35" y1="23" x2="42" y2="23" stroke="url(#nd3)" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h4>Tecnología</h4>
+          <p>Integramos herramientas e inteligencia artificial adaptadas a cada negocio.</p>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- FILOSOFÍA -->
-<section class="orb-section" style="background:var(--navy-light);">
-  <div class="container">
-    <div class="philosophy-block reveal">
-      <p class="philosophy-text">
-        "En Zepeling creemos que la inteligencia empresarial no debería ser un privilegio exclusivo de
-        las grandes compañías. Acompañamos a las empresas en la construcción de capacidades que les
-        permitan operar con mayor claridad, eficiencia y visión de futuro."
-      </p>
-      <p style="margin-top:24px;color:var(--white-40);font-size:0.9rem;">
-        Porque crecer no consiste únicamente en hacer más, sino en tomar mejores decisiones.
-      </p>
+    <!-- Tab 3: Lo que creemos -->
+    <div class="tab-panel" data-group="nosotros" data-tab="creemos">
+      <div class="text-center" style="margin-bottom:48px;">
+        <h2>Lo que <span class="text-blue">Creemos</span></h2>
+        <div class="divider center"></div>
+      </div>
+      <div class="grid-3">
+        <div class="belief-card tilt-card">
+          <div class="icon-box" style="background:rgba(41,182,246,0.08);border:1px solid rgba(41,182,246,0.2);">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><defs><linearGradient id="bc1" x1="0" y1="0" x2="28" y2="28" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#29b6f6"/><stop offset="100%" stop-color="#0288d1"/></linearGradient></defs><path d="M14 3C9 3 5 7 5 12c0 3.3 1.8 6.1 4.5 7.7V22h9v-2.3C21.2 18.1 23 15.3 23 12c0-5-4-9-9-9z" stroke="url(#bc1)" stroke-width="1.7" fill="none" stroke-linejoin="round"/><line x1="9.5" y1="22" x2="18.5" y2="22" stroke="url(#bc1)" stroke-width="1.7" stroke-linecap="round"/><line x1="10.5" y1="25" x2="17.5" y2="25" stroke="url(#bc1)" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </div>
+          <h4 style="margin-bottom:10px;">La claridad es poder</h4>
+          <p style="font-size:0.9rem;">Cuando entendés tu negocio en profundidad, tomás decisiones con confianza y precisión.</p>
+        </div>
+        <div class="belief-card tilt-card">
+          <div class="icon-box" style="background:rgba(41,182,246,0.08);border:1px solid rgba(41,182,246,0.2);">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><defs><linearGradient id="bc2" x1="0" y1="0" x2="28" y2="28" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#29b6f6"/><stop offset="100%" stop-color="#0288d1"/></linearGradient></defs><circle cx="14" cy="14" r="11" stroke="url(#bc2)" stroke-width="1.7" opacity="0.3"/><circle cx="14" cy="14" r="7" stroke="url(#bc2)" stroke-width="1.7" opacity="0.6"/><circle cx="14" cy="14" r="3" fill="url(#bc2)"/></svg>
+          </div>
+          <h4 style="margin-bottom:10px;">Inteligencia con propósito</h4>
+          <p style="font-size:0.9rem;">La tecnología debe servir a los objetivos del negocio, no al revés.</p>
+        </div>
+        <div class="belief-card tilt-card">
+          <div class="icon-box" style="background:rgba(41,182,246,0.08);border:1px solid rgba(41,182,246,0.2);">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><defs><linearGradient id="bc3" x1="0" y1="28" x2="28" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#0288d1"/><stop offset="100%" stop-color="#29b6f6"/></linearGradient></defs><polyline points="3,22 9,14 15,17 22,7" stroke="url(#bc3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><polyline points="19,7 22,4 25,7" stroke="url(#bc3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="22" y1="4" x2="22" y2="11" stroke="url(#bc3)" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h4 style="margin-bottom:10px;">Crecimiento sostenible</h4>
+          <p style="font-size:0.9rem;">El crecimiento sostenible es el resultado de aplicar inteligencia con propósito.</p>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
 
-<!-- EXTENSIÓN DEL EQUIPO -->
-<section>
-  <div class="container">
-    <div class="text-center" style="margin-bottom:56px;">
-      <span class="section-label">Lo que nos diferencia</span>
-      <h2 class="reveal">Somos una Extensión <span class="text-blue">de tu Equipo</span></h2>
-      <div class="divider center"></div>
-    </div>
-    <div class="extension-grid">
-      <div class="extension-item reveal tilt-card">
-        <div class="ai-icon-box">
-          <svg viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs><linearGradient id="nd1" x1="0" y1="0" x2="46" y2="46" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#29b6f6"/><stop offset="100%" stop-color="#0288d1"/></linearGradient></defs>
-            <rect x="6" y="28" width="6" height="12" rx="2" fill="url(#nd1)" opacity="0.4"/>
-            <rect x="14" y="20" width="6" height="20" rx="2" fill="url(#nd1)" opacity="0.65"/>
-            <rect x="22" y="12" width="6" height="28" rx="2" fill="url(#nd1)" opacity="0.85"/>
-            <rect x="30" y="6" width="6" height="34" rx="2" fill="url(#nd1)"/>
-            <polyline points="9,26 17,17 25,9 33,3" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <polyline points="30,5 33,2 36,5" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <line x1="33" y1="2" x2="33" y2="9" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <h4>Datos</h4>
-        <p>Centralizamos y estructuramos la información para que sea comprensible y accionable.</p>
+    <!-- Tab 4: Cómo trabajamos -->
+    <div class="tab-panel" data-group="nosotros" data-tab="trabajamos">
+      <div class="text-center" style="margin-bottom:48px;">
+        <h2>Cómo es trabajar <span class="text-blue">con Zepeling</span></h2>
+        <div class="divider center"></div>
+        <p style="max-width:560px;margin:0 auto;color:var(--white-70);">No somos una agencia que entrega y desaparece. Somos un equipo integrado que acompaña cada decisión.</p>
       </div>
-      <div class="extension-item reveal anim-delay-1 tilt-card">
-        <div class="ai-icon-box">
-          <svg viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs><linearGradient id="nd2" x1="0" y1="0" x2="46" y2="46" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#29b6f6"/><stop offset="100%" stop-color="#0288d1"/></linearGradient></defs>
-            <rect x="5" y="14" width="16" height="12" rx="3" stroke="url(#nd2)" stroke-width="1.8" fill="none"/>
-            <rect x="25" y="14" width="16" height="12" rx="3" stroke="url(#nd2)" stroke-width="1.8" fill="none"/>
-            <rect x="15" y="32" width="16" height="10" rx="3" stroke="url(#nd2)" stroke-width="1.8" fill="none"/>
-            <line x1="21" y1="26" x2="23" y2="32" stroke="url(#nd2)" stroke-width="1.8" stroke-linecap="round"/>
-            <line x1="25" y1="26" x2="23" y2="32" stroke="url(#nd2)" stroke-width="1.8" stroke-linecap="round"/>
-            <line x1="21" y1="14" x2="23" y2="7" stroke="url(#nd2)" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
-            <circle cx="23" cy="6" r="3" fill="url(#nd2)"/>
-            <circle cx="13" cy="20" r="2" fill="url(#nd2)" opacity="0.7"/>
-            <circle cx="33" cy="20" r="2" fill="url(#nd2)" opacity="0.7"/>
-            <circle cx="23" cy="37" r="2" fill="url(#nd2)" opacity="0.7"/>
-          </svg>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+        <div style="background:var(--navy-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;display:flex;gap:20px;" class="tilt-card">
+          <div style="width:52px;height:52px;min-width:52px;border-radius:14px;background:var(--blue-glow);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.4rem;">📋</div>
+          <div>
+            <h4 style="margin-bottom:8px;">Arrancamos con diagnóstico, no con propuesta</h4>
+            <p style="font-size:0.88rem;color:var(--white-70);">Antes de recomendar cualquier solución, entendemos tu negocio en profundidad. El diagnóstico gratuito nos permite proponer algo que realmente tenga impacto.</p>
+          </div>
         </div>
-        <h4>Procesos</h4>
-        <p>Automatizamos y optimizamos flujos de trabajo para liberar el potencial del equipo.</p>
-      </div>
-      <div class="extension-item reveal anim-delay-2 tilt-card">
-        <div class="ai-icon-box">
-          <svg viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs><linearGradient id="nd3" x1="0" y1="0" x2="46" y2="46" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#29b6f6"/><stop offset="100%" stop-color="#0288d1"/></linearGradient></defs>
-            <rect x="11" y="11" width="24" height="24" rx="4" stroke="url(#nd3)" stroke-width="1.8" fill="none"/>
-            <circle cx="23" cy="23" r="5.5" stroke="url(#nd3)" stroke-width="1.8" fill="none"/>
-            <circle cx="23" cy="23" r="2" fill="url(#nd3)"/>
-            <line x1="23" y1="4" x2="23" y2="11" stroke="url(#nd3)" stroke-width="1.8" stroke-linecap="round"/>
-            <line x1="23" y1="35" x2="23" y2="42" stroke="url(#nd3)" stroke-width="1.8" stroke-linecap="round"/>
-            <line x1="4" y1="23" x2="11" y2="23" stroke="url(#nd3)" stroke-width="1.8" stroke-linecap="round"/>
-            <line x1="35" y1="23" x2="42" y2="23" stroke="url(#nd3)" stroke-width="1.8" stroke-linecap="round"/>
-            <circle cx="23" cy="4" r="2.5" fill="url(#nd3)" opacity="0.6"/>
-            <circle cx="23" cy="42" r="2.5" fill="url(#nd3)" opacity="0.6"/>
-            <circle cx="4" cy="23" r="2.5" fill="url(#nd3)" opacity="0.6"/>
-            <circle cx="42" cy="23" r="2.5" fill="url(#nd3)" opacity="0.6"/>
-          </svg>
+        <div style="background:var(--navy-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;display:flex;gap:20px;" class="tilt-card">
+          <div style="width:52px;height:52px;min-width:52px;border-radius:14px;background:var(--blue-glow);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.4rem;">🎯</div>
+          <div>
+            <h4 style="margin-bottom:8px;">Definimos métricas de éxito antes de empezar</h4>
+            <p style="font-size:0.88rem;color:var(--white-70);">Cada proyecto tiene objetivos concretos y medibles. Sabés exactamente cómo vamos a evaluar si el trabajo funcionó.</p>
+          </div>
         </div>
-        <h4>Tecnología</h4>
-        <p>Integramos herramientas e inteligencia artificial adaptadas a cada negocio.</p>
+        <div style="background:var(--navy-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;display:flex;gap:20px;" class="tilt-card">
+          <div style="width:52px;height:52px;min-width:52px;border-radius:14px;background:var(--blue-glow);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.4rem;">🔄</div>
+          <div>
+            <h4 style="margin-bottom:8px;">Revisiones periódicas, no reportes trimestrales</h4>
+            <p style="font-size:0.88rem;color:var(--white-70);">Nos reunimos regularmente para revisar indicadores, ajustar la estrategia y asegurarnos de que el negocio siga avanzando en la dirección correcta.</p>
+          </div>
+        </div>
+        <div style="background:var(--navy-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;display:flex;gap:20px;" class="tilt-card">
+          <div style="width:52px;height:52px;min-width:52px;border-radius:14px;background:var(--blue-glow);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.4rem;">📈</div>
+          <div>
+            <h4 style="margin-bottom:8px;">Evolucionamos junto con tu empresa</h4>
+            <p style="font-size:0.88rem;color:var(--white-70);">Lo que implementamos hoy está diseñado para escalar. Cuando tu empresa crezca, las soluciones ya están preparadas para acompañar ese crecimiento.</p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- CREENCIAS -->
-<section class="orb-section" style="background:var(--navy-light);">
-  <div class="container">
-    <div class="text-center" style="margin-bottom:56px;">
-      <span class="section-label">Nuestra filosofía</span>
-      <h2 class="reveal">Lo que Creemos</h2>
-      <div class="divider center"></div>
-    </div>
-    <div class="grid-3">
-      <div class="belief-card reveal tilt-card">
-        <div class="icon-box" style="background:rgba(41,182,246,0.08);border:1px solid rgba(41,182,246,0.2);">
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs><linearGradient id="bc1" x1="0" y1="0" x2="28" y2="28" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#29b6f6"/><stop offset="100%" stop-color="#0288d1"/></linearGradient></defs>
-            <path d="M14 3C9 3 5 7 5 12c0 3.3 1.8 6.1 4.5 7.7V22h9v-2.3C21.2 18.1 23 15.3 23 12c0-5-4-9-9-9z" stroke="url(#bc1)" stroke-width="1.7" fill="none" stroke-linejoin="round"/>
-            <line x1="9.5" y1="22" x2="18.5" y2="22" stroke="url(#bc1)" stroke-width="1.7" stroke-linecap="round"/>
-            <line x1="10.5" y1="25" x2="17.5" y2="25" stroke="url(#bc1)" stroke-width="1.7" stroke-linecap="round"/>
-            <line x1="14" y1="7" x2="14" y2="12" stroke="white" stroke-width="1.7" stroke-linecap="round" opacity="0.8"/>
-            <line x1="14" y1="12" x2="17" y2="15" stroke="white" stroke-width="1.7" stroke-linecap="round" opacity="0.8"/>
-          </svg>
-        </div>
-        <h4 style="margin-bottom:10px;">La claridad es poder</h4>
-        <p style="font-size:0.9rem;">Cuando entiendes tu negocio en profundidad, tomas decisiones con confianza y precisión.</p>
-      </div>
-      <div class="belief-card reveal anim-delay-1 tilt-card">
-        <div class="icon-box" style="background:rgba(41,182,246,0.08);border:1px solid rgba(41,182,246,0.2);">
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs><linearGradient id="bc2" x1="0" y1="0" x2="28" y2="28" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#29b6f6"/><stop offset="100%" stop-color="#0288d1"/></linearGradient></defs>
-            <circle cx="14" cy="14" r="11" stroke="url(#bc2)" stroke-width="1.7" opacity="0.3"/>
-            <circle cx="14" cy="14" r="7" stroke="url(#bc2)" stroke-width="1.7" opacity="0.6"/>
-            <circle cx="14" cy="14" r="3" fill="url(#bc2)"/>
-            <line x1="14" y1="3" x2="14" y2="5" stroke="url(#bc2)" stroke-width="2" stroke-linecap="round"/>
-            <line x1="14" y1="23" x2="14" y2="25" stroke="url(#bc2)" stroke-width="2" stroke-linecap="round"/>
-            <line x1="3" y1="14" x2="5" y2="14" stroke="url(#bc2)" stroke-width="2" stroke-linecap="round"/>
-            <line x1="23" y1="14" x2="25" y2="14" stroke="url(#bc2)" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <h4 style="margin-bottom:10px;">Inteligencia con propósito</h4>
-        <p style="font-size:0.9rem;">La tecnología debe servir a los objetivos del negocio, no al revés.</p>
-      </div>
-      <div class="belief-card reveal anim-delay-2 tilt-card">
-        <div class="icon-box" style="background:rgba(41,182,246,0.08);border:1px solid rgba(41,182,246,0.2);">
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs><linearGradient id="bc3" x1="0" y1="28" x2="28" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#0288d1"/><stop offset="100%" stop-color="#29b6f6"/></linearGradient></defs>
-            <polyline points="3,22 9,14 15,17 22,7" stroke="url(#bc3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <polyline points="19,7 22,4 25,7" stroke="url(#bc3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <line x1="22" y1="4" x2="22" y2="11" stroke="url(#bc3)" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <h4 style="margin-bottom:10px;">Crecimiento sostenible</h4>
-        <p style="font-size:0.9rem;">El crecimiento sostenible es el resultado de aplicar inteligencia con propósito.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- IMAGEN IMPACTO + MÉTRICAS -->
-<section style="padding:0 0 80px;" class="orb-section">
-  <div class="cinematic-img-wrap reveal" style="max-height:480px;border-radius:0;overflow:hidden;margin-bottom:0;">
-    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&q=85&fit=crop" alt="Equipo colaborando en estrategia empresarial" style="height:480px;width:100%;object-fit:cover;" />
-    <div class="cinematic-img-overlay" style="background:linear-gradient(180deg,rgba(11,22,40,0.3) 0%,rgba(11,22,40,0.88) 100%);"></div>
-    <div class="cinematic-img-caption" style="padding:0 60px 48px;">
-      <div style="display:flex;gap:48px;justify-content:center;flex-wrap:wrap;">
-        <div style="text-align:center;">
-          <div style="font-size:2.8rem;font-weight:900;background:linear-gradient(135deg,#29b6f6,#0288d1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">95%</div>
-          <div style="font-size:0.8rem;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:1px;margin-top:6px;">Satisfacción</div>
-        </div>
-        <div style="width:1px;background:rgba(255,255,255,0.15);align-self:stretch;"></div>
-        <div style="text-align:center;">
-          <div style="font-size:2.8rem;font-weight:900;background:linear-gradient(135deg,#29b6f6,#0288d1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">3x</div>
-          <div style="font-size:0.8rem;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:1px;margin-top:6px;">ROI Promedio</div>
-        </div>
-        <div style="width:1px;background:rgba(255,255,255,0.15);align-self:stretch;"></div>
-        <div style="text-align:center;">
-          <div style="font-size:2.8rem;font-weight:900;background:linear-gradient(135deg,#29b6f6,#0288d1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">4</div>
-          <div style="font-size:0.8rem;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:1px;margin-top:6px;">Fases del Framework</div>
-        </div>
-        <div style="width:1px;background:rgba(255,255,255,0.15);align-self:stretch;"></div>
-        <div style="text-align:center;">
-          <div style="font-size:2.8rem;font-weight:900;background:linear-gradient(135deg,#29b6f6,#0288d1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">48h</div>
-          <div style="font-size:0.8rem;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:1px;margin-top:6px;">De idea a plan</div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section style="text-align:center;">
+<section style="text-align:center;background:var(--navy-light);">
   <div class="container">
     <h2 class="reveal">¿Listo para tomar <span class="text-blue">mejores decisiones</span>?</h2>
     <div class="divider center"></div>
-    <p class="reveal" style="max-width:500px;margin:0 auto 40px;">Agenda un diagnóstico gratuito y descubre cómo Zepeling puede transformar tu negocio.</p>
+    <p class="reveal" style="max-width:500px;margin:0 auto 40px;">Agenda un diagnóstico gratuito y descubrí cómo Zepeling puede transformar tu negocio.</p>
     <div class="reveal">
       <a href="contacto.html" class="btn btn-primary" style="padding:16px 40px;font-size:1rem;">Agendar diagnóstico</a>
     </div>
@@ -375,6 +263,8 @@
           <li><a href="nosotros.html">Nosotros</a></li>
           <li><a href="framework.html">Framework</a></li>
           <li><a href="planes.html">Planes</a></li>
+          <li><a href="ciberseguridad.html">Ciberseguridad</a></li>
+          <li><a href="blog.html">Blog</a></li>
           <li><a href="contacto.html">Contacto</a></li>
         </ul>
       </div>
@@ -398,5 +288,17 @@
 <script src="js/main.js"></script>
 <script>lucide.createIcons();</script>
 <script src="js/effects.js"></script>
+<script>
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const group = btn.dataset.group;
+      const target = btn.dataset.tab;
+      document.querySelectorAll(`.tab-btn[data-group="${group}"]`).forEach(b => b.classList.remove('active'));
+      document.querySelectorAll(`.tab-panel[data-group="${group}"]`).forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelector(`.tab-panel[data-group="${group}"][data-tab="${target}"]`).classList.add('active');
+    });
+  });
+</script>
 </body>
 </html>
