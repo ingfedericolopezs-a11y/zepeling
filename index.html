@@ -148,12 +148,16 @@
     .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
 
     @media (max-width: 900px) {
-      .hero-grid, .problem-grid, .about-teaser { grid-template-columns: 1fr; }
+      .hero-grid, .problem-grid, .about-teaser, .grid-2 { grid-template-columns: 1fr !important; gap: 40px !important; }
       .hero-grid { text-align: center; }
       .hero-desc { margin: 0 auto 40px; }
       .hero-actions { justify-content: center; }
       .hero-img-wrap, .problem-img, .about-img { display: none; }
       .about-float-card { display: none; }
+      .stat-divider { display: none; }
+      .stats-inner { gap: 20px; }
+      .fw-img-overlay { padding: 24px; }
+      .fw-img-card img { height: 220px; }
     }
   </style>
 </head>
@@ -415,7 +419,7 @@
 <!-- RESULTADOS / GALERÍA -->
 <section class="orb-section section-gradient-bg" style="padding:80px 0;">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+    <div class="grid-2 about-teaser" style="gap:64px;align-items:center;">
 
       <!-- Mosaic izquierda -->
       <div class="img-mosaic reveal-left">
